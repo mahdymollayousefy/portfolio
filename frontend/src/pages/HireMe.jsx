@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { submitHireRequest } from '../services/api';
-import { Send, CheckCircle2, AlertCircle, Mail, MapPin } from 'lucide-react';
+import { Send, CheckCircle2, AlertCircle, Mail, MapPin, Briefcase, Clock, CalendarDays } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 export default function HireMe() {
@@ -173,6 +173,42 @@ export default function HireMe() {
           )}
         </div>
       </div>
+
+      {/* Pricing Packages */}
+      <section className="py-12 border-t border-slate-200 dark:border-slate-800 animate-slide-up" style={{ animationDelay: '250ms' }}>
+        <div className="text-center space-y-4 mb-12">
+          <h2 className="text-3xl font-bold text-slate-900 dark:text-white">{t('pricing_title')}</h2>
+          <p className="text-slate-600 dark:text-slate-400">{t('pricing_desc')}</p>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="glass-card p-8 flex flex-col items-center text-center group hover:-translate-y-2 transition-transform duration-300">
+            <div className="bg-blue-50 dark:bg-blue-900/30 p-4 rounded-full mb-6 group-hover:scale-110 transition-transform">
+              <Clock className="w-8 h-8 text-blue-600 dark:text-blue-400" />
+            </div>
+            <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">{t('pricing_1')}</h3>
+            <p className="text-slate-600 dark:text-slate-400">{t('pricing_1_desc')}</p>
+          </div>
+          <div className="glass-card p-8 flex flex-col items-center text-center group hover:-translate-y-2 transition-transform duration-300 relative overflow-hidden border-blue-500 shadow-blue-500/10 shadow-xl">
+            <div className="absolute top-4 right-4 flex h-3 w-3">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-3 w-3 bg-blue-500"></span>
+            </div>
+            <div className="bg-purple-50 dark:bg-purple-900/30 p-4 rounded-full mb-6 group-hover:scale-110 transition-transform">
+              <Briefcase className="w-8 h-8 text-purple-600 dark:text-purple-400" />
+            </div>
+            <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">{t('pricing_2')}</h3>
+            <p className="text-slate-600 dark:text-slate-400">{t('pricing_2_desc')}</p>
+          </div>
+          <div className="glass-card p-8 flex flex-col items-center text-center group hover:-translate-y-2 transition-transform duration-300">
+            <div className="bg-green-50 dark:bg-green-900/30 p-4 rounded-full mb-6 group-hover:scale-110 transition-transform">
+              <CalendarDays className="w-8 h-8 text-green-600 dark:text-green-400" />
+            </div>
+            <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">{t('pricing_3')}</h3>
+            <p className="text-slate-600 dark:text-slate-400">{t('pricing_3_desc')}</p>
+          </div>
+        </div>
+      </section>
       
       {/* FAQ Section */}
       <section className="py-12 border-t border-slate-200 dark:border-slate-800 animate-slide-up" style={{ animationDelay: '300ms' }}>

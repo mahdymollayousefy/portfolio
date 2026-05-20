@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react';
 import { fetchProjects } from '../services/api';
-import { Code, ExternalLink, Code2, ShieldCheck, ServerCog, Cpu } from 'lucide-react';
+import { Code, ExternalLink, Code2, ShieldCheck, ServerCog, Cpu, Filter } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 export default function Projects() {
   const { t } = useTranslation();
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [filter, setFilter] = useState('all');
 
   useEffect(() => {
     const loadProjects = async () => {
@@ -22,6 +23,15 @@ export default function Projects() {
     loadProjects();
   }, []);
 
+  const filteredProjects = projects.filter(p => {
+    if (filter === 'all') return true;
+    const techStack = p.tech_stack?.map(t => t.toLowerCase()) || [];
+    if (filter === 'frontend') return techStack.some(tech => ['react', 'vue', 'nextjs', 'tailwind', 'html', 'css'].includes(tech));
+    if (filter === 'backend') return techStack.some(tech => ['django', 'python', 'node', 'express', 'postgresql', 'fastapi'].includes(tech));
+    if (filter === 'fullstack') return true; // assuming all are fullstack if not specific
+    return true;
+  });
+
   return (
     <div className="space-y-24 max-w-6xl mx-auto pb-12 animate-fade-in">
       
@@ -35,16 +45,33 @@ export default function Projects() {
         </p>
       </div>
 
-      {/* Projects Grid */}
-      <div className="animate-slide-up" style={{ animationDelay: '200ms' }}>
+      {/* Projects Area */}
+      <div className="space-y-8 animate-slide-up" style={{ animationDelay: '200ms' }}>
+        
+        {/* Filters */}
+        {!loading && projects.length > 0 && (
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            <Filter className="w-5 h-5 text-slate-400 mr-2 hidden sm:block" />
+            {['all', 'frontend', 'backend', 'fullstack'].map((f) => (
+              <button
+                key={f}
+                onClick={() => setFilter(f)}
+                className={`px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${filter === f ? 'bg-blue-600 text-white shadow-md shadow-blue-500/20 scale-105' : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'}`}
+              >
+                {t(`filter_${f}`)}
+              </button>
+            ))}
+          </div>
+        )}
+
         {loading ? (
           <div className="flex justify-center items-center h-64">
             <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
           </div>
-        ) : projects.length > 0 ? (
+        ) : filteredProjects.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project, idx) => (
-              <div key={project.id} className="glass-card overflow-hidden group flex flex-col h-full hover:-translate-y-2 transition-transform duration-300 hover:shadow-xl" style={{ animationDelay: `${(idx % 3) * 100}ms` }}>
+            {filteredProjects.map((project, idx) => (
+              <div key={project.id} className="glass-card overflow-hidden group flex flex-col h-full hover:-translate-y-2 transition-transform duration-300 hover:shadow-xl animate-slide-up" style={{ animationDelay: `${(idx % 3) * 100}ms` }}>
                 {/* Image Placeholder */}
                 <div className="h-48 w-full bg-slate-200 dark:bg-slate-800 relative overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/20 to-purple-500/20 group-hover:scale-105 transition-transform duration-500"></div>

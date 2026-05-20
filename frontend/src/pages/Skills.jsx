@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { fetchSkills } from '../services/api';
-import { Code2, Server, Wrench, Award, CheckCircle } from 'lucide-react';
+import { Code2, Server, Wrench, Award, CheckCircle, Globe, Terminal } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 export default function Skills() {
@@ -92,8 +92,55 @@ export default function Skills() {
         )}
       </div>
 
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 animate-slide-up" style={{ animationDelay: '300ms' }}>
+        
+        {/* Tools & Software Section */}
+        <section className="glass-card p-8">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="p-3 bg-slate-100 dark:bg-slate-800 rounded-xl">
+              <Terminal className="w-6 h-6 text-blue-500" />
+            </div>
+            <h2 className="text-2xl font-bold text-slate-900 dark:text-white">{t('tools_title')}</h2>
+          </div>
+          <p className="text-slate-600 dark:text-slate-400 mb-6">{t('tools_desc')}</p>
+          <div className="flex flex-wrap gap-3">
+            {['Git & GitHub', 'Docker Compose', 'Linux (Ubuntu)', 'Postman', 'VS Code', 'Jira', 'Figma', 'n8n'].map((tool, i) => (
+              <span key={i} className="px-4 py-2 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-lg text-sm font-medium hover:scale-105 transition-transform hover:shadow-md border border-transparent hover:border-slate-300 dark:hover:border-slate-600 cursor-default">
+                {tool}
+              </span>
+            ))}
+          </div>
+        </section>
+
+        {/* Spoken Languages Section */}
+        <section className="glass-card p-8">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="p-3 bg-slate-100 dark:bg-slate-800 rounded-xl">
+              <Globe className="w-6 h-6 text-purple-500" />
+            </div>
+            <h2 className="text-2xl font-bold text-slate-900 dark:text-white">{t('langs_title')}</h2>
+          </div>
+          <p className="text-slate-600 dark:text-slate-400 mb-6">{t('langs_desc')}</p>
+          <div className="space-y-4">
+            <div className="flex justify-between items-center pb-4 border-b border-slate-100 dark:border-slate-800">
+              <span className="font-semibold text-slate-900 dark:text-white">{t('lang_en')}</span>
+              <span className="text-sm text-slate-500 dark:text-slate-400">{t('lang_en_prof')}</span>
+            </div>
+            <div className="flex justify-between items-center pb-4 border-b border-slate-100 dark:border-slate-800">
+              <span className="font-semibold text-slate-900 dark:text-white">{t('lang_nl')}</span>
+              <span className="text-sm text-slate-500 dark:text-slate-400">{t('lang_nl_prof')}</span>
+            </div>
+            <div className="flex justify-between items-center">
+              <span className="font-semibold text-slate-900 dark:text-white">{t('lang_fa')}</span>
+              <span className="text-sm text-slate-500 dark:text-slate-400">{t('lang_fa_prof')}</span>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
       {/* Certifications Section */}
-      <section className="py-12 border-t border-slate-200 dark:border-slate-800 animate-slide-up" style={{ animationDelay: '300ms' }}>
+      <section className="py-12 border-t border-slate-200 dark:border-slate-800 animate-slide-up" style={{ animationDelay: '400ms' }}>
         <div className="text-center space-y-4 mb-12">
           <h2 className="text-3xl font-bold text-slate-900 dark:text-white flex items-center justify-center gap-3">
             <Award className="w-8 h-8 text-yellow-500" /> {t('certs_title')}
