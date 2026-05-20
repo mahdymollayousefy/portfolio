@@ -1,0 +1,25 @@
+# .gitignore
+# Environments
+.env.*
+!.env.example
+
+# Python / Django
+__pycache__/
+*.py[cod]
+*$py.class
+*.sqlite3
+media/
+staticfiles/
+.venv/
+venv/
+
+# Node / Vite / pnpm
+node_modules/
+dist/
+dist-ssr/
+*.local
+.pnpm-store/
+
+# OS
+.DS_Store
+Thumbs.db

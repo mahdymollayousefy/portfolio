@@ -1,0 +1,47 @@
+# docker-compose.yml
+name: portfolio-saas
+
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: portfolio_db
+    restart: unless-stopped
+    env_file:
+      - .env.local
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5434:5432"
+
+  backend:
+    build:
+      context: ./backend
+    container_name: portfolio_backend
+    restart: unless-stopped
+    env_file:
+      - .env.local
+    volumes:
+      - ./backend:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+
+  frontend:
+    build:
+      context: ./frontend
+    container_name: portfolio_frontend
+    restart: unless-stopped
+    env_file:
+      - .env.local
+    volumes:
+      - ./frontend:/app
+    ports:
+      - "5173:5173"
+    dns:
+      - 8.8.8.8
+      - 1.1.1.1
+
+volumes:
+  postgres_data:
+    name: portfolio_pg_data
