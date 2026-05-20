@@ -2,11 +2,36 @@ import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
-const resources = {
-  en: { translation: { welcome: "Welcome", hire_me: "Hire Me" } },
-  nl: { translation: { welcome: "Welkom", hire_me: "Huur mij in" } },
-  fa: { translation: { welcome: "خوش آمدید", hire_me: "استخدام من" } }
+import headerLocales from './components/Header.locales';
+import footerLocales from './components/Footer.locales';
+import homeLocales from './pages/Home.locales';
+import projectsLocales from './pages/Projects.locales';
+import skillsLocales from './pages/Skills.locales';
+import hireMeLocales from './pages/HireMe.locales';
+
+// Helper to deeply merge translation objects
+const mergeTranslations = (langs, ...localesArray) => {
+  const merged = {};
+  langs.forEach(lang => {
+    merged[lang] = { translation: {} };
+    localesArray.forEach(localeObj => {
+      if (localeObj[lang]) {
+        merged[lang].translation = { ...merged[lang].translation, ...localeObj[lang] };
+      }
+    });
+  });
+  return merged;
 };
+
+const resources = mergeTranslations(
+  ['en', 'nl', 'fa'],
+  headerLocales,
+  footerLocales,
+  homeLocales,
+  projectsLocales,
+  skillsLocales,
+  hireMeLocales
+);
 
 i18n
   .use(LanguageDetector)

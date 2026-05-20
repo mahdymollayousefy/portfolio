@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
 import { fetchSkills } from '../services/api';
-import { Code2, Server, Wrench } from 'lucide-react';
+import { Code2, Server, Wrench, Award, CheckCircle } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 export default function Skills() {
+  const { t } = useTranslation();
   const [skills, setSkills] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -35,57 +37,80 @@ export default function Skills() {
   };
 
   return (
-    <div className="max-w-4xl mx-auto space-y-12">
-      <div className="text-center space-y-4">
-        <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white">
-          Technical <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Skills</span>
+    <div className="max-w-4xl mx-auto space-y-24 pb-12 animate-fade-in">
+      
+      <div className="text-center space-y-4 pt-8">
+        <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white animate-slide-up">
+          {t('title_part1')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">{t('title_part2')}</span>
         </h1>
-        <p className="text-lg text-slate-600 dark:text-slate-400">
-          A comprehensive overview of my technical expertise and proficiency levels across different domains.
+        <p className="text-lg text-slate-600 dark:text-slate-400 animate-slide-up" style={{ animationDelay: '100ms' }}>
+          {t('desc')}
         </p>
       </div>
 
-      {loading ? (
-        <div className="flex justify-center items-center h-64">
-          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
-        </div>
-      ) : Object.keys(groupedSkills).length > 0 ? (
-        <div className="space-y-12">
-          {Object.entries(groupedSkills).map(([category, items]) => (
-            <div key={category} className="glass-card p-6 md:p-8 animate-slide-up">
-              <div className="flex items-center gap-3 mb-8">
-                <div className="p-3 bg-slate-100 dark:bg-slate-800 rounded-xl">
-                  {getCategoryIcon(category)}
-                </div>
-                <h2 className="text-2xl font-bold text-slate-900 dark:text-white">{category}</h2>
-              </div>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
-                {items.map((skill) => (
-                  <div key={skill.id} className="space-y-2">
-                    <div className="flex justify-between items-center text-sm font-medium">
-                      <span className="text-slate-700 dark:text-slate-200">{skill.name}</span>
-                      <span className="text-slate-500 dark:text-slate-400">{skill.proficiency}%</span>
-                    </div>
-                    <div className="h-2 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
-                      <div 
-                        className="h-full bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"
-                        style={{ width: `${skill.proficiency}%`, transition: 'width 1s ease-out' }}
-                      />
-                    </div>
+      <div className="animate-slide-up" style={{ animationDelay: '200ms' }}>
+        {loading ? (
+          <div className="flex justify-center items-center h-64">
+            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+          </div>
+        ) : Object.keys(groupedSkills).length > 0 ? (
+          <div className="space-y-12">
+            {Object.entries(groupedSkills).map(([category, items], idx) => (
+              <div key={category} className="glass-card p-6 md:p-8 hover:shadow-xl transition-shadow duration-300 animate-slide-up" style={{ animationDelay: `${idx * 100}ms` }}>
+                <div className="flex items-center gap-3 mb-8">
+                  <div className="p-3 bg-slate-100 dark:bg-slate-800 rounded-xl hover:scale-110 transition-transform duration-300">
+                    {getCategoryIcon(category)}
                   </div>
-                ))}
+                  <h2 className="text-2xl font-bold text-slate-900 dark:text-white">{category}</h2>
+                </div>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
+                  {items.map((skill) => (
+                    <div key={skill.id} className="space-y-2 group">
+                      <div className="flex justify-between items-center text-sm font-medium">
+                        <span className="text-slate-700 dark:text-slate-200 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">{skill.name}</span>
+                        <span className="text-slate-500 dark:text-slate-400">{skill.proficiency}%</span>
+                      </div>
+                      <div className="h-2 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+                        <div 
+                          className="h-full bg-gradient-to-r from-blue-500 to-purple-500 rounded-full group-hover:brightness-110 transition-all"
+                          style={{ width: `${skill.proficiency}%`, transition: 'width 1.5s ease-out' }}
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
+            ))}
+          </div>
+        ) : (
+          <div className="text-center py-24 glass-card">
+            <Wrench className="w-16 h-16 text-slate-300 dark:text-slate-700 mx-auto mb-4 animate-pulse" />
+            <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-2">{t('no_skills')}</h3>
+            <p className="text-slate-500 dark:text-slate-400">{t('no_skills_desc')}</p>
+          </div>
+        )}
+      </div>
+
+      {/* Certifications Section */}
+      <section className="py-12 border-t border-slate-200 dark:border-slate-800 animate-slide-up" style={{ animationDelay: '300ms' }}>
+        <div className="text-center space-y-4 mb-12">
+          <h2 className="text-3xl font-bold text-slate-900 dark:text-white flex items-center justify-center gap-3">
+            <Award className="w-8 h-8 text-yellow-500" /> {t('certs_title')}
+          </h2>
+          <p className="text-slate-600 dark:text-slate-400">{t('certs_desc')}</p>
+        </div>
+        
+        <div className="flex flex-col gap-4 max-w-2xl mx-auto">
+          {[1, 2, 3].map((num) => (
+            <div key={num} className="glass-card p-4 px-6 flex items-center gap-4 hover:-translate-y-1 transition-transform duration-300 hover:shadow-lg">
+              <CheckCircle className="w-6 h-6 text-green-500 shrink-0" />
+              <h4 className="font-semibold text-slate-800 dark:text-slate-200">{t(`cert_${num}`)}</h4>
             </div>
           ))}
         </div>
-      ) : (
-        <div className="text-center py-24 glass-card">
-          <Wrench className="w-16 h-16 text-slate-300 dark:text-slate-700 mx-auto mb-4" />
-          <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-2">No skills found</h3>
-          <p className="text-slate-500 dark:text-slate-400">Skills will appear here once they are added to the backend.</p>
-        </div>
-      )}
+      </section>
+
     </div>
   );
 }

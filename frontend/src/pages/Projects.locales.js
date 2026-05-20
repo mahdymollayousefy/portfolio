@@ -1,0 +1,35 @@
+export default {
+  en: {
+    title_part1: "Featured",
+    title_part2: "Projects",
+    desc: "A selection of my best work, showcasing expertise in backend architecture, full-stack development, and scalable system design.",
+    no_projects: "No projects found",
+    no_projects_desc: "Projects will appear here once they are added to the backend.",
+    code: "Code",
+    live_demo: "Live Demo",
+    capabilities_title: "Technical Capabilities",
+    capabilities_desc: "Leveraging cutting-edge technologies to solve complex problems.",
+  },
+  nl: {
+    title_part1: "Uitgelichte",
+    title_part2: "Projecten",
+    desc: "Een selectie van mijn beste werk, met expertise in backend architectuur, full-stack ontwikkeling en schaalbaar systeemontwerp.",
+    no_projects: "Geen projecten gevonden",
+    no_projects_desc: "Projecten verschijnen hier zodra ze aan de backend zijn toegevoegd.",
+    code: "Code",
+    live_demo: "Live Demo",
+    capabilities_title: "Technische Capaciteiten",
+    capabilities_desc: "Baanbrekende technologieën inzetten om complexe problemen op te lossen.",
+  },
+  fa: {
+    title_part1: "پروژه‌های",
+    title_part2: "برگزیده",
+    desc: "مجموعه‌ای از بهترین کارهای من که نشان‌دهنده تخصص در معماری بک‌اند، توسعه فول‌استک و طراحی سیستم‌های مقیاس‌پذیر است.",
+    no_projects: "پروژه‌ای یافت نشد",
+    no_projects_desc: "پروژه‌ها پس از افزودن در بک‌اند در اینجا نمایش داده خواهند شد.",
+    code: "کد",
+    live_demo: "نمایش زنده",
+    capabilities_title: "توانمندی‌های فنی",
+    capabilities_desc: "استفاده از فناوری‌های پیشرفته برای حل مسائل پیچیده.",
+  }
+};

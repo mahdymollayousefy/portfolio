@@ -1,0 +1,38 @@
+export default {
+  en: {
+    title_part1: "Technical",
+    title_part2: "Skills",
+    desc: "A comprehensive overview of my technical expertise and proficiency levels across different domains.",
+    no_skills: "No skills found",
+    no_skills_desc: "Skills will appear here once they are added to the backend.",
+    certs_title: "Certifications & Awards",
+    certs_desc: "Recognized qualifications and achievements in software engineering.",
+    cert_1: "AWS Certified Solutions Architect",
+    cert_2: "Advanced Python Programming",
+    cert_3: "Docker & Kubernetes Masterclass",
+  },
+  nl: {
+    title_part1: "Technische",
+    title_part2: "Vaardigheden",
+    desc: "Een uitgebreid overzicht van mijn technische expertise en vaardigheidsniveaus over verschillende domeinen.",
+    no_skills: "Geen vaardigheden gevonden",
+    no_skills_desc: "Vaardigheden verschijnen hier zodra ze aan de backend zijn toegevoegd.",
+    certs_title: "Certificeringen & Prijzen",
+    certs_desc: "Erkende kwalificaties en prestaties in software-engineering.",
+    cert_1: "AWS Gecertificeerd Solutions Architect",
+    cert_2: "Geavanceerde Python Programmering",
+    cert_3: "Docker & Kubernetes Masterclass",
+  },
+  fa: {
+    title_part1: "مهارت‌های",
+    title_part2: "فنی",
+    desc: "یک مرور جامع از تخصص فنی و سطوح مهارت من در زمینه‌های مختلف.",
+    no_skills: "مهارتی یافت نشد",
+    no_skills_desc: "مهارت‌ها پس از افزودن در بک‌اند در اینجا نمایش داده خواهند شد.",
+    certs_title: "گواهینامه‌ها و افتخارات",
+    certs_desc: "مدارک و دستاوردهای معتبر در مهندسی نرم‌افزار.",
+    cert_1: "معمار راهکارهای تایید شده AWS",
+    cert_2: "برنامه‌نویسی پیشرفته پایتون",
+    cert_3: "مسترکلاس داکر و کوبرنتیز",
+  }
+};

@@ -20,10 +20,10 @@ export default function Header() {
   };
 
   const navLinks = [
-    { name: 'Home', path: '/' },
-    { name: 'Projects', path: '/projects' },
-    { name: 'Skills', path: '/skills' },
-    { name: 'Hire Me', path: '/hire-me' },
+    { key: 'home', path: '/' },
+    { key: 'projects', path: '/projects' },
+    { key: 'skills', path: '/skills' },
+    { key: 'hire_me', path: '/hire-me' },
   ];
 
   return (
@@ -40,9 +40,9 @@ export default function Header() {
             <Link 
               key={link.path} 
               to={link.path} 
-              className={`hover:text-blue-600 dark:hover:text-blue-400 transition-colors ${location.pathname === link.path ? 'text-blue-600 dark:text-blue-400' : 'text-slate-600 dark:text-slate-300'}`}
+              className={`inline-block hover:-translate-y-0.5 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 ${location.pathname === link.path ? 'text-blue-600 dark:text-blue-400' : 'text-slate-600 dark:text-slate-300'}`}
             >
-              {link.name}
+              {t(link.key)}
             </Link>
           ))}
         </nav>
@@ -72,10 +72,10 @@ export default function Header() {
             <Link 
               key={link.path} 
               to={link.path} 
-              className={`text-lg font-semibold block px-4 py-2 rounded-lg ${location.pathname === link.path ? 'bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400' : 'text-slate-600 dark:text-slate-300'}`}
+              className={`text-lg font-semibold block px-4 py-2 rounded-lg transition-all duration-300 hover:translate-x-1 hover:bg-slate-100 dark:hover:bg-slate-800 ${location.pathname === link.path ? 'bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400' : 'text-slate-600 dark:text-slate-300'}`}
               onClick={() => setMobileMenuOpen(false)}
             >
-              {link.name}
+              {t(link.key)}
             </Link>
           ))}
         </div>
