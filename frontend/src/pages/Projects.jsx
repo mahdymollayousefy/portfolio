@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { fetchProjects } from '../services/api';
-import { Github, ExternalLink, Code2 } from 'lucide-react';
+import { Code, ExternalLink, Code2 } from 'lucide-react';
 
 export default function Projects() {
   const [projects, setProjects] = useState([]);
@@ -68,7 +68,7 @@ export default function Projects() {
                 <div className="flex items-center gap-4 mt-auto pt-4 border-t border-slate-100 dark:border-slate-800">
                   {project.github_link && (
                     <a href={project.github_link} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-sm font-medium text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors">
-                      <Github className="w-4 h-4" /> Code
+                      <Code className="w-4 h-4" /> Code
                     </a>
                   )}
                   {project.live_link && (

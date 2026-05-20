@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Activity, Github, Linkedin, Twitter } from 'lucide-react';
+import { Activity, Code, User, MessageCircle } from 'lucide-react';
 import api from '../services/api';
 
 export default function Footer() {
@@ -37,13 +37,13 @@ export default function Footer() {
 
         <div className="flex items-center gap-4">
           <a href="#" className="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors text-slate-600 dark:text-slate-300">
-            <Github className="w-5 h-5" />
+            <Code className="w-5 h-5" />
           </a>
           <a href="#" className="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors text-slate-600 dark:text-slate-300">
-            <Linkedin className="w-5 h-5" />
+            <User className="w-5 h-5" />
           </a>
           <a href="#" className="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors text-slate-600 dark:text-slate-300">
-            <Twitter className="w-5 h-5" />
+            <MessageCircle className="w-5 h-5" />
           </a>
         </div>
 
