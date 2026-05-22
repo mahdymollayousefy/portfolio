@@ -1,0 +1,35 @@
+export default {
+  en: {
+    legal_title: "Legal Information",
+    privacy_title: "Privacy Policy",
+    privacy_content: "Your privacy is important to us. We collect minimal data required to provide our services...",
+    cookie_title: "Cookie Preferences",
+    cookie_content: "We use strictly necessary cookies to ensure the basic functionality of the website. We do not use tracking or analytical cookies.",
+    rules_title: "Rules & Agreements",
+    rules_content: "By using this website, you agree to the basic terms of service. Do not misuse the contact forms or attempt unauthorized access.",
+    payment_title: "Payment Methods",
+    payment_content: "Please note that I accept payments exclusively in Cryptocurrencies.",
+  },
+  nl: {
+    legal_title: "Juridische Informatie",
+    privacy_title: "Privacybeleid",
+    privacy_content: "Uw privacy is belangrijk voor ons. We verzamelen minimale gegevens die nodig zijn...",
+    cookie_title: "Cookievoorkeuren",
+    cookie_content: "We gebruiken strikt noodzakelijke cookies om de basisfuncties te garanderen. Geen tracking cookies.",
+    rules_title: "Regels & Overeenkomsten",
+    rules_content: "Door deze website te gebruiken, gaat u akkoord met de servicevoorwaarden.",
+    payment_title: "Betaalmethoden",
+    payment_content: "Houd er rekening mee dat ik uitsluitend betalingen in cryptocurrencies accepteer.",
+  },
+  fa: {
+    legal_title: "اطلاعات حقوقی",
+    privacy_title: "حریم خصوصی",
+    privacy_content: "حریم خصوصی شما برای ما مهم است. ما حداقل داده های مورد نیاز را جمع آوری می کنیم...",
+    cookie_title: "تنظیمات کوکی",
+    cookie_content: "ما از کوکی‌های کاملاً ضروری برای اطمینان از عملکرد سایت استفاده می‌کنیم و کوکی ردیابی نداریم.",
+    rules_title: "قوانین و مقررات",
+    rules_content: "با استفاده از این وب‌سایت، شما با شرایط اولیه خدمات موافقت می‌کنید.",
+    payment_title: "روش‌های پرداخت",
+    payment_content: "لطفاً توجه داشته باشید که من فقط پرداخت از طریق ارزهای دیجیتال (کریپتو) را می‌پذیرم.",
+  }
+};

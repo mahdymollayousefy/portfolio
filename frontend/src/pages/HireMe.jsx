@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { submitHireRequest } from '../services/api';
-import { Send, CheckCircle2, AlertCircle, Mail, MapPin, Briefcase, Clock, CalendarDays } from 'lucide-react';
+import { Send, CheckCircle2, AlertCircle, Mail, MapPin, Briefcase, Clock, CalendarDays, Code2, Users, MessageCircle } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { GithubIcon, LinkedinIcon, TelegramIcon } from '../components/SocialIcons';
 
 export default function HireMe() {
   const { t } = useTranslation();
@@ -45,27 +46,29 @@ export default function HireMe() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-8 items-start animate-slide-up" style={{ animationDelay: '200ms' }}>
-        
-        {/* Contact Info Side Panel */}
-        <div className="lg:col-span-1 space-y-6">
-          <div className="glass-card p-6 md:p-8 hover:-translate-y-1 transition-transform duration-300">
-            <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">{t('contact_info')}</h3>
-            <p className="text-slate-600 dark:text-slate-400 mb-8">{t('contact_desc')}</p>
+      <div className="bg-white dark:bg-slate-900/50 rounded-3xl p-8 lg:p-12 border border-slate-200 dark:border-slate-800 animate-slide-up" style={{ animationDelay: '200ms' }}>
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16 items-start">
+          
+          {/* Contact Info Side Panel */}
+          <div className="lg:col-span-1 space-y-8">
+            <div>
+              <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">{t('contact_info')}</h3>
+              <p className="text-slate-600 dark:text-slate-400 leading-relaxed">{t('contact_desc')}</p>
+            </div>
             
             <div className="space-y-6">
-              <div className="flex items-start gap-4">
-                <div className="bg-blue-100 dark:bg-blue-900/30 p-3 rounded-xl text-blue-600 dark:text-blue-400">
+              <div className="flex items-start gap-4 group">
+                <div className="bg-blue-50 dark:bg-blue-900/30 p-3 rounded-xl text-blue-600 dark:text-blue-400 group-hover:scale-110 transition-transform">
                   <Mail className="w-6 h-6" />
                 </div>
                 <div>
                   <h4 className="text-sm font-semibold text-slate-500 dark:text-slate-400">{t('email_label')}</h4>
-                  <p className="text-slate-900 dark:text-white font-medium hover:text-blue-600 transition-colors cursor-pointer">hello@example.com</p>
+                  <a href="mailto:hello@example.com" className="text-slate-900 dark:text-white font-medium hover:text-blue-600 transition-colors">hello@example.com</a>
                 </div>
               </div>
               
-              <div className="flex items-start gap-4">
-                <div className="bg-purple-100 dark:bg-purple-900/30 p-3 rounded-xl text-purple-600 dark:text-purple-400">
+              <div className="flex items-start gap-4 group">
+                <div className="bg-purple-50 dark:bg-purple-900/30 p-3 rounded-xl text-purple-600 dark:text-purple-400 group-hover:scale-110 transition-transform">
                   <MapPin className="w-6 h-6" />
                 </div>
                 <div>
@@ -73,12 +76,41 @@ export default function HireMe() {
                   <p className="text-slate-900 dark:text-white font-medium">{t('location')}</p>
                 </div>
               </div>
+
+              <div className="flex items-start gap-4 group">
+                <div className="bg-sky-50 dark:bg-sky-900/30 p-3 rounded-xl text-sky-600 dark:text-sky-400 group-hover:scale-110 transition-transform">
+                  <TelegramIcon className="w-6 h-6" />
+                </div>
+                <div>
+                  <h4 className="text-sm font-semibold text-slate-500 dark:text-slate-400">Telegram</h4>
+                  <a href="https://t.me/yourusername" target="_blank" rel="noreferrer" className="text-slate-900 dark:text-white font-medium hover:text-sky-600 transition-colors">@yourusername</a>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4 group">
+                <div className="bg-blue-50 dark:bg-blue-900/30 p-3 rounded-xl text-blue-700 dark:text-blue-400 group-hover:scale-110 transition-transform">
+                  <LinkedinIcon className="w-6 h-6" />
+                </div>
+                <div>
+                  <h4 className="text-sm font-semibold text-slate-500 dark:text-slate-400">LinkedIn</h4>
+                  <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noreferrer" className="text-slate-900 dark:text-white font-medium hover:text-blue-700 transition-colors">in/yourusername</a>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4 group">
+                <div className="bg-slate-100 dark:bg-slate-800 p-3 rounded-xl text-slate-800 dark:text-slate-200 group-hover:scale-110 transition-transform">
+                  <GithubIcon className="w-6 h-6" />
+                </div>
+                <div>
+                  <h4 className="text-sm font-semibold text-slate-500 dark:text-slate-400">GitHub</h4>
+                  <a href="https://github.com/yourusername" target="_blank" rel="noreferrer" className="text-slate-900 dark:text-white font-medium hover:text-slate-600 transition-colors">yourusername</a>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* Contact Form */}
-        <div className="lg:col-span-2 glass-card p-6 md:p-10 relative overflow-hidden transition-all duration-300 hover:shadow-xl">
+          {/* Contact Form */}
+          <div className="lg:col-span-2 relative">
           {/* Background glow */}
           <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl -z-10 -translate-y-1/2 translate-x-1/2"></div>
           <div className="absolute bottom-0 left-0 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl -z-10 translate-y-1/2 -translate-x-1/2"></div>
@@ -115,6 +147,7 @@ export default function HireMe() {
                     required
                     value={formData.name}
                     onChange={handleChange}
+                    placeholder="John Doe"
                     className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all outline-none text-slate-900 dark:text-white hover:border-slate-300 dark:hover:border-slate-600"
                   />
                 </div>
@@ -128,6 +161,7 @@ export default function HireMe() {
                     required
                     value={formData.email}
                     onChange={handleChange}
+                    placeholder="john@example.com"
                     className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all outline-none text-slate-900 dark:text-white hover:border-slate-300 dark:hover:border-slate-600"
                   />
                 </div>
@@ -141,6 +175,7 @@ export default function HireMe() {
                   type="text"
                   value={formData.budget}
                   onChange={handleChange}
+                  placeholder="5000"
                   className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all outline-none text-slate-900 dark:text-white hover:border-slate-300 dark:hover:border-slate-600"
                 />
               </div>
@@ -154,6 +189,7 @@ export default function HireMe() {
                   rows="5"
                   value={formData.project_description}
                   onChange={handleChange}
+                  placeholder="Tell me about your project, goals, and timeline..."
                   className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all outline-none text-slate-900 dark:text-white hover:border-slate-300 dark:hover:border-slate-600 resize-none"
                 ></textarea>
               </div>
@@ -173,56 +209,64 @@ export default function HireMe() {
           )}
         </div>
       </div>
+      </div>
 
       {/* Pricing Packages */}
-      <section className="py-12 border-t border-slate-200 dark:border-slate-800 animate-slide-up" style={{ animationDelay: '250ms' }}>
-        <div className="text-center space-y-4 mb-12">
+      <section className="py-12 animate-slide-up" style={{ animationDelay: '250ms' }}>
+        <div className="text-center space-y-4 mb-16">
           <h2 className="text-3xl font-bold text-slate-900 dark:text-white">{t('pricing_title')}</h2>
-          <p className="text-slate-600 dark:text-slate-400">{t('pricing_desc')}</p>
+          <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">{t('pricing_desc')}</p>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="glass-card p-8 flex flex-col items-center text-center group hover:-translate-y-2 transition-transform duration-300">
-            <div className="bg-blue-50 dark:bg-blue-900/30 p-4 rounded-full mb-6 group-hover:scale-110 transition-transform">
+          <div className="flex flex-col items-center text-center group hover:-translate-y-2 transition-transform duration-300">
+            <div className="bg-blue-50 dark:bg-blue-900/30 w-16 h-16 flex items-center justify-center rounded-2xl mb-6 group-hover:scale-110 transition-transform">
               <Clock className="w-8 h-8 text-blue-600 dark:text-blue-400" />
             </div>
             <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">{t('pricing_1')}</h3>
-            <p className="text-slate-600 dark:text-slate-400">{t('pricing_1_desc')}</p>
+            <p className="text-slate-600 dark:text-slate-400 leading-relaxed">{t('pricing_1_desc')}</p>
           </div>
-          <div className="glass-card p-8 flex flex-col items-center text-center group hover:-translate-y-2 transition-transform duration-300 relative overflow-hidden border-blue-500 shadow-blue-500/10 shadow-xl">
-            <div className="absolute top-4 right-4 flex h-3 w-3">
+          <div className="flex flex-col items-center text-center group hover:-translate-y-2 transition-transform duration-300 relative">
+            <div className="absolute -top-4 right-1/4 flex h-3 w-3">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-3 w-3 bg-blue-500"></span>
             </div>
-            <div className="bg-purple-50 dark:bg-purple-900/30 p-4 rounded-full mb-6 group-hover:scale-110 transition-transform">
+            <div className="bg-purple-50 dark:bg-purple-900/30 w-16 h-16 flex items-center justify-center rounded-2xl mb-6 group-hover:scale-110 transition-transform">
               <Briefcase className="w-8 h-8 text-purple-600 dark:text-purple-400" />
             </div>
             <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">{t('pricing_2')}</h3>
-            <p className="text-slate-600 dark:text-slate-400">{t('pricing_2_desc')}</p>
+            <p className="text-slate-600 dark:text-slate-400 leading-relaxed">{t('pricing_2_desc')}</p>
           </div>
-          <div className="glass-card p-8 flex flex-col items-center text-center group hover:-translate-y-2 transition-transform duration-300">
-            <div className="bg-green-50 dark:bg-green-900/30 p-4 rounded-full mb-6 group-hover:scale-110 transition-transform">
+          <div className="flex flex-col items-center text-center group hover:-translate-y-2 transition-transform duration-300">
+            <div className="bg-green-50 dark:bg-green-900/30 w-16 h-16 flex items-center justify-center rounded-2xl mb-6 group-hover:scale-110 transition-transform">
               <CalendarDays className="w-8 h-8 text-green-600 dark:text-green-400" />
             </div>
             <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">{t('pricing_3')}</h3>
-            <p className="text-slate-600 dark:text-slate-400">{t('pricing_3_desc')}</p>
+            <p className="text-slate-600 dark:text-slate-400 leading-relaxed">{t('pricing_3_desc')}</p>
           </div>
         </div>
       </section>
       
       {/* FAQ Section */}
-      <section className="py-12 border-t border-slate-200 dark:border-slate-800 animate-slide-up" style={{ animationDelay: '300ms' }}>
-        <div className="text-center space-y-4 mb-12">
-          <h2 className="text-3xl font-bold text-slate-900 dark:text-white">{t('faq_title')}</h2>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {[1, 2].map((num) => (
-            <div key={num} className="glass-card p-6 hover:-translate-y-1 transition-transform duration-300">
-              <h4 className="font-bold text-slate-900 dark:text-white mb-2">{t(`faq_${num}_q`)}</h4>
-              <p className="text-slate-600 dark:text-slate-400">{t(`faq_${num}_a`)}</p>
-            </div>
-          ))}
+      <section className="py-12 bg-slate-50 dark:bg-slate-900/30 rounded-3xl animate-slide-up" style={{ animationDelay: '300ms' }}>
+        <div className="max-w-4xl mx-auto px-8">
+          <div className="text-center space-y-4 mb-16">
+            <h2 className="text-3xl font-bold text-slate-900 dark:text-white">{t('faq_title')}</h2>
+          </div>
+          
+          <div className="flex flex-col gap-10">
+            {[1, 2].map((num) => (
+              <div key={num} className="flex gap-6 items-start group">
+                <div className="text-4xl font-black text-blue-100 dark:text-blue-900/30 group-hover:text-blue-500 transition-colors shrink-0">
+                  0{num}.
+                </div>
+                <div>
+                  <h4 className="text-xl font-bold text-slate-900 dark:text-white mb-3">{t(`faq_${num}_q`)}</h4>
+                  <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-lg">{t(`faq_${num}_a`)}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 

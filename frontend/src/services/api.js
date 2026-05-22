@@ -10,6 +10,26 @@ export const fetchProjects = async () => {
   }
 };
 
+export const fetchProjectBySlug = async (slug) => {
+  try {
+    const response = await fetch(`${API_BASE_URL}/projects/${slug}/`);
+    return await response.json();
+  } catch (error) {
+    console.error('Error fetching project:', error);
+    return null;
+  }
+};
+
+export const fetchProjectCategories = async () => {
+  try {
+    const response = await fetch(`${API_BASE_URL}/categories/`);
+    return await response.json();
+  } catch (error) {
+    console.error('Error fetching categories:', error);
+    return [];
+  }
+};
+
 export const fetchSkills = async () => {
   try {
     const response = await fetch(`${API_BASE_URL}/skills/`);

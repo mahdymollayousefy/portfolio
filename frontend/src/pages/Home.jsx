@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, Code2, Database, Terminal, Layers, CheckCircle2, LayoutTemplate, ServerCog, CloudCog } from 'lucide-react';
+import { ArrowRight, Code2, Database, Terminal, Layers, CheckCircle2, LayoutTemplate, ServerCog, CloudCog, Briefcase, Download } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import heroImg from '../assets/hero.png';
 
@@ -34,28 +34,31 @@ export default function Home() {
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4 animate-slide-up" style={{ animationDelay: '300ms' }}>
-            <Link to="/projects" className="group w-full sm:w-auto px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold flex items-center justify-center gap-2 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-blue-500/20">
+            <Link to="/projects" className="group w-full sm:w-auto px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold flex items-center justify-center gap-2 transition-all duration-300 shadow-lg shadow-blue-500/30">
               {t('view_work')} <ArrowRight className="w-5 h-5 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform" />
             </Link>
-            <Link to="/hire-me" className="w-full sm:w-auto px-8 py-4 rounded-xl glass-card font-bold text-slate-900 dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-all duration-300 text-center hover:scale-105">
-              {t('hire_me_btn')}
+            <Link to="/hire-me" className="group w-full sm:w-auto px-8 py-4 rounded-xl bg-pink-600 hover:bg-pink-700 text-white font-bold flex items-center justify-center gap-2 transition-all duration-300 shadow-lg shadow-pink-500/30">
+              {t('hire_me_btn')} <Briefcase className="w-5 h-5 group-hover:-translate-y-1 transition-transform" />
             </Link>
+            <a href="/resume.pdf" target="_blank" rel="noreferrer" className="group w-full sm:w-auto px-8 py-4 rounded-xl bg-green-600 hover:bg-green-700 text-white font-bold flex items-center justify-center gap-2 transition-all duration-300 shadow-lg shadow-green-500/30">
+              {t('download_resume')} <Download className="w-5 h-5 group-hover:translate-y-1 transition-transform" />
+            </a>
           </div>
         </div>
 
         {/* Right: Image/Avatar Placeholder */}
         <div className="flex-1 w-full max-w-md lg:max-w-lg relative z-10 animate-fade-in" style={{ animationDelay: '200ms' }}>
-          <div className="relative aspect-square rounded-[2rem] md:rounded-[3rem] overflow-hidden glass shadow-2xl p-4 transition-all duration-500 hover:shadow-blue-500/10 hover:-translate-y-2">
+          <div className="relative aspect-square rounded-[2rem] md:rounded-[3rem] overflow-hidden bg-slate-100 dark:bg-slate-900 p-4 border border-slate-200 dark:border-slate-800">
             <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/20 to-purple-500/20 rounded-[inherit] -z-10"></div>
             <img 
               src={heroImg} 
               alt="Profile" 
-              className="w-full h-full object-cover rounded-2xl md:rounded-[2rem] bg-slate-100 dark:bg-slate-800 transition-transform duration-700 hover:scale-105"
+              className="w-full h-full object-cover rounded-2xl md:rounded-[2rem] bg-slate-100 dark:bg-slate-800"
             />
           </div>
           
           {/* Floating badge */}
-          <div className="absolute -bottom-6 -left-6 md:-left-12 glass-card p-4 rounded-2xl flex items-center gap-4 shadow-xl animate-slide-up hover:scale-110 transition-transform duration-300" style={{ animationDelay: '400ms' }}>
+          <div className="absolute -bottom-6 -left-6 md:-left-12 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-4 rounded-2xl flex items-center gap-4 shadow-xl animate-slide-up" style={{ animationDelay: '400ms' }}>
             <div className="bg-green-100 dark:bg-green-900/30 p-3 rounded-xl text-green-600 dark:text-green-400">
               <Code2 className="w-6 h-6" />
             </div>
@@ -68,18 +71,18 @@ export default function Home() {
       </section>
 
       {/* Quick Stats Section */}
-      <section className="py-8 animate-slide-up" style={{ animationDelay: '250ms' }}>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-          <div className="glass-card p-6 text-center group hover:-translate-y-2 transition-all duration-300">
-            <h3 className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-400 mb-2 group-hover:scale-110 transition-transform">{t('stats_exp')}</h3>
+      <section className="py-8 animate-slide-up border-b border-slate-200 dark:border-slate-800" style={{ animationDelay: '250ms' }}>
+        <div className="flex flex-col md:flex-row justify-around items-center gap-8 max-w-4xl mx-auto py-8">
+          <div className="text-center">
+            <h3 className="text-4xl font-black text-blue-600 dark:text-blue-400 mb-2">{t('stats_exp')}</h3>
             <p className="font-semibold text-slate-700 dark:text-slate-300">{t('stats_exp_desc')}</p>
           </div>
-          <div className="glass-card p-6 text-center group hover:-translate-y-2 transition-all duration-300">
-            <h3 className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-purple-400 mb-2 group-hover:scale-110 transition-transform">{t('stats_projects')}</h3>
+          <div className="text-center">
+            <h3 className="text-4xl font-black text-purple-600 dark:text-purple-400 mb-2">{t('stats_projects')}</h3>
             <p className="font-semibold text-slate-700 dark:text-slate-300">{t('stats_projects_desc')}</p>
           </div>
-          <div className="glass-card p-6 text-center group hover:-translate-y-2 transition-all duration-300">
-            <h3 className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-green-400 mb-2 group-hover:scale-110 transition-transform">{t('stats_clients')}</h3>
+          <div className="text-center">
+            <h3 className="text-4xl font-black text-green-600 dark:text-green-400 mb-2">{t('stats_clients')}</h3>
             <p className="font-semibold text-slate-700 dark:text-slate-300">{t('stats_clients_desc')}</p>
           </div>
         </div>
@@ -87,86 +90,101 @@ export default function Home() {
 
       {/* Core Services Section */}
       <section className="py-12 animate-slide-up" style={{ animationDelay: '300ms' }}>
-        <div className="text-center space-y-4 mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white">{t('services_title')}</h2>
-          <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">{t('services_desc')}</p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="glass-card p-8 group hover:-translate-y-2 transition-transform duration-300 hover:shadow-xl">
-            <div className="bg-blue-50 dark:bg-blue-900/30 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-sm">
-              <LayoutTemplate className="w-8 h-8 text-blue-600 dark:text-blue-400" />
-            </div>
-            <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">{t('service_1')}</h3>
-            <p className="text-slate-600 dark:text-slate-300 leading-relaxed">{t('service_1_desc')}</p>
-          </div>
-          
-          <div className="glass-card p-8 group hover:-translate-y-2 transition-transform duration-300 hover:shadow-xl">
-            <div className="bg-purple-50 dark:bg-purple-900/30 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-sm">
-              <ServerCog className="w-8 h-8 text-purple-600 dark:text-purple-400" />
-            </div>
-            <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">{t('service_2')}</h3>
-            <p className="text-slate-600 dark:text-slate-300 leading-relaxed">{t('service_2_desc')}</p>
+        <div className="max-w-4xl mx-auto space-y-12">
+          <div className="space-y-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white">{t('services_title')}</h2>
+            <p className="text-slate-600 dark:text-slate-400 text-lg leading-relaxed">{t('services_desc')}</p>
           </div>
 
-          <div className="glass-card p-8 group hover:-translate-y-2 transition-transform duration-300 hover:shadow-xl">
-            <div className="bg-green-50 dark:bg-green-900/30 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-sm">
-              <CloudCog className="w-8 h-8 text-green-600 dark:text-green-400" />
+          <div className="space-y-10">
+            <div className="flex gap-6 items-start">
+              <div className="bg-blue-50 dark:bg-blue-900/30 w-12 h-12 rounded-xl flex items-center justify-center shrink-0">
+                <LayoutTemplate className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+              </div>
+              <div>
+                <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">{t('service_1')}</h3>
+                <p className="text-slate-600 dark:text-slate-300 leading-relaxed text-lg">{t('service_1_desc')}</p>
+              </div>
             </div>
-            <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-green-600 dark:group-hover:text-green-400 transition-colors">{t('service_3')}</h3>
-            <p className="text-slate-600 dark:text-slate-300 leading-relaxed">{t('service_3_desc')}</p>
+            
+            <div className="flex gap-6 items-start">
+              <div className="bg-purple-50 dark:bg-purple-900/30 w-12 h-12 rounded-xl flex items-center justify-center shrink-0">
+                <ServerCog className="w-6 h-6 text-purple-600 dark:text-purple-400" />
+              </div>
+              <div>
+                <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">{t('service_2')}</h3>
+                <p className="text-slate-600 dark:text-slate-300 leading-relaxed text-lg">{t('service_2_desc')}</p>
+              </div>
+            </div>
+
+            <div className="flex gap-6 items-start">
+              <div className="bg-green-50 dark:bg-green-900/30 w-12 h-12 rounded-xl flex items-center justify-center shrink-0">
+                <CloudCog className="w-6 h-6 text-green-600 dark:text-green-400" />
+              </div>
+              <div>
+                <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">{t('service_3')}</h3>
+                <p className="text-slate-600 dark:text-slate-300 leading-relaxed text-lg">{t('service_3_desc')}</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Expertise Section */}
-      <section className="py-12 animate-slide-up" style={{ animationDelay: '350ms' }}>
-        <div className="text-center space-y-4 mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white">{t('expertise_title')}</h2>
-          <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">{t('expertise_desc')}</p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="glass-card p-8 group hover:-translate-y-2 transition-transform duration-300 hover:shadow-xl border-l-4 border-l-blue-500">
-            <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">{t('backend_title')}</h3>
-            <p className="text-slate-600 dark:text-slate-300 leading-relaxed">{t('backend_desc')}</p>
-          </div>
-          
-          <div className="glass-card p-8 group hover:-translate-y-2 transition-transform duration-300 hover:shadow-xl border-l-4 border-l-purple-500">
-            <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">{t('data_title')}</h3>
-            <p className="text-slate-600 dark:text-slate-300 leading-relaxed">{t('data_desc')}</p>
+      <section className="py-12 animate-slide-up bg-slate-50 dark:bg-slate-900/50 rounded-3xl" style={{ animationDelay: '350ms' }}>
+        <div className="max-w-4xl mx-auto px-6 py-8 space-y-12">
+          <div className="space-y-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white">{t('expertise_title')}</h2>
+            <p className="text-slate-600 dark:text-slate-400 text-lg leading-relaxed">{t('expertise_desc')}</p>
           </div>
 
-          <div className="glass-card p-8 group hover:-translate-y-2 transition-transform duration-300 hover:shadow-xl border-l-4 border-l-green-500">
-            <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">{t('ai_title')}</h3>
-            <p className="text-slate-600 dark:text-slate-300 leading-relaxed">{t('ai_desc')}</p>
+          <div className="space-y-8">
+            <div className="border-l-4 border-l-blue-500 pl-6 py-2">
+              <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">{t('backend_title')}</h3>
+              <p className="text-slate-600 dark:text-slate-300 leading-relaxed text-lg">{t('backend_desc')}</p>
+            </div>
+            
+            <div className="border-l-4 border-l-purple-500 pl-6 py-2">
+              <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">{t('data_title')}</h3>
+              <p className="text-slate-600 dark:text-slate-300 leading-relaxed text-lg">{t('data_desc')}</p>
+            </div>
+
+            <div className="border-l-4 border-l-green-500 pl-6 py-2">
+              <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">{t('ai_title')}</h3>
+              <p className="text-slate-600 dark:text-slate-300 leading-relaxed text-lg">{t('ai_desc')}</p>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Work Process Section */}
       <section className="py-12 animate-slide-up" style={{ animationDelay: '400ms' }}>
-        <div className="text-center space-y-4 mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white">{t('process_title')}</h2>
-          <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">{t('process_desc')}</p>
-        </div>
-        
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {[
-            { id: 1, title: 'discovery', desc: 'discovery_desc' },
-            { id: 2, title: 'architecture', desc: 'architecture_desc' },
-            { id: 3, title: 'development', desc: 'development_desc' },
-            { id: 4, title: 'deployment', desc: 'deployment_desc' }
-          ].map((step, idx) => (
-            <div key={step.id} className="glass-card p-6 relative group hover:-translate-y-2 transition-all duration-300 hover:shadow-xl overflow-hidden">
-              <div className="absolute -right-4 -top-4 text-9xl font-black text-slate-100 dark:text-slate-800/50 -z-10 group-hover:scale-110 transition-transform duration-500">
-                {step.id}
+        <div className="max-w-4xl mx-auto space-y-12">
+          <div className="space-y-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white">{t('process_title')}</h2>
+            <p className="text-slate-600 dark:text-slate-400 text-lg leading-relaxed">{t('process_desc')}</p>
+          </div>
+          
+          <div className="flex flex-col gap-10">
+            {[
+              { id: 1, title: 'discovery', desc: 'discovery_desc' },
+              { id: 2, title: 'architecture', desc: 'architecture_desc' },
+              { id: 3, title: 'development', desc: 'development_desc' },
+              { id: 4, title: 'deployment', desc: 'deployment_desc' }
+            ].map((step, idx) => (
+              <div key={step.id} className="flex gap-6 items-start">
+                <div className="text-5xl font-black text-slate-200 dark:text-slate-800 mt-1">
+                  0{step.id}
+                </div>
+                <div>
+                  <h4 className="text-2xl font-bold text-slate-900 dark:text-white mb-2 flex items-center gap-2">
+                    {t(step.title)}
+                  </h4>
+                  <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">{t(step.desc)}</p>
+                </div>
               </div>
-              <CheckCircle2 className="w-8 h-8 text-blue-500 mb-4 group-hover:scale-110 transition-transform duration-300" />
-              <h4 className="text-lg font-bold text-slate-900 dark:text-white mb-2">{t(step.title)}</h4>
-              <p className="text-sm text-slate-600 dark:text-slate-400">{t(step.desc)}</p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 

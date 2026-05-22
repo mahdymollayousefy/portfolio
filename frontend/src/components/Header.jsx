@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { Moon, Sun, Globe, Menu, X, Code2 } from 'lucide-react';
+import { Moon, Sun, Globe, Menu, X, Home, Briefcase, Code, Mail, Scale, ChevronDown } from 'lucide-react';
 
 export default function Header() {
   const { t, i18n } = useTranslation();
   const [isDark, setIsDark] = useState(true);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [langDropdownOpen, setLangDropdownOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -14,24 +15,36 @@ export default function Header() {
     else document.documentElement.classList.remove('dark');
   }, [isDark]);
 
-  const toggleLanguage = () => {
-    const nextLang = i18n.language === 'en' ? 'nl' : i18n.language === 'nl' ? 'fa' : 'en';
-    i18n.changeLanguage(nextLang);
+  const changeLang = (lang) => {
+    i18n.changeLanguage(lang);
+    setLangDropdownOpen(false);
   };
 
   const navLinks = [
-    { key: 'home', path: '/' },
-    { key: 'projects', path: '/projects' },
-    { key: 'skills', path: '/skills' },
-    { key: 'hire_me', path: '/hire-me' },
+    { key: 'home', path: '/', icon: <Home className="w-4 h-4" /> },
+    { key: 'projects', path: '/projects', icon: <Briefcase className="w-4 h-4" /> },
+    { key: 'skills', path: '/skills', icon: <Code className="w-4 h-4" /> },
+    { key: 'hire_me', path: '/hire-me', icon: <Mail className="w-4 h-4" /> },
+    { key: 'legal', path: '/legal', icon: <Scale className="w-4 h-4" /> },
   ];
+
+  const languages = [
+    { code: 'en', label: 'English' },
+    { code: 'nl', label: 'Dutch' },
+    { code: 'fa', label: 'فارسی' },
+  ];
+  
+  const currentLangLabel = languages.find(l => l.code === i18n.language)?.label || 'Language';
 
   return (
     <header className="sticky top-0 z-50 w-full glass">
-      <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-        <Link to="/" className="text-2xl font-black tracking-tighter flex items-center gap-2 group">
-          <Code2 className="w-8 h-8 text-blue-600 dark:text-blue-500 group-hover:rotate-12 transition-transform" />
-          <span>Mahdy<span className="text-blue-600 dark:text-blue-500">.</span></span>
+      <div className="container mx-auto px-4 h-16 flex items-center justify-between relative">
+        <Link to="/" className="flex items-center gap-2 group">
+          {/* Logo Placeholder */}
+          <div className="w-10 h-10 rounded bg-slate-200 dark:bg-slate-800 flex items-center justify-center overflow-hidden border border-slate-300 dark:border-slate-700">
+            <span className="text-xs text-slate-500 font-bold">LOGO</span>
+          </div>
+          <span className="text-2xl font-black tracking-tighter">Mahdy<span className="text-blue-600 dark:text-blue-500">.</span></span>
         </Link>
         
         {/* Desktop Nav */}
@@ -40,17 +53,39 @@ export default function Header() {
             <Link 
               key={link.path} 
               to={link.path} 
-              className={`inline-block hover:-translate-y-0.5 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 ${location.pathname === link.path ? 'text-blue-600 dark:text-blue-400' : 'text-slate-600 dark:text-slate-300'}`}
+              className={`flex items-center gap-1.5 hover:-translate-y-0.5 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 ${location.pathname === link.path ? 'text-blue-600 dark:text-blue-400' : 'text-slate-600 dark:text-slate-300'}`}
             >
-              {t(link.key)}
+              {link.icon}
+              <span>{t(link.key)}</span>
             </Link>
           ))}
         </nav>
 
-        <div className="flex items-center gap-2">
-          <button onClick={toggleLanguage} className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" aria-label="Toggle language">
-            <Globe className="w-5 h-5 text-slate-700 dark:text-slate-300" />
-          </button>
+        <div className="flex items-center gap-2 relative">
+          <div className="relative">
+            <button 
+              onClick={() => setLangDropdownOpen(!langDropdownOpen)} 
+              className="flex items-center gap-1 px-3 py-1.5 text-sm font-medium rounded-lg border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" 
+              aria-label="Toggle language"
+            >
+              <Globe className="w-4 h-4" />
+              <span className="hidden sm:inline">{currentLangLabel}</span>
+              <ChevronDown className={`w-4 h-4 transition-transform ${langDropdownOpen ? 'rotate-180' : ''}`} />
+            </button>
+            {langDropdownOpen && (
+              <div className="absolute right-0 mt-2 w-36 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg shadow-lg py-1 z-50">
+                {languages.map(lang => (
+                  <button
+                    key={lang.code}
+                    onClick={() => changeLang(lang.code)}
+                    className={`w-full text-left px-4 py-2 text-sm hover:bg-slate-100 dark:hover:bg-slate-800 ${i18n.language === lang.code ? 'text-blue-600 font-bold' : 'text-slate-700 dark:text-slate-300'}`}
+                  >
+                    {lang.label}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
           <button onClick={() => setIsDark(!isDark)} className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" aria-label="Toggle theme">
             {isDark ? <Sun className="w-5 h-5 text-slate-300" /> : <Moon className="w-5 h-5 text-slate-700" />}
           </button>
@@ -77,10 +112,11 @@ export default function Header() {
           <Link 
             key={link.path} 
             to={link.path} 
-            className={`text-lg font-semibold block px-4 py-3 rounded-lg transition-all duration-300 hover:translate-x-2 hover:bg-slate-100 dark:hover:bg-slate-800 ${location.pathname === link.path ? 'bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400' : 'text-slate-600 dark:text-slate-300'}`}
+            className={`flex items-center gap-3 text-lg font-semibold px-4 py-3 rounded-lg transition-all duration-300 hover:translate-x-2 hover:bg-slate-100 dark:hover:bg-slate-800 ${location.pathname === link.path ? 'bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400' : 'text-slate-600 dark:text-slate-300'}`}
             onClick={() => setMobileMenuOpen(false)}
           >
-            {t(link.key)}
+            {link.icon}
+            <span>{t(link.key)}</span>
           </Link>
         ))}
       </div>

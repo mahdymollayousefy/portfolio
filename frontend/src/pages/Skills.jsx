@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { fetchSkills } from '../services/api';
-import { Code2, Server, Wrench, Award, CheckCircle, Globe, Terminal } from 'lucide-react';
+import * as LucideIcons from 'lucide-react';
+import { Wrench, Award, CheckCircle, Globe, Terminal } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 export default function Skills() {
@@ -22,18 +23,10 @@ export default function Skills() {
     loadSkills();
   }, []);
 
-  // Group skills by category if data exists
-  const groupedSkills = skills.reduce((acc, skill) => {
-    const category = skill.category || 'Other';
-    if (!acc[category]) acc[category] = [];
-    acc[category].push(skill);
-    return acc;
-  }, {});
-
-  const getCategoryIcon = (category) => {
-    if (category.toLowerCase().includes('backend')) return <Server className="w-6 h-6 text-blue-500" />;
-    if (category.toLowerCase().includes('frontend')) return <Code2 className="w-6 h-6 text-purple-500" />;
-    return <Wrench className="w-6 h-6 text-slate-500" />;
+  const renderIcon = (iconName) => {
+    const IconComponent = LucideIcons[iconName];
+    if (IconComponent) return <IconComponent className="w-5 h-5 text-blue-500" />;
+    return <Wrench className="w-5 h-5 text-slate-500" />;
   };
 
   return (
@@ -53,44 +46,62 @@ export default function Skills() {
           <div className="flex justify-center items-center h-64">
             <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
           </div>
-        ) : Object.keys(groupedSkills).length > 0 ? (
-          <div className="space-y-12">
-            {Object.entries(groupedSkills).map(([category, items], idx) => (
-              <div key={category} className="glass-card p-6 md:p-8 hover:shadow-xl transition-shadow duration-300 animate-slide-up" style={{ animationDelay: `${idx * 100}ms` }}>
-                <div className="flex items-center gap-3 mb-8">
-                  <div className="p-3 bg-slate-100 dark:bg-slate-800 rounded-xl hover:scale-110 transition-transform duration-300">
-                    {getCategoryIcon(category)}
+        ) : skills.length > 0 ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {skills.map((skill, idx) => (
+              <div key={skill.id} className="bg-white dark:bg-slate-900/50 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 hover:-translate-y-1 transition-transform shadow-sm hover:shadow-md animate-slide-up" style={{ animationDelay: `${idx * 50}ms` }}>
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="p-3 bg-slate-100 dark:bg-slate-800 rounded-xl">
+                    {renderIcon(skill.icon)}
                   </div>
-                  <h2 className="text-2xl font-bold text-slate-900 dark:text-white">{category}</h2>
+                  <div>
+                    <h2 className="text-xl font-bold text-slate-900 dark:text-white group-hover:text-blue-600 transition-colors">
+                      {skill.name}
+                    </h2>
+                    <p className="text-sm font-medium text-slate-500 dark:text-slate-400 mt-1 flex items-center gap-1">
+                      <LucideIcons.FolderOpen className="w-4 h-4" /> {skill.category || 'Other'}
+                    </p>
+                  </div>
                 </div>
                 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
-                  {items.map((skill) => (
-                    <div key={skill.id} className="space-y-2 group">
-                      <div className="flex justify-between items-center text-sm font-medium">
-                        <span className="text-slate-700 dark:text-slate-200 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">{skill.name}</span>
-                        <span className="text-slate-500 dark:text-slate-400">{skill.proficiency}%</span>
-                      </div>
-                      <div className="h-2 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
-                        <div 
-                          className="h-full bg-gradient-to-r from-blue-500 to-purple-500 rounded-full group-hover:brightness-110 transition-all"
-                          style={{ width: `${skill.proficiency}%`, transition: 'width 1.5s ease-out' }}
-                        />
-                      </div>
-                    </div>
-                  ))}
-                </div>
+                {skill.description && (
+                  <div className="text-sm text-slate-600 dark:text-slate-400 prose dark:prose-invert" dangerouslySetInnerHTML={{ __html: skill.description }} />
+                )}
               </div>
             ))}
           </div>
         ) : (
-          <div className="text-center py-24 glass-card">
+          <div className="text-center py-24">
             <Wrench className="w-16 h-16 text-slate-300 dark:text-slate-700 mx-auto mb-4 animate-pulse" />
             <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-2">{t('no_skills')}</h3>
             <p className="text-slate-500 dark:text-slate-400">{t('no_skills_desc')}</p>
           </div>
         )}
       </div>
+
+      {/* Certifications Section */}
+      <section className="animate-slide-up" style={{ animationDelay: '250ms' }}>
+        <div className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/10 dark:to-purple-900/10 p-8 rounded-3xl border border-blue-100 dark:border-blue-900/30">
+          <div className="flex items-center gap-4 mb-8">
+            <div className="p-3 bg-white dark:bg-slate-800 rounded-2xl shadow-sm">
+              <Award className="w-8 h-8 text-yellow-500" />
+            </div>
+            <div>
+              <h2 className="text-2xl font-bold text-slate-900 dark:text-white">{t('certs_title')}</h2>
+              <p className="text-slate-600 dark:text-slate-400">{t('certs_desc')}</p>
+            </div>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[1, 2, 3].map((num) => (
+              <div key={num} className="bg-white dark:bg-slate-900 p-6 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800 flex flex-col gap-4 hover:-translate-y-1 transition-transform duration-300 hover:shadow-md">
+                <CheckCircle className="w-8 h-8 text-green-500 shrink-0" />
+                <h4 className="font-semibold text-slate-800 dark:text-slate-200 text-lg leading-tight">{t(`cert_${num}`)}</h4>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 animate-slide-up" style={{ animationDelay: '300ms' }}>
         
@@ -138,26 +149,6 @@ export default function Skills() {
         </section>
 
       </div>
-
-      {/* Certifications Section */}
-      <section className="py-12 border-t border-slate-200 dark:border-slate-800 animate-slide-up" style={{ animationDelay: '400ms' }}>
-        <div className="text-center space-y-4 mb-12">
-          <h2 className="text-3xl font-bold text-slate-900 dark:text-white flex items-center justify-center gap-3">
-            <Award className="w-8 h-8 text-yellow-500" /> {t('certs_title')}
-          </h2>
-          <p className="text-slate-600 dark:text-slate-400">{t('certs_desc')}</p>
-        </div>
-        
-        <div className="flex flex-col gap-4 max-w-2xl mx-auto">
-          {[1, 2, 3].map((num) => (
-            <div key={num} className="glass-card p-4 px-6 flex items-center gap-4 hover:-translate-y-1 transition-transform duration-300 hover:shadow-lg">
-              <CheckCircle className="w-6 h-6 text-green-500 shrink-0" />
-              <h4 className="font-semibold text-slate-800 dark:text-slate-200">{t(`cert_${num}`)}</h4>
-            </div>
-          ))}
-        </div>
-      </section>
-
     </div>
   );
 }
