@@ -70,6 +70,14 @@ export default function Home() {
         </div>
       </section>
 
+      {/* About Me Section */}
+      <section className="py-12 animate-slide-up bg-slate-50 dark:bg-slate-900/50 rounded-3xl mx-4 lg:mx-0" style={{ animationDelay: '220ms' }}>
+        <div className="max-w-4xl mx-auto px-6 py-8 space-y-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white">{t('about_me_title')}</h2>
+          <p className="text-slate-600 dark:text-slate-400 text-lg leading-relaxed">{t('about_me_desc')}</p>
+        </div>
+      </section>
+
       {/* Quick Stats Section */}
       <section className="py-8 animate-slide-up border-b border-slate-200 dark:border-slate-800" style={{ animationDelay: '250ms' }}>
         <div className="flex flex-col md:flex-row justify-around items-center gap-8 max-w-4xl mx-auto py-8">

@@ -1,5 +1,7 @@
 export default {
   en: {
+    about_me_title: "About Me",
+    about_me_desc: "I am a dedicated software engineer with a strong background in developing scalable applications. I enjoy tackling complex technical challenges and delivering high-quality solutions.",
     available: "Available for new opportunities",
     title_part1: "Building scalable",
     title_part2: "SaaS platforms",
@@ -44,6 +46,8 @@ export default {
     deployment_desc: "Containerizing and releasing with zero downtime.",
   },
   nl: {
+    about_me_title: "Over Mij",
+    about_me_desc: "Ik ben een toegewijde software engineer met een sterke achtergrond in het ontwikkelen van schaalbare applicaties. Ik ga graag complexe technische uitdagingen aan en lever hoogwaardige oplossingen.",
     available: "Beschikbaar voor nieuwe kansen",
     title_part1: "Schaalbare",
     title_part2: "SaaS platforms bouwen",
@@ -88,6 +92,8 @@ export default {
     deployment_desc: "Containeriseren en uitbrengen zonder downtime.",
   },
   fa: {
+    about_me_title: "درباره من",
+    about_me_desc: "من یک مهندس نرم‌افزار متعهد با سابقه قوی در توسعه برنامه‌های مقیاس‌پذیر هستم. از مقابله با چالش‌های پیچیده فنی و ارائه راه‌حل‌های با کیفیت بالا لذت می‌برم.",
     available: "آماده برای فرصت‌های جدید",
     title_part1: "ساخت پلتفرم‌های",
     title_part2: "مقیاس‌پذیر SaaS",
@@ -132,6 +138,8 @@ export default {
     deployment_desc: "کانتینرسازی و انتشار بدون قطعی.",
   },
   de: {
+    about_me_title: "Über mich",
+    about_me_desc: "Ich bin ein engagierter Softwareentwickler mit einem starken Hintergrund in der Entwicklung skalierbarer Anwendungen. Ich stelle mich gerne komplexen technischen Herausforderungen und liefere qualitativ hochwertige Lösungen.",
     available: "Verfügbar für neue Möglichkeiten",
     title_part1: "Entwicklung skalierbarer",
     title_part2: "SaaS-Plattformen",
