@@ -25,7 +25,7 @@ const mergeTranslations = (langs, ...localesArray) => {
 };
 
 const resources = mergeTranslations(
-  ['en', 'nl', 'fa'],
+  ['en', 'nl', 'fa', 'de'],
   headerLocales,
   footerLocales,
   homeLocales,

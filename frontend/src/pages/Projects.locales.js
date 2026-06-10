@@ -43,5 +43,20 @@ export default {
     filter_fullstack: "فول استک",
     capabilities_title: "توانمندی‌های فنی",
     capabilities_desc: "استفاده از فناوری‌های پیشرفته برای حل مسائل پیچیده.",
+  },
+  de: {
+    title_part1: "Ausgewählte",
+    title_part2: "Projekte",
+    desc: "Eine Auswahl meiner besten Arbeiten, die meine Expertise in Backend-Architektur, Full-Stack-Entwicklung und skalierbarem Systemdesign zeigen.",
+    no_projects: "Keine Projekte gefunden",
+    no_projects_desc: "Projekte werden hier angezeigt, sobald sie im Backend hinzugefügt wurden.",
+    code: "Code",
+    live_demo: "Live-Demo",
+    filter_all: "Alle Projekte",
+    filter_frontend: "Frontend",
+    filter_backend: "Backend",
+    filter_fullstack: "Full Stack",
+    capabilities_title: "Technische Fähigkeiten",
+    capabilities_desc: "Nutzung modernster Technologien zur Lösung komplexer Probleme.",
   }
 };

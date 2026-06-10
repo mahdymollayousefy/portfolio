@@ -19,5 +19,12 @@ export default {
     systems_online: "سیستم‌ها آنلاین",
     systems_offline: "سیستم‌ها آفلاین",
     checking: "در حال بررسی...",
+  },
+  de: {
+    all_rights_reserved: "Alle Rechte vorbehalten.",
+    tagline: "Entwicklung robuster Backend-Systeme & schöner Frontends.",
+    systems_online: "Systeme Online",
+    systems_offline: "Systeme Offline",
+    checking: "Überprüfung...",
   }
 };
