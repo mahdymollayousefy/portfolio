@@ -2,8 +2,9 @@ const API_BASE_URL = 'http://localhost:8000/api';
 
 export const fetchProjects = async () => {
   try {
-    const response = await fetch(`${API_BASE_URL}/projects/`);
-    return await response.json();
+    const response = await fetch(`${API_BASE_URL}/projects/?page_size=50`);
+    const data = await response.json();
+    return data.results ? data.results : data;
   } catch (error) {
     console.error('Error fetching projects:', error);
     return [];
