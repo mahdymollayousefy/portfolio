@@ -13,7 +13,8 @@ export default function HireMe() {
     email: '',
     phone: '',
     budget: '',
-    project_description: ''
+    project_description: '',
+    hp_field: ''
   });
 
   const handleChange = (e) => {
@@ -22,11 +23,20 @@ export default function HireMe() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    // Honeypot spam protection
+    if (formData.hp_field) {
+      console.log("Bot detected!");
+      return;
+    }
+
     setStatus('loading');
     setErrorMessage('');
     
     try {
-      await submitHireRequest(formData);
+      // Exclude hp_field from submission
+      const { hp_field, ...submitData } = formData;
+      await submitHireRequest(submitData);
       setStatus('success');
       setFormData({ name: '', email: '', phone: '', budget: '', project_description: '' });
     } catch (error) {
@@ -136,6 +146,18 @@ export default function HireMe() {
                   <p>{errorMessage}</p>
                 </div>
               )}
+
+              {/* Honeypot field (invisible to users) */}
+              <div className="hidden" aria-hidden="true">
+                <input 
+                  type="text" 
+                  name="hp_field" 
+                  tabIndex="-1" 
+                  autoComplete="off" 
+                  value={formData.hp_field} 
+                  onChange={handleChange} 
+                />
+              </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">

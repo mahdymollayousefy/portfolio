@@ -88,8 +88,28 @@ export default function Projects() {
         )}
 
         {loading ? (
-          <div className="flex justify-center items-center h-64">
-            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {Array.from({ length: 6 }).map((_, i) => (
+              <div key={i} className="flex flex-col bg-white dark:bg-slate-900 rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 animate-pulse">
+                <div className="h-64 bg-slate-200 dark:bg-slate-800"></div>
+                <div className="p-8 flex-1 flex flex-col space-y-4">
+                  <div className="h-8 bg-slate-200 dark:bg-slate-800 rounded w-3/4"></div>
+                  <div className="space-y-2">
+                    <div className="h-4 bg-slate-200 dark:bg-slate-800 rounded"></div>
+                    <div className="h-4 bg-slate-200 dark:bg-slate-800 rounded w-5/6"></div>
+                    <div className="h-4 bg-slate-200 dark:bg-slate-800 rounded w-4/6"></div>
+                  </div>
+                  <div className="flex gap-2 mb-6">
+                    <div className="h-8 w-16 bg-slate-200 dark:bg-slate-800 rounded-lg"></div>
+                    <div className="h-8 w-20 bg-slate-200 dark:bg-slate-800 rounded-lg"></div>
+                  </div>
+                  <div className="grid grid-cols-2 gap-4 mt-auto pt-6 border-t border-slate-100 dark:border-slate-800">
+                    <div className="h-12 bg-slate-200 dark:bg-slate-800 rounded-xl"></div>
+                    <div className="h-12 bg-slate-200 dark:bg-slate-800 rounded-xl"></div>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         ) : currentProjects.length > 0 ? (
           <>
@@ -98,7 +118,7 @@ export default function Projects() {
                 <div key={project.id} className="flex flex-col bg-white dark:bg-slate-900 rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 transition-all duration-300">
                   <div className="relative h-64 overflow-hidden bg-slate-100 dark:bg-slate-800">
                     {project.images && project.images.length > 0 ? (
-                      <img src={project.images[0].image} alt={project.title} className="w-full h-full object-cover" />
+                      <img src={project.images[0].image} alt={project.title} loading="lazy" className="w-full h-full object-cover" />
                     ) : (
                       <div className="absolute inset-0 flex items-center justify-center text-slate-400 dark:text-slate-600">
                         {project.icon ? <i className={`${project.icon} text-5xl opacity-50`} /> : <Code2 className="w-16 h-16 opacity-50" />}

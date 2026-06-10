@@ -47,8 +47,22 @@ export default function Skills() {
 
       <div className="animate-slide-up" style={{ animationDelay: '200ms' }}>
         {loading ? (
-          <div className="flex justify-center items-center h-64">
-            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+          <div className="grid grid-cols-1 gap-6">
+            {Array.from({ length: 4 }).map((_, idx) => (
+              <div key={idx} className="bg-white dark:bg-slate-900/50 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 animate-pulse">
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="p-3 w-14 h-14 bg-slate-200 dark:bg-slate-800 rounded-xl"></div>
+                  <div className="flex-1 space-y-2 py-1">
+                    <div className="h-5 bg-slate-200 dark:bg-slate-800 rounded w-1/4"></div>
+                    <div className="h-4 bg-slate-200 dark:bg-slate-800 rounded w-1/6"></div>
+                  </div>
+                </div>
+                <div className="space-y-2 mt-4">
+                  <div className="h-4 bg-slate-200 dark:bg-slate-800 rounded w-full"></div>
+                  <div className="h-4 bg-slate-200 dark:bg-slate-800 rounded w-5/6"></div>
+                </div>
+              </div>
+            ))}
           </div>
         ) : skills.length > 0 ? (
           <div className="grid grid-cols-1 gap-6">

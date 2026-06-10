@@ -77,6 +77,8 @@ export default function Header() {
               onClick={() => setLangDropdownOpen(!langDropdownOpen)} 
               className="flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium rounded-lg border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" 
               aria-label="Toggle language"
+              aria-haspopup="true"
+              aria-expanded={langDropdownOpen}
             >
               <span>{currentLang.flag}</span>
               <span className="hidden sm:inline">{currentLang.label}</span>
