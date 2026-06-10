@@ -73,9 +73,10 @@ LANGUAGES = (
     ('en', _('English')),
     ('nl', _('Dutch')),
     ('fa', _('Persian')),
+    ('de', _('German')),
 )
 MODELTRANSLATION_DEFAULT_LANGUAGE = 'en'
-MODELTRANSLATION_FALLBACK_LANGUAGES = ('en', 'nl', 'fa')
+MODELTRANSLATION_FALLBACK_LANGUAGES = ('en', 'nl', 'fa', 'de')
 MODELTRANSLATION_CUSTOM_FIELDS = ('CKEditor5Field',)
 
 TIME_ZONE = 'UTC'
