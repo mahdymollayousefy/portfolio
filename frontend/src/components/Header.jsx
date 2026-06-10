@@ -41,6 +41,7 @@ export default function Header() {
     { code: 'en', label: 'English' },
     { code: 'nl', label: 'Dutch' },
     { code: 'fa', label: 'فارسی' },
+    { code: 'de', label: 'Deutsch' },
   ];
   
   const currentLangLabel = languages.find(l => l.code === i18n.language)?.label || 'Language';
