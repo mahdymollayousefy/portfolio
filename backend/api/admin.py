@@ -1,27 +1,28 @@
 from django.contrib import admin
+from unfold.admin import ModelAdmin, TabularInline
 from modeltranslation.admin import TranslationAdmin
 from .models import Skill, ProjectCategory, TechStack, Project, ProjectImage, HireMeRequest
 
 @admin.register(ProjectCategory)
-class ProjectCategoryAdmin(admin.ModelAdmin):
+class ProjectCategoryAdmin(ModelAdmin):
     list_display = ('name', 'icon')
 
 @admin.register(TechStack)
-class TechStackAdmin(admin.ModelAdmin):
+class TechStackAdmin(ModelAdmin):
     list_display = ('name', 'icon')
 
 @admin.register(Skill)
-class SkillAdmin(TranslationAdmin):
+class SkillAdmin(ModelAdmin, TranslationAdmin):
     list_display = ('name', 'category', 'icon')
     list_filter = ('category',)
     search_fields = ('name',)
 
-class ProjectImageInline(admin.TabularInline):
+class ProjectImageInline(TabularInline):
     model = ProjectImage
     extra = 1
 
 @admin.register(Project)
-class ProjectAdmin(TranslationAdmin):
+class ProjectAdmin(ModelAdmin, TranslationAdmin):
     list_display = ('title', 'category', 'created_at', 'github_link', 'estimated_price')
     list_filter = ('category',)
     prepopulated_fields = {'slug': ('title',)}
@@ -30,7 +31,7 @@ class ProjectAdmin(TranslationAdmin):
     inlines = [ProjectImageInline]
 
 @admin.register(HireMeRequest)
-class HireMeRequestAdmin(admin.ModelAdmin):
+class HireMeRequestAdmin(ModelAdmin):
     list_display = ('name', 'email', 'phone', 'budget', 'status', 'created_at')
     list_filter = ('status', 'created_at')
     search_fields = ('name', 'email', 'phone', 'project_description')
