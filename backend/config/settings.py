@@ -87,7 +87,72 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATICFILES_DIRS = [BASE_DIR / 'static']
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+from django.urls import reverse_lazy
+
+UNFOLD = {
+    "SITE_TITLE": "Portfolio Admin",
+    "SITE_HEADER": "Portfolio Control Panel",
+    "SITE_ICON": lambda request: "code",
+    "SIDEBAR": {
+        "show_search": True,
+        "show_all_applications": False,
+        "navigation": [
+            {
+                "title": "Portfolio Management",
+                "separator": True,
+                "items": [
+                    {
+                        "title": "Projects",
+                        "icon": "work",
+                        "link": reverse_lazy("admin:api_project_changelist"),
+                    },
+                    {
+                        "title": "Skills",
+                        "icon": "military_tech",
+                        "link": reverse_lazy("admin:api_skill_changelist"),
+                    },
+                    {
+                        "title": "Categories",
+                        "icon": "category",
+                        "link": reverse_lazy("admin:api_projectcategory_changelist"),
+                    },
+                    {
+                        "title": "Tech Stacks",
+                        "icon": "layers",
+                        "link": reverse_lazy("admin:api_techstack_changelist"),
+                    },
+                    {
+                        "title": "Hire Requests",
+                        "icon": "mail",
+                        "link": reverse_lazy("admin:api_hiremerequest_changelist"),
+                    },
+                ],
+            },
+            {
+                "title": "System",
+                "separator": True,
+                "items": [
+                    {
+                        "title": "Users",
+                        "icon": "person",
+                        "link": reverse_lazy("admin:auth_user_changelist"),
+                    },
+                    {
+                        "title": "Groups",
+                        "icon": "group",
+                        "link": reverse_lazy("admin:auth_group_changelist"),
+                    },
+                ]
+            }
+        ],
+    },
+    "STYLES": [
+        lambda request: request.build_absolute_uri("/static/css/admin_custom.css"),
+    ],
+}
 
 if DEBUG:
     CORS_ALLOW_ALL_ORIGINS = True

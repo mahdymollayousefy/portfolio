@@ -1,0 +1,48 @@
+@keyframes fadeInSlide {
+    0% { opacity: 0; transform: translateY(15px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Apply animation to the main content area */
+#main {
+    animation: fadeInSlide 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Increase general font visibility */
+body {
+    font-weight: 500;
+}
+
+table td, table th {
+    font-size: 14.5px !important;
+    letter-spacing: 0.01em;
+}
+
+/* Add a subtle slide animation to sidebar links on hover */
+nav a {
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    transform: translateX(6px);
+    opacity: 1;
+}
+
+/* Enhance form input visibility */
+input, textarea, select {
+    font-size: 15px !important;
+    font-weight: 500 !important;
+    transition: all 0.2s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3) !important;
+}
+
+/* Row hover effect on tables */
+tbody tr {
+    transition: background-color 0.2s ease;
+}
+tbody tr:hover {
+    background-color: rgba(59, 130, 246, 0.05) !important;
+}
