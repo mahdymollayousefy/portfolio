@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import { fetchProjects, fetchProjectCategories } from '../services/api';
 import { Link } from 'react-router-dom';
-import { Code, ExternalLink, Code2, ShieldCheck, ServerCog, Cpu, Filter } from 'lucide-react';
+import { Search, Code2, ExternalLink, Code, Database, Globe, Eye, Filter } from 'lucide-react';
+import * as LucideIcons from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 export default function Projects() {
@@ -92,54 +93,65 @@ export default function Projects() {
           </div>
         ) : currentProjects.length > 0 ? (
           <>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {currentProjects.map((project, idx) => (
-                <div key={project.id} className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl overflow-hidden group flex flex-col h-full hover:-translate-y-2 transition-transform duration-300 hover:shadow-xl animate-slide-up" style={{ animationDelay: `${(idx % 2) * 100}ms` }}>
-                  {/* Image Placeholder or Actual Image */}
-                  <Link to={`/projects/${project.slug}`} className="h-56 w-full bg-slate-100 dark:bg-slate-800 relative overflow-hidden block">
-                    <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/10 to-purple-500/10 group-hover:scale-105 transition-transform duration-500"></div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {currentProjects.map(project => (
+                <div key={project.id} className="flex flex-col bg-white dark:bg-slate-900 rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 transition-all duration-300">
+                  <div className="relative h-64 overflow-hidden bg-slate-100 dark:bg-slate-800">
                     {project.images && project.images.length > 0 ? (
-                      <img src={project.images[0].image} alt={project.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                      <img src={project.images[0].image} alt={project.title} className="w-full h-full object-cover" />
                     ) : (
-                      <div className="absolute inset-0 flex items-center justify-center text-slate-400 dark:text-slate-600 group-hover:scale-110 transition-transform duration-500">
+                      <div className="absolute inset-0 flex items-center justify-center text-slate-400 dark:text-slate-600">
                         {project.icon ? <i className={`${project.icon} text-5xl opacity-50`} /> : <Code2 className="w-16 h-16 opacity-50" />}
                       </div>
                     )}
-                  </Link>
+                  </div>
                 
                   <div className="p-8 flex-1 flex flex-col">
                     <div className="flex justify-between items-start mb-2">
-                      <Link to={`/projects/${project.slug}`} className="text-2xl font-bold text-slate-900 dark:text-white group-hover:text-blue-500 transition-colors">
+                      <h3 className="text-2xl font-bold text-slate-900 dark:text-white">
                         {project.title}
-                      </Link>
+                      </h3>
                       {project.estimated_price && (
                         <span className="inline-flex items-center px-3 py-1 rounded-full bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-sm font-bold whitespace-nowrap">
-                          ${project.estimated_price}
+                          {t('estimated_price', 'Estimated Price')}: ${project.estimated_price}
                         </span>
                       )}
                     </div>
                     
                     <div className="text-slate-600 dark:text-slate-400 text-base mb-6 flex-1 prose dark:prose-invert line-clamp-3" dangerouslySetInnerHTML={{ __html: project.description }} />
                     
-                    {project.tech_stack && (
+                    {project.tech_stacks_detail && project.tech_stacks_detail.length > 0 && (
                       <div className="flex flex-wrap gap-2 mb-6">
-                        {project.tech_stack.split(',').map((tech, i) => tech.trim() && (
-                          <span key={i} className="px-3 py-1.5 text-xs font-semibold rounded-lg bg-blue-50 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300 border border-blue-100 dark:border-blue-800 cursor-default">
-                            {tech.trim()}
-                          </span>
+                        {project.tech_stacks_detail.map((tech) => (
+                          <div key={tech.id} className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg bg-blue-50 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300 border border-blue-100 dark:border-blue-800 cursor-default">
+                            {tech.icon && (
+                               tech.icon.startsWith('devicon-') || tech.icon.startsWith('fas ') ? (
+                                <i className={`${tech.icon} text-sm`} />
+                              ) : (
+                                LucideIcons[tech.icon] ? (() => {
+                                  const IconComponent = LucideIcons[tech.icon];
+                                  return <IconComponent className="w-3.5 h-3.5" />;
+                                })() : <Code2 className="w-3.5 h-3.5" />
+                              )
+                            )}
+                            {tech.name}
+                          </div>
                         ))}
                       </div>
                     )}
                     
-                    <div className="flex items-center gap-6 mt-auto pt-6 border-t border-slate-100 dark:border-slate-800">
+                    <div className="grid grid-cols-2 gap-4 mt-auto pt-6 border-t border-slate-100 dark:border-slate-800">
+                      <Link to={`/projects/${project.slug}`} className="w-full py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold flex items-center justify-center gap-2 transition-all shadow-lg shadow-blue-500/30">
+                        <Eye className="w-4 h-4" /> {t('view', 'View')}
+                      </Link>
                       {project.github_link && (
-                        <a href={project.github_link} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm font-bold text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors group/link hover:translate-x-1">
-                          <Code className="w-5 h-5 group-hover/link:text-blue-500 transition-colors" /> {t('code')}
+                        <a href={project.github_link} target="_blank" rel="noopener noreferrer" className="w-full py-3 rounded-xl bg-pink-600 hover:bg-pink-700 text-white font-bold flex items-center justify-center gap-2 transition-all shadow-lg shadow-pink-500/30">
+                          <Code className="w-4 h-4" /> {t('code')}
                         </a>
                       )}
                       {project.live_link && (
-                        <a href={project.live_link} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm font-bold text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition-colors group/link hover:translate-x-1">
-                          <ExternalLink className="w-5 h-5 group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5 transition-transform" /> {t('live_demo')}
+                        <a href={project.live_link} target="_blank" rel="noopener noreferrer" className="w-full py-3 rounded-xl bg-green-600 hover:bg-green-700 text-white font-bold flex items-center justify-center gap-2 transition-all shadow-lg shadow-green-500/30">
+                          <ExternalLink className="w-4 h-4" /> {t('live_demo')}
                         </a>
                       )}
                     </div>

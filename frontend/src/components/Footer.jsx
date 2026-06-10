@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Mail, Home, Code2, Briefcase, ShieldCheck, Send } from 'lucide-react';
-import { GithubIcon, LinkedinIcon, TelegramIcon } from './SocialIcons';
+import { GithubIcon, LinkedinIcon } from './SocialIcons';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import api from '../services/api';
@@ -73,7 +73,7 @@ export default function Footer() {
             <span className="font-medium">LinkedIn</span>
           </a>
           <a href="https://t.me/mahdymollayousefy" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-4 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 hover:text-slate-900 dark:hover:text-white transition-all hover:-translate-y-1">
-            <TelegramIcon className="w-5 h-5" />
+            <Send className="w-5 h-5 -translate-y-0.5 translate-x-0.5" />
             <span className="font-medium">Telegram</span>
           </a>
           <a href="mailto:contact@example.com" className="flex items-center gap-2 px-4 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 hover:text-slate-900 dark:hover:text-white transition-all hover:-translate-y-1">

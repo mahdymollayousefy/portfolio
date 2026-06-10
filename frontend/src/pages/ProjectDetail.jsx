@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { fetchProjectBySlug } from '../services/api';
-import { ArrowLeft, Code, ExternalLink, Calendar, DollarSign, Layers } from 'lucide-react';
+import { ArrowLeft, Code, ExternalLink, Calendar, DollarSign, Layers, ChevronLeft, ChevronRight } from 'lucide-react';
 import * as LucideIcons from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { Carousel } from 'react-responsive-carousel';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 export default function ProjectDetail() {
   const { slug } = useParams();
@@ -45,6 +47,9 @@ export default function ProjectDetail() {
   }
 
   const renderIcon = (iconName) => {
+    if (iconName.startsWith('devicon-') || iconName.startsWith('fas ')) {
+      return <i className={`${iconName} w-8 h-8 opacity-50`} />;
+    }
     const IconComponent = LucideIcons[iconName];
     if (IconComponent) return <IconComponent className="w-8 h-8 opacity-50" />;
     return <Layers className="w-8 h-8 opacity-50" />;
@@ -65,7 +70,7 @@ export default function ProjectDetail() {
           )}
           {project.estimated_price && (
             <span className="flex items-center gap-1 px-4 py-1.5 rounded-full bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-sm font-bold tracking-wide">
-              <DollarSign className="w-4 h-4" /> {project.estimated_price}
+              <DollarSign className="w-4 h-4" /> {t('estimated_price', 'Estimated Price')}: {project.estimated_price}
             </span>
           )}
           <span className="flex items-center gap-2 text-sm font-medium text-slate-500 dark:text-slate-400">
@@ -91,33 +96,73 @@ export default function ProjectDetail() {
         </div>
       </div>
 
-      <div className="h-64 md:h-96 w-full bg-slate-100 dark:bg-slate-800 rounded-3xl overflow-hidden relative border border-slate-200 dark:border-slate-700">
-        <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/10 to-purple-500/10"></div>
+      <div className="w-full bg-slate-100 dark:bg-slate-800 rounded-3xl overflow-hidden relative border border-slate-200 dark:border-slate-700">
         {project.images && project.images.length > 0 ? (
-          <img src={project.images[0].image} alt={project.title} className="w-full h-full object-cover" />
+          <Carousel 
+            showThumbs={false} 
+            showStatus={false}
+            dynamicHeight={false} 
+            swipeable={true} 
+            emulateTouch={true} 
+            infiniteLoop={true}
+            renderArrowPrev={(onClickHandler, hasPrev, label) =>
+              hasPrev && (
+                <button type="button" onClick={onClickHandler} title={label} className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 flex items-center justify-center bg-white/80 dark:bg-slate-900/80 hover:bg-white dark:hover:bg-slate-900 text-slate-800 dark:text-white rounded-full shadow-lg transition-all backdrop-blur-sm">
+                  <ChevronLeft className="w-6 h-6" />
+                </button>
+              )
+            }
+            renderArrowNext={(onClickHandler, hasNext, label) =>
+              hasNext && (
+                <button type="button" onClick={onClickHandler} title={label} className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 flex items-center justify-center bg-white/80 dark:bg-slate-900/80 hover:bg-white dark:hover:bg-slate-900 text-slate-800 dark:text-white rounded-full shadow-lg transition-all backdrop-blur-sm">
+                  <ChevronRight className="w-6 h-6" />
+                </button>
+              )
+            }
+          >
+            {project.images.map((img, i) => (
+              <div key={i} className="h-64 md:h-96 w-full relative">
+                <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/10 to-purple-500/10 z-10 pointer-events-none"></div>
+                <img src={img.image} alt={`${project.title} - ${i + 1}`} className="w-full h-full object-cover" />
+              </div>
+            ))}
+          </Carousel>
         ) : (
-          <div className="absolute inset-0 flex items-center justify-center text-slate-400 dark:text-slate-600">
-             {renderIcon(project.icon)}
+          <div className="w-full h-64 md:h-96 relative">
+            <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/10 to-purple-500/10"></div>
+            <div className="absolute inset-0 flex items-center justify-center text-slate-400 dark:text-slate-600">
+               {renderIcon(project.icon)}
+            </div>
           </div>
         )}
       </div>
 
-      {project.tech_stack && (
-        <div className="p-8 bg-slate-50 dark:bg-slate-900/50 rounded-3xl border border-slate-200 dark:border-slate-800">
+      {project.tech_stacks_detail && project.tech_stacks_detail.length > 0 && (
+        <div className="py-4">
           <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
             <Layers className="w-5 h-5 text-blue-500" /> Tech Stack
           </h3>
-          <div className="flex flex-wrap gap-2">
-            {project.tech_stack.split(',').map((tech, i) => tech.trim() && (
-              <span key={i} className="px-4 py-2 text-sm font-semibold rounded-xl bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 shadow-sm cursor-default hover:scale-105 transition-transform">
-                {tech.trim()}
+          <div className="flex flex-wrap gap-3">
+            {project.tech_stacks_detail.map((tech) => (
+              <span key={tech.id} className="flex items-center gap-2 px-4 py-2 text-sm font-semibold rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 cursor-default transition-transform hover:scale-105">
+                {tech.icon && (
+                   tech.icon.startsWith('devicon-') || tech.icon.startsWith('fas ') ? (
+                    <i className={`${tech.icon} text-lg`} />
+                  ) : (
+                    LucideIcons[tech.icon] ? (() => {
+                      const IconComponent = LucideIcons[tech.icon];
+                      return <IconComponent className="w-5 h-5" />;
+                    })() : <Layers className="w-5 h-5" />
+                  )
+                )}
+                {tech.name}
               </span>
             ))}
           </div>
         </div>
       )}
 
-      <div className="prose dark:prose-invert max-w-none p-8 bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm">
+      <div className="prose dark:prose-invert max-w-none text-slate-700 dark:text-slate-300">
         <div dangerouslySetInnerHTML={{ __html: project.description }} />
       </div>
     </div>

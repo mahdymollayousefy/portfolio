@@ -1,13 +1,17 @@
-# backend/api/admin.py
 from django.contrib import admin
-from .models import Skill, ProjectCategory, Project, ProjectImage, HireMeRequest
+from modeltranslation.admin import TranslationAdmin
+from .models import Skill, ProjectCategory, TechStack, Project, ProjectImage, HireMeRequest
 
 @admin.register(ProjectCategory)
 class ProjectCategoryAdmin(admin.ModelAdmin):
     list_display = ('name', 'icon')
 
+@admin.register(TechStack)
+class TechStackAdmin(admin.ModelAdmin):
+    list_display = ('name', 'icon')
+
 @admin.register(Skill)
-class SkillAdmin(admin.ModelAdmin):
+class SkillAdmin(TranslationAdmin):
     list_display = ('name', 'category', 'icon')
     list_filter = ('category',)
     search_fields = ('name',)
@@ -17,11 +21,11 @@ class ProjectImageInline(admin.TabularInline):
     extra = 1
 
 @admin.register(Project)
-class ProjectAdmin(admin.ModelAdmin):
+class ProjectAdmin(TranslationAdmin):
     list_display = ('title', 'category', 'created_at', 'github_link', 'estimated_price')
     list_filter = ('category',)
     prepopulated_fields = {'slug': ('title',)}
-    search_fields = ('title', 'tech_stack')
+    search_fields = ('title',)
     ordering = ('-created_at',)
     inlines = [ProjectImageInline]
 

@@ -24,9 +24,13 @@ export default function Skills() {
   }, []);
 
   const renderIcon = (iconName) => {
+    if (!iconName) return <LucideIcons.Wrench className="w-8 h-8 opacity-50 text-slate-500" />;
+    if (iconName.startsWith('devicon-') || iconName.startsWith('fas ')) {
+      return <i className={`${iconName} text-4xl text-slate-500`} />;
+    }
     const IconComponent = LucideIcons[iconName];
-    if (IconComponent) return <IconComponent className="w-5 h-5 text-blue-500" />;
-    return <Wrench className="w-5 h-5 text-slate-500" />;
+    if (IconComponent) return <IconComponent className="w-8 h-8 opacity-50 text-slate-500" />;
+    return <LucideIcons.Wrench className="w-8 h-8 opacity-50 text-slate-500" />;
   };
 
   return (
@@ -47,7 +51,7 @@ export default function Skills() {
             <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
           </div>
         ) : skills.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 gap-6">
             {skills.map((skill, idx) => (
               <div key={skill.id} className="bg-white dark:bg-slate-900/50 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 hover:-translate-y-1 transition-transform shadow-sm hover:shadow-md animate-slide-up" style={{ animationDelay: `${idx * 50}ms` }}>
                 <div className="flex items-start gap-4 mb-4">
@@ -92,7 +96,7 @@ export default function Skills() {
             </div>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 gap-6">
             {[1, 2, 3].map((num) => (
               <div key={num} className="bg-white dark:bg-slate-900 p-6 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800 flex flex-col gap-4 hover:-translate-y-1 transition-transform duration-300 hover:shadow-md">
                 <CheckCircle className="w-8 h-8 text-green-500 shrink-0" />

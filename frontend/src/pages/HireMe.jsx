@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { submitHireRequest } from '../services/api';
+import { PhoneInput } from 'react-international-phone';
+import 'react-international-phone/style.css';
 import { Send, CheckCircle2, AlertCircle, Mail, MapPin, Briefcase, Clock, CalendarDays, Code2, Users, MessageCircle } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { GithubIcon, LinkedinIcon, TelegramIcon } from '../components/SocialIcons';
@@ -9,26 +11,24 @@ export default function HireMe() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    project_description: '',
+    phone: '',
     budget: '',
+    project_description: ''
   });
-  const [status, setStatus] = useState('idle'); // idle, loading, success, error
-  const [errorMessage, setErrorMessage] = useState('');
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus('loading');
     setErrorMessage('');
-
+    
     try {
       await submitHireRequest(formData);
       setStatus('success');
-      setFormData({ name: '', email: '', project_description: '', budget: '' });
+      setFormData({ name: '', email: '', phone: '', budget: '', project_description: '' });
     } catch (error) {
       setStatus('error');
       setErrorMessage(error.response?.data?.message || 'Something went wrong. Please try again.');
@@ -36,8 +36,8 @@ export default function HireMe() {
   };
 
   return (
-    <div className="max-w-6xl mx-auto space-y-24 pb-12 animate-fade-in">
-      <div className="text-center space-y-4 pt-8">
+    <div className="max-w-6xl mx-auto py-12 px-4 animate-fade-in overflow-x-hidden">
+      <div className="text-center space-y-4 mb-16">
         <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white animate-slide-up">
           {t('title_part1')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">{t('title_part2')}</span>
         </h1>
@@ -78,8 +78,8 @@ export default function HireMe() {
               </div>
 
               <div className="flex items-start gap-4 group">
-                <div className="bg-sky-50 dark:bg-sky-900/30 p-3 rounded-xl text-sky-600 dark:text-sky-400 group-hover:scale-110 transition-transform">
-                  <TelegramIcon className="w-6 h-6" />
+                <div className="bg-blue-50 dark:bg-blue-900/30 p-3 rounded-xl text-blue-600 dark:text-blue-400 group-hover:scale-110 transition-transform shadow-sm">
+                  <Send className="w-6 h-6 -translate-y-0.5 translate-x-0.5" />
                 </div>
                 <div>
                   <h4 className="text-sm font-semibold text-slate-500 dark:text-slate-400">Telegram</h4>
@@ -147,7 +147,7 @@ export default function HireMe() {
                     required
                     value={formData.name}
                     onChange={handleChange}
-                    placeholder="John Doe"
+                    placeholder={t('placeholder_name', 'John Doe')}
                     className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all outline-none text-slate-900 dark:text-white hover:border-slate-300 dark:hover:border-slate-600"
                   />
                 </div>
@@ -161,10 +161,31 @@ export default function HireMe() {
                     required
                     value={formData.email}
                     onChange={handleChange}
-                    placeholder="john@example.com"
+                    placeholder={t('placeholder_email', 'john@example.com')}
                     className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all outline-none text-slate-900 dark:text-white hover:border-slate-300 dark:hover:border-slate-600"
                   />
                 </div>
+              </div>
+
+              <div className="space-y-2">
+                <label htmlFor="phone" className="text-sm font-medium text-slate-700 dark:text-slate-300">{t('phone')}</label>
+                <PhoneInput
+                  defaultCountry="us"
+                  value={formData.phone}
+                  onChange={(phone) => setFormData({ ...formData, phone })}
+                  className="w-full rounded-xl bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 focus-within:ring-2 focus-within:ring-blue-500/50 focus-within:border-blue-500 transition-all hover:border-slate-300 dark:hover:border-slate-600 relative"
+                  inputClassName="!w-full !border-none !bg-transparent !text-slate-900 dark:!text-white !outline-none !shadow-none !h-[50px] !px-4 !text-base rounded-r-xl"
+                  countrySelectorStyleProps={{
+                    buttonClassName: "!border-none !bg-transparent !h-[50px] !pl-4 !pr-2",
+                    dropdownClassName: "!w-72 dark:!bg-slate-800 dark:!text-white",
+                    dropdownStyleProps: {
+                      style: {
+                        maxHeight: '300px',
+                        height: 'auto'
+                      }
+                    }
+                  }}
+                />
               </div>
 
               <div className="space-y-2">
@@ -175,7 +196,7 @@ export default function HireMe() {
                   type="text"
                   value={formData.budget}
                   onChange={handleChange}
-                  placeholder="5000"
+                  placeholder={t('placeholder_budget', '5000')}
                   className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all outline-none text-slate-900 dark:text-white hover:border-slate-300 dark:hover:border-slate-600"
                 />
               </div>
@@ -189,7 +210,7 @@ export default function HireMe() {
                   rows="5"
                   value={formData.project_description}
                   onChange={handleChange}
-                  placeholder="Tell me about your project, goals, and timeline..."
+                  placeholder={t('placeholder_desc', 'Tell me about your project...')}
                   className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all outline-none text-slate-900 dark:text-white hover:border-slate-300 dark:hover:border-slate-600 resize-none"
                 ></textarea>
               </div>

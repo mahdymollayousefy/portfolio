@@ -35,6 +35,40 @@ LUCIDE_ICONS = [
     ('Laptop', 'Laptop')
 ]
 
+TECH_ICONS = [
+    ('devicon-python-plain', 'Python'),
+    ('devicon-django-plain', 'Django'),
+    ('devicon-react-original', 'React'),
+    ('devicon-nextjs-plain', 'Next.js'),
+    ('devicon-docker-plain', 'Docker'),
+    ('devicon-postgresql-plain', 'PostgreSQL'),
+    ('devicon-nginx-original', 'Nginx'),
+    ('devicon-cloudflare-plain', 'Cloudflare'),
+    ('devicon-ubuntu-plain', 'Ubuntu'),
+    ('devicon-linux-plain', 'Linux'),
+    ('devicon-git-plain', 'Git'),
+    ('devicon-github-original', 'GitHub'),
+    ('devicon-javascript-plain', 'JavaScript'),
+    ('devicon-typescript-plain', 'TypeScript'),
+    ('devicon-nodejs-plain-wordmark', 'Node.js'),
+    ('devicon-html5-plain', 'HTML5'),
+    ('devicon-css3-plain', 'CSS3'),
+    ('devicon-tailwindcss-original', 'Tailwind CSS'),
+    ('devicon-redis-plain', 'Redis'),
+    ('devicon-mysql-plain', 'MySQL'),
+    ('devicon-amazonwebservices-plain-wordmark', 'AWS'),
+    ('devicon-googlecloud-plain', 'Google Cloud'),
+]
+
+ALL_ICONS = LUCIDE_ICONS + TECH_ICONS
+
+class TechStack(models.Model):
+    name = models.CharField(max_length=50, unique=True)
+    icon = models.CharField(max_length=100, choices=TECH_ICONS, help_text="Select a tech icon")
+
+    def __str__(self):
+        return self.name
+
 class ProjectCategory(models.Model):
     name = models.CharField(max_length=100, unique=True)
     icon = models.CharField(max_length=50, choices=LUCIDE_ICONS, blank=True, help_text="Select a Lucide icon")
@@ -48,7 +82,7 @@ class ProjectCategory(models.Model):
 class Skill(models.Model):
     name = models.CharField(max_length=100)
     category = models.CharField(max_length=50, help_text="e.g., Backend, AI, DevOps")
-    icon = models.CharField(max_length=100, choices=LUCIDE_ICONS, blank=True, help_text="Select a Lucide icon")
+    icon = models.CharField(max_length=100, choices=ALL_ICONS, blank=True, help_text="Select an icon")
     description = CKEditor5Field('Description', config_name='default', blank=True)
 
     def __str__(self):
@@ -59,12 +93,11 @@ class Project(models.Model):
     slug = models.SlugField(unique=True)
     category = models.ForeignKey(ProjectCategory, on_delete=models.SET_NULL, null=True, blank=True, related_name='projects')
     description = CKEditor5Field('Description', config_name='default')
-    tech_stack = models.CharField(max_length=500, blank=True, help_text="Comma-separated values (e.g. React, Django, PostgreSQL)")
-    icon = models.CharField(max_length=100, choices=LUCIDE_ICONS, blank=True, help_text="Icon for the tech stack/project")
+    tech_stacks = models.ManyToManyField(TechStack, blank=True, related_name='projects')
+    icon = models.CharField(max_length=100, choices=ALL_ICONS, blank=True, help_text="Icon for the tech stack/project")
     github_link = models.URLField(blank=True, null=True)
     live_link = models.URLField(blank=True, null=True)
     estimated_price = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True, help_text="Estimated price in USD")
-    challenge_solution = CKEditor5Field('Challenge Solution', config_name='default', blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
