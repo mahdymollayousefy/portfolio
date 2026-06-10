@@ -29,6 +29,7 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -71,12 +72,12 @@ LANGUAGE_CODE = 'en'
 from django.utils.translation import gettext_lazy as _
 LANGUAGES = (
     ('en', _('English')),
+    ('de', _('German')),
     ('nl', _('Dutch')),
     ('fa', _('Persian')),
-    ('de', _('German')),
 )
 MODELTRANSLATION_DEFAULT_LANGUAGE = 'en'
-MODELTRANSLATION_FALLBACK_LANGUAGES = ('en', 'nl', 'fa', 'de')
+MODELTRANSLATION_FALLBACK_LANGUAGES = ('en', 'de', 'nl', 'fa')
 MODELTRANSLATION_CUSTOM_FIELDS = ('CKEditor5Field',)
 
 TIME_ZONE = 'UTC'

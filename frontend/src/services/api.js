@@ -1,8 +1,16 @@
 const API_BASE_URL = 'http://localhost:8000/api';
 
+const getHeaders = () => {
+  const lang = localStorage.getItem('i18nextLng') || 'en';
+  return {
+    'Accept-Language': lang,
+    'Content-Type': 'application/json',
+  };
+};
+
 export const fetchProjects = async () => {
   try {
-    const response = await fetch(`${API_BASE_URL}/projects/?page_size=50`);
+    const response = await fetch(`${API_BASE_URL}/projects/?page_size=50`, { headers: getHeaders() });
     const data = await response.json();
     return data.results ? data.results : data;
   } catch (error) {
@@ -13,7 +21,7 @@ export const fetchProjects = async () => {
 
 export const fetchProjectBySlug = async (slug) => {
   try {
-    const response = await fetch(`${API_BASE_URL}/projects/${slug}/`);
+    const response = await fetch(`${API_BASE_URL}/projects/${slug}/`, { headers: getHeaders() });
     return await response.json();
   } catch (error) {
     console.error('Error fetching project:', error);
@@ -23,7 +31,7 @@ export const fetchProjectBySlug = async (slug) => {
 
 export const fetchProjectCategories = async () => {
   try {
-    const response = await fetch(`${API_BASE_URL}/categories/`);
+    const response = await fetch(`${API_BASE_URL}/categories/`, { headers: getHeaders() });
     return await response.json();
   } catch (error) {
     console.error('Error fetching categories:', error);
@@ -33,7 +41,7 @@ export const fetchProjectCategories = async () => {
 
 export const fetchSkills = async () => {
   try {
-    const response = await fetch(`${API_BASE_URL}/skills/`);
+    const response = await fetch(`${API_BASE_URL}/skills/`, { headers: getHeaders() });
     return await response.json();
   } catch (error) {
     console.error('Error fetching skills:', error);
@@ -45,9 +53,7 @@ export const submitHireRequest = async (data) => {
   try {
     const response = await fetch(`${API_BASE_URL}/hire-me/`, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      headers: getHeaders(),
       body: JSON.stringify(data),
     });
     
@@ -67,7 +73,7 @@ export const submitHireRequest = async (data) => {
 
 const api = {
   get: async (path) => {
-    const response = await fetch(`${API_BASE_URL}${path}`);
+    const response = await fetch(`${API_BASE_URL}${path}`, { headers: getHeaders() });
     return { status: response.status, data: await response.json().catch(() => ({})) };
   }
 };

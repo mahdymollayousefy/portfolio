@@ -6,7 +6,7 @@ import * as LucideIcons from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 export default function Projects() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [projects, setProjects] = useState([]);
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -16,6 +16,7 @@ export default function Projects() {
 
   useEffect(() => {
     const loadData = async () => {
+      setLoading(true);
       try {
         const [projData, catData] = await Promise.all([fetchProjects(), fetchProjectCategories()]);
         setProjects(projData);
@@ -27,7 +28,7 @@ export default function Projects() {
       }
     };
     loadData();
-  }, []);
+  }, [i18n.language]);
 
   const filteredProjects = projects.filter(p => {
     if (filter === 'all') return true;

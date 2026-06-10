@@ -5,12 +5,13 @@ import { Wrench, Award, CheckCircle, Globe, Terminal } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 export default function Skills() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [skills, setSkills] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const loadSkills = async () => {
+      setLoading(true);
       try {
         const data = await fetchSkills();
         setSkills(data);
@@ -21,7 +22,7 @@ export default function Skills() {
       }
     };
     loadSkills();
-  }, []);
+  }, [i18n.language]);
 
   const renderIcon = (iconName) => {
     if (!iconName) return <LucideIcons.Wrench className="w-8 h-8 opacity-50 text-slate-500" />;

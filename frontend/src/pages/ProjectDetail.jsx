@@ -9,12 +9,13 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 export default function ProjectDetail() {
   const { slug } = useParams();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [project, setProject] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const loadProject = async () => {
+      setLoading(true);
       try {
         const data = await fetchProjectBySlug(slug);
         setProject(data);
@@ -25,7 +26,7 @@ export default function ProjectDetail() {
       }
     };
     loadProject();
-  }, [slug]);
+  }, [slug, i18n.language]);
 
   if (loading) {
     return (
