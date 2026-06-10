@@ -6,6 +6,13 @@ export default {
     hire_me: "Hire Me",
     legal: "Legal",
   },
+  de: {
+    home: "Startseite",
+    projects: "Projekte",
+    skills: "Fähigkeiten",
+    hire_me: "Mich einstellen",
+    legal: "Rechtliches",
+  },
   nl: {
     home: "Startpagina",
     projects: "Projecten",
@@ -19,12 +26,5 @@ export default {
     skills: "مهارت ها",
     hire_me: "استخدام من",
     legal: "قوانین و مقررات",
-  },
-  de: {
-    home: "Startseite",
-    projects: "Projekte",
-    skills: "Fähigkeiten",
-    hire_me: "Mich einstellen",
-    legal: "Rechtliches",
   }
 };

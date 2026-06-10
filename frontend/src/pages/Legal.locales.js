@@ -10,6 +10,17 @@ export default {
     payment_title: "Payment Methods",
     payment_content: "Please note that I accept payments exclusively in Cryptocurrencies.",
   },
+  de: {
+    legal_title: "Rechtliche Informationen",
+    privacy_title: "Datenschutzrichtlinie",
+    privacy_content: "Ihre Privatsphäre ist uns wichtig. Wir sammeln minimale Daten, die zur Bereitstellung unserer Dienste erforderlich sind...",
+    cookie_title: "Cookie-Einstellungen",
+    cookie_content: "Wir verwenden zwingend erforderliche Cookies, um die grundlegende Funktionalität der Website sicherzustellen. Wir verwenden keine Tracking-Cookies.",
+    rules_title: "Regeln & Vereinbarungen",
+    rules_content: "Durch die Nutzung dieser Website stimmen Sie den grundlegenden Nutzungsbedingungen zu.",
+    payment_title: "Zahlungsmethoden",
+    payment_content: "Bitte beachten Sie, dass ich Zahlungen ausschließlich in Kryptowährungen akzeptiere.",
+  },
   nl: {
     legal_title: "Juridische Informatie",
     privacy_title: "Privacybeleid",
@@ -31,16 +42,5 @@ export default {
     rules_content: "با استفاده از این وب‌سایت، شما با شرایط اولیه خدمات موافقت می‌کنید.",
     payment_title: "روش‌های پرداخت",
     payment_content: "لطفاً توجه داشته باشید که من فقط پرداخت از طریق ارزهای دیجیتال (کریپتو) را می‌پذیرم.",
-  },
-  de: {
-    legal_title: "Rechtliche Informationen",
-    privacy_title: "Datenschutzrichtlinie",
-    privacy_content: "Ihre Privatsphäre ist uns wichtig. Wir sammeln minimale Daten, die zur Bereitstellung unserer Dienste erforderlich sind...",
-    cookie_title: "Cookie-Einstellungen",
-    cookie_content: "Wir verwenden zwingend erforderliche Cookies, um die grundlegende Funktionalität der Website sicherzustellen. Wir verwenden keine Tracking-Cookies.",
-    rules_title: "Regeln & Vereinbarungen",
-    rules_content: "Durch die Nutzung dieser Website stimmen Sie den grundlegenden Nutzungsbedingungen zu.",
-    payment_title: "Zahlungsmethoden",
-    payment_content: "Bitte beachten Sie, dass ich Zahlungen ausschließlich in Kryptowährungen akzeptiere.",
   }
 };
