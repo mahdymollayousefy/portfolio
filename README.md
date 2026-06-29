@@ -5,9 +5,8 @@ A robust, modern full-stack web application designed for portfolio and SaaS use 
 ## 🚀 Features
 
 ### Frontend
-- **React 19 & Vite**: Fast development server and modern React features.
+- **Next.js 15 (React 19)**: Fast React framework with App Router.
 - **Tailwind CSS 4**: Utility-first styling for rapid UI development.
-- **React Router**: Client-side routing.
 - **i18next**: Built-in localization and internationalization support.
 - **Lucide React**: Beautiful and consistent iconography.
 
@@ -25,7 +24,7 @@ A robust, modern full-stack web application designed for portfolio and SaaS use 
 ## 📦 Prerequisites
 
 - [Docker](https://www.docker.com/) and [Docker Compose](https://docs.docker.com/compose/)
-- [Node.js](https://nodejs.org/) & [pnpm](https://pnpm.io/) (for local frontend development)
+- [Node.js](https://nodejs.org/) & npm (for local frontend development)
 - [Python 3.10+](https://www.python.org/) (for local backend development)
 
 ## 🛠️ Setup and Installation
