@@ -19,6 +19,8 @@ dist/
 dist-ssr/
 *.local
 .pnpm-store/
+.next/
+out/
 
 # OS
 .DS_Store

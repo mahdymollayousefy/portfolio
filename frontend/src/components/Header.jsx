@@ -1,18 +1,21 @@
+"use client";
 import { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useTranslation } from 'react-i18next';
 import { Moon, Sun, Globe, Menu, X, Home, Briefcase, Code, Mail, Scale, ChevronDown } from 'lucide-react';
 
 export default function Header() {
   const { t, i18n } = useTranslation();
   const [isDark, setIsDark] = useState(() => {
+    if (typeof window === 'undefined') return true;
     const saved = localStorage.getItem('theme');
     if (saved) return saved === 'dark';
     return true; // Default to dark mode
   });
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [langDropdownOpen, setLangDropdownOpen] = useState(false);
-  const location = useLocation();
+  const pathname = usePathname();
 
   useEffect(() => {
     if (isDark) {
@@ -49,7 +52,7 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 w-full glass">
       <div className="container mx-auto px-4 h-16 flex items-center justify-between relative">
-        <Link to="/" className="flex items-center gap-2 group">
+        <Link href="/" className="flex items-center gap-2 group">
           {/* Logo Placeholder */}
           <div className="w-10 h-10 rounded bg-slate-200 dark:bg-slate-800 flex items-center justify-center overflow-hidden border border-slate-300 dark:border-slate-700">
             <span className="text-xs text-slate-500 font-bold">LOGO</span>
@@ -62,8 +65,8 @@ export default function Header() {
           {navLinks.map((link) => (
             <Link 
               key={link.path} 
-              to={link.path} 
-              className={`flex items-center gap-1.5 hover:-translate-y-0.5 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 ${location.pathname === link.path ? 'text-blue-600 dark:text-blue-400' : 'text-slate-600 dark:text-slate-300'}`}
+              href={link.path} 
+              className={`flex items-center gap-1.5 hover:-translate-y-0.5 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 ${pathname === link.path ? 'text-blue-600 dark:text-blue-400' : 'text-slate-600 dark:text-slate-300'}`}
             >
               {link.icon}
               <span>{t(link.key)}</span>
@@ -124,8 +127,8 @@ export default function Header() {
         {navLinks.map((link) => (
           <Link 
             key={link.path} 
-            to={link.path} 
-            className={`flex items-center gap-3 text-lg font-semibold px-4 py-3 rounded-lg transition-all duration-300 hover:translate-x-2 hover:bg-slate-100 dark:hover:bg-slate-800 ${location.pathname === link.path ? 'bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400' : 'text-slate-600 dark:text-slate-300'}`}
+            href={link.path} 
+            className={`flex items-center gap-3 text-lg font-semibold px-4 py-3 rounded-lg transition-all duration-300 hover:translate-x-2 hover:bg-slate-100 dark:hover:bg-slate-800 ${pathname === link.path ? 'bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400' : 'text-slate-600 dark:text-slate-300'}`}
             onClick={() => setMobileMenuOpen(false)}
           >
             {link.icon}

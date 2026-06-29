@@ -1,4 +1,4 @@
-const API_BASE_URL = 'http://localhost:8000/api';
+const API_BASE_URL = '/api';
 
 const getHeaders = () => {
   const lang = localStorage.getItem('i18nextLng') || 'en';

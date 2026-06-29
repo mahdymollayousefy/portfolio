@@ -1,4 +1,8 @@
-FROM node:20-alpine
-RUN corepack enable && corepack prepare pnpm@9 --activate
-WORKDIR /app
-CMD ["pnpm", "run", "dev"]
+FROM nginx:alpine
+
+COPY out /usr/share/nginx/html
+COPY nginx/default.conf /etc/nginx/conf.d/default.conf
+
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]

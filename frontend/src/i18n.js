@@ -4,11 +4,11 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 
 import headerLocales from './components/Header.locales';
 import footerLocales from './components/Footer.locales';
-import homeLocales from './pages/Home.locales';
-import projectsLocales from './pages/Projects.locales';
-import skillsLocales from './pages/Skills.locales';
-import hireMeLocales from './pages/HireMe.locales';
-import legalLocales from './pages/Legal.locales';
+import homeLocales from './locales/Home.locales';
+import projectsLocales from './locales/Projects.locales';
+import skillsLocales from './locales/Skills.locales';
+import hireMeLocales from './locales/HireMe.locales';
+import legalLocales from './locales/Legal.locales';
 
 // Helper to deeply merge translation objects
 const mergeTranslations = (langs, ...localesArray) => {

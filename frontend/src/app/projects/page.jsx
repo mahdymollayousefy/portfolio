@@ -1,6 +1,7 @@
+"use client";
 import { useEffect, useState } from 'react';
-import { fetchProjects, fetchProjectCategories } from '../services/api';
-import { Link } from 'react-router-dom';
+import { fetchProjects, fetchProjectCategories } from '../../services/api';
+import Link from 'next/link';
 import { Search, Code2, ExternalLink, Code, Database, Globe, Eye, Filter } from 'lucide-react';
 import * as LucideIcons from 'lucide-react';
 import { useTranslation } from 'react-i18next';
@@ -162,7 +163,7 @@ export default function Projects() {
                     )}
                     
                     <div className="grid grid-cols-2 gap-4 mt-auto pt-6 border-t border-slate-100 dark:border-slate-800">
-                      <Link to={`/projects/${project.slug}`} className="w-full py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold flex items-center justify-center gap-2 transition-all shadow-lg shadow-blue-500/30">
+                      <Link href={`/project?slug=${project.slug}`} className="w-full py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold flex items-center justify-center gap-2 transition-all shadow-lg shadow-blue-500/30">
                         <Eye className="w-4 h-4" /> {t('view', 'View')}
                       </Link>
                       {project.github_link && (

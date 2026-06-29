@@ -1,7 +1,8 @@
+"use client";
 import { useState, useEffect } from 'react';
 import { Mail, Home, Code2, Briefcase, ShieldCheck, Send } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from './SocialIcons';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
 import api from '../services/api';
 
@@ -49,16 +50,16 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-col gap-2 md:gap-4 md:w-48">
-          <Link to="/" className="flex items-center gap-2 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+          <Link href="/" className="flex items-center gap-2 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
             <Home className="w-4 h-4" /> {t('home')}
           </Link>
-          <Link to="/skills" className="flex items-center gap-2 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+          <Link href="/skills" className="flex items-center gap-2 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
             <Code2 className="w-4 h-4" /> {t('skills')}
           </Link>
-          <Link to="/hire-me" className="flex items-center gap-2 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+          <Link href="/hire-me" className="flex items-center gap-2 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
             <Briefcase className="w-4 h-4" /> {t('hire_me')}
           </Link>
-          <Link to="/legal" className="flex items-center gap-2 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+          <Link href="/legal" className="flex items-center gap-2 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
             <ShieldCheck className="w-4 h-4" /> {t('legal')}
           </Link>
         </div>

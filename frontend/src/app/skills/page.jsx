@@ -1,5 +1,6 @@
+"use client";
 import { useEffect, useState } from 'react';
-import { fetchSkills } from '../services/api';
+import { fetchSkills } from '../../services/api';
 import * as LucideIcons from 'lucide-react';
 import { Wrench, Award, CheckCircle, Globe, Terminal } from 'lucide-react';
 import { useTranslation } from 'react-i18next';

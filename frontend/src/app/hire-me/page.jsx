@@ -1,10 +1,11 @@
+"use client";
 import { useState } from 'react';
-import { submitHireRequest } from '../services/api';
+import { submitHireRequest } from '../../services/api';
 import { PhoneInput } from 'react-international-phone';
 import 'react-international-phone/style.css';
 import { Send, CheckCircle2, AlertCircle, Mail, MapPin, Briefcase, Clock, CalendarDays, Code2, Users, MessageCircle } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import { GithubIcon, LinkedinIcon, TelegramIcon } from '../components/SocialIcons';
+import { GithubIcon, LinkedinIcon, TelegramIcon } from '../../components/SocialIcons';
 
 export default function HireMe() {
   const { t } = useTranslation();

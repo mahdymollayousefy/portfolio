@@ -1,14 +1,18 @@
+"use client";
+import { Suspense } from 'react';
 import { useEffect, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
-import { fetchProjectBySlug } from '../services/api';
+import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
+import { fetchProjectBySlug } from '../../services/api';
 import { ArrowLeft, Code, ExternalLink, Calendar, DollarSign, Layers, ChevronLeft, ChevronRight } from 'lucide-react';
 import * as LucideIcons from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
-export default function ProjectDetail() {
-  const { slug } = useParams();
+function ProjectDetailContent() {
+  const searchParams = useSearchParams();
+  const slug = searchParams.get('slug');
   const { t, i18n } = useTranslation();
   const [project, setProject] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -40,7 +44,7 @@ export default function ProjectDetail() {
     return (
       <div className="flex flex-col justify-center items-center h-[70vh] text-center space-y-4">
         <h2 className="text-3xl font-bold text-slate-900 dark:text-white">Project Not Found</h2>
-        <Link to="/projects" className="text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-2">
+        <Link href="/projects" className="text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-2">
           <ArrowLeft className="w-4 h-4" /> Back to Projects
         </Link>
       </div>
@@ -58,7 +62,7 @@ export default function ProjectDetail() {
 
   return (
     <div className="max-w-4xl mx-auto py-12 px-4 animate-fade-in space-y-12">
-      <Link to="/projects" className="inline-flex items-center gap-2 text-sm font-semibold text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+      <Link href="/projects" className="inline-flex items-center gap-2 text-sm font-semibold text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
         <ArrowLeft className="w-4 h-4" /> Back to Projects
       </Link>
 
@@ -167,5 +171,17 @@ export default function ProjectDetail() {
         <div dangerouslySetInnerHTML={{ __html: project.description }} />
       </div>
     </div>
+  );
+}
+
+export default function ProjectDetail() {
+  return (
+    <Suspense fallback={
+      <div className="flex justify-center items-center h-[70vh]">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+      </div>
+    }>
+      <ProjectDetailContent />
+    </Suspense>
   );
 }

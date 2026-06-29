@@ -1,7 +1,8 @@
-import { Link } from 'react-router-dom';
+"use client";
+import Link from 'next/link';
 import { ArrowRight, Code2, Database, Terminal, Layers, CheckCircle2, LayoutTemplate, ServerCog, CloudCog, Briefcase, Download } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import heroImg from '../assets/hero.png';
+
 
 export default function Home() {
   const { t } = useTranslation();
@@ -34,10 +35,10 @@ export default function Home() {
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4 animate-slide-up" style={{ animationDelay: '300ms' }}>
-            <Link to="/projects" className="group w-full sm:w-auto px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold flex items-center justify-center gap-2 transition-all duration-300 shadow-lg shadow-blue-500/30">
+            <Link href="/projects" className="group w-full sm:w-auto px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold flex items-center justify-center gap-2 transition-all duration-300 shadow-lg shadow-blue-500/30">
               {t('view_work')} <ArrowRight className="w-5 h-5 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform" />
             </Link>
-            <Link to="/hire-me" className="group w-full sm:w-auto px-8 py-4 rounded-xl bg-pink-600 hover:bg-pink-700 text-white font-bold flex items-center justify-center gap-2 transition-all duration-300 shadow-lg shadow-pink-500/30">
+            <Link href="/hire-me" className="group w-full sm:w-auto px-8 py-4 rounded-xl bg-pink-600 hover:bg-pink-700 text-white font-bold flex items-center justify-center gap-2 transition-all duration-300 shadow-lg shadow-pink-500/30">
               {t('hire_me_btn')} <Briefcase className="w-5 h-5 group-hover:-translate-y-1 transition-transform" />
             </Link>
             <a href="/resume.pdf" target="_blank" rel="noreferrer" className="group w-full sm:w-auto px-8 py-4 rounded-xl bg-green-600 hover:bg-green-700 text-white font-bold flex items-center justify-center gap-2 transition-all duration-300 shadow-lg shadow-green-500/30">
@@ -51,7 +52,7 @@ export default function Home() {
           <div className="relative aspect-square rounded-[2rem] md:rounded-[3rem] overflow-hidden bg-slate-100 dark:bg-slate-900 p-4 border border-slate-200 dark:border-slate-800">
             <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/20 to-purple-500/20 rounded-[inherit] -z-10"></div>
             <img 
-              src={heroImg} 
+              src="/hero.png" 
               alt="Profile" 
               className="w-full h-full object-cover rounded-2xl md:rounded-[2rem] bg-slate-100 dark:bg-slate-800"
             />

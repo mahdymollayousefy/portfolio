@@ -1,3 +1,4 @@
+"use client";
 import { useTranslation } from 'react-i18next';
 import { ShieldCheck, Cookie, FileText, Bitcoin } from 'lucide-react';
 
