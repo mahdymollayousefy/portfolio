@@ -9,6 +9,7 @@ import projectsLocales from './locales/Projects.locales';
 import skillsLocales from './locales/Skills.locales';
 import hireMeLocales from './locales/HireMe.locales';
 import legalLocales from './locales/Legal.locales';
+import notFoundLocales from './locales/NotFound.locales';
 
 // Helper to deeply merge translation objects
 const mergeTranslations = (langs, ...localesArray) => {
@@ -32,7 +33,8 @@ const resources = mergeTranslations(
   projectsLocales,
   skillsLocales,
   hireMeLocales,
-  legalLocales
+  legalLocales,
+  notFoundLocales
 );
 
 i18n
