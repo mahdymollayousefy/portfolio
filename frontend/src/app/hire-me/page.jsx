@@ -299,12 +299,12 @@ export default function HireMe() {
           </div>
           
           <div className="flex flex-col gap-10">
-            {[1, 2].map((num) => (
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((num) => (
               <div key={num} className="flex gap-6 items-start group">
-                <div className="text-4xl font-black text-blue-100 dark:text-blue-900/30 group-hover:text-blue-500 transition-colors shrink-0">
-                  0{num}.
+                <div className="text-4xl font-black text-blue-100 dark:text-blue-900/30 group-hover:text-blue-500 transition-colors shrink-0 w-16">
+                  {num < 10 ? `0${num}.` : `${num}.`}
                 </div>
-                <div>
+                <div className="flex-1">
                   <h4 className="text-xl font-bold text-slate-900 dark:text-white mb-3">{t(`faq_${num}_q`)}</h4>
                   <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-lg">{t(`faq_${num}_a`)}</p>
                 </div>
