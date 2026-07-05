@@ -28,8 +28,8 @@ export default function Footer() {
           <Link href="/skills" className="flex items-center gap-2 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
             <Code2 className="w-4 h-4" /> {t('nav_skills')}
           </Link>
-          <Link href="/hire-me" className="flex items-center gap-2 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-            <Briefcase className="w-4 h-4" /> {t('hire_me')}
+          <Link href="/work-with-me" className="flex items-center gap-2 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+            <Briefcase className="w-4 h-4" /> {t('work_with_me')}
           </Link>
           <Link href="/legal" className="flex items-center gap-2 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
             <ShieldCheck className="w-4 h-4" /> {t('legal')}
@@ -37,19 +37,11 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-col gap-2 md:w-48">
-          <a href="https://github.com/mahdymollayousefy" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-4 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 hover:text-slate-900 dark:hover:text-white transition-all hover:-translate-y-1">
-            <GithubIcon className="w-5 h-5" />
-            <span className="font-medium">GitHub</span>
-          </a>
-          <a href="https://www.linkedin.com/in/mahdy-mollayousefy-326b5541a" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-4 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 hover:text-slate-900 dark:hover:text-white transition-all hover:-translate-y-1">
-            <LinkedinIcon className="w-5 h-5" />
-            <span className="font-medium">LinkedIn</span>
-          </a>
           <a href="https://t.me/mahdy_yousefy" target="_blank" rel="noreferrer" className="flex items-center gap-2 px-4 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 hover:text-slate-900 dark:hover:text-white transition-all hover:-translate-y-1">
             <Send className="w-5 h-5 -translate-y-0.5 translate-x-0.5" />
             <span className="font-medium">Telegram</span>
           </a>
-          <a href="mailto:mahdyyousefy@outlook.com" className="flex items-center gap-2 px-4 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 hover:text-slate-900 dark:hover:text-white transition-all hover:-translate-y-1">
+          <a href="mailto:mahdymollayousefy@gmail.com" className="flex items-center gap-2 px-4 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 hover:text-slate-900 dark:hover:text-white transition-all hover:-translate-y-1">
             <Mail className="w-5 h-5" />
             <span className="font-medium">Email</span>
           </a>

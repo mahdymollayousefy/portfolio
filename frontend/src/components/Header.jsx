@@ -36,7 +36,7 @@ export default function Header() {
     { key: 'home', path: '/', icon: <Home className="w-4 h-4" /> },
     { key: 'projects', path: '/projects', icon: <Briefcase className="w-4 h-4" /> },
     { key: 'nav_skills', path: '/skills', icon: <Code className="w-4 h-4" /> },
-    { key: 'hire_me', path: '/hire-me', icon: <Mail className="w-4 h-4" /> },
+    { key: 'work_with_me', path: '/work-with-me', icon: <Mail className="w-4 h-4" /> },
     { key: 'legal', path: '/legal', icon: <Scale className="w-4 h-4" /> },
   ];
 
@@ -53,11 +53,10 @@ export default function Header() {
     <header className="sticky top-0 z-50 w-full glass">
       <div className="container mx-auto px-4 h-16 flex items-center justify-between relative">
         <Link href="/" className="flex items-center gap-2 group">
-          {/* Logo Placeholder */}
-          <div className="w-10 h-10 rounded bg-slate-200 dark:bg-slate-800 flex items-center justify-center overflow-hidden border border-slate-300 dark:border-slate-700">
-            <span className="text-xs text-slate-500 font-bold">LOGO</span>
+          <div className="w-10 h-10 rounded-full flex items-center justify-center overflow-hidden border border-slate-300 dark:border-slate-700">
+            <img src="/logo.jpg" alt="Logo" className="w-full h-full object-cover" />
           </div>
-          <span className="text-2xl font-black tracking-tighter">Mahdy<span className="text-blue-600 dark:text-blue-500">.</span></span>
+          <span className="text-xl font-black tracking-tighter">mahdy mollayousefy</span>
         </Link>
         
         {/* Desktop Nav */}

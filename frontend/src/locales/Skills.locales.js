@@ -7,17 +7,15 @@ export default {
     no_skills_desc: "Skills will appear here once they are added.",
     certs_title: "Certifications & Awards",
     certs_desc: "Recognized qualifications and achievements in software engineering.",
-    cert_1: "Advanced Backend Architecture (Python/Django)",
-    cert_2: "AI Integration & Prompt Engineering Masterclass",
-    cert_3: "Docker & Cloud Deployment Expert",
+    cert_1: "Bachelor's degree in Computer Engineering, Graduated",
+    
     langs_title: "Spoken Languages",
     langs_desc: "Languages I use for daily communication and collaboration.",
     lang_en: "English",
-    lang_en_prof: "Professional Working Proficiency",
-    lang_nl: "German",
-    lang_nl_prof: "Elementary / Basic",
+    lang_en_prof: "Fluent (C1)",
+    
     lang_fa: "Persian (Farsi)",
-    lang_fa_prof: "Native / Bilingual",
+    lang_fa_prof: "Native",
     tools_title: "Tools & Software",
     tools_desc: "Essential instruments in my daily development workflow.",
     skills: [
@@ -50,6 +48,13 @@ export default {
         description: "Strong background in containerizing applications using Docker & Docker Compose. Highly comfortable in Linux environments for server management, deployment pipelines, and ensuring zero-downtime releases."
       },
       {
+        id: 6,
+        name: "Git & Version Control",
+        category: "DevOps",
+        icon: "devicon-git-plain",
+        description: "Proficient in version control using Git and GitHub, enabling seamless collaboration and codebase management."
+      },
+      {
         id: 5,
         name: "AI & Prompt Engineering",
         category: "AI & Automation",
@@ -66,17 +71,15 @@ export default {
     no_skills_desc: "Fähigkeiten werden hier angezeigt, sobald sie hinzugefügt wurden.",
     certs_title: "Zertifikate & Auszeichnungen",
     certs_desc: "Anerkannte Qualifikationen und Erfolge im Software Engineering.",
-    cert_1: "Fortgeschrittene Backend-Architektur (Python/Django)",
-    cert_2: "Meisterklasse für KI-Integration & Prompt Engineering",
-    cert_3: "Docker & Cloud Deployment Experte",
+    cert_1: "Bachelor's degree in Computer Engineering, Graduated",
+    
     langs_title: "Gesprochene Sprachen",
     langs_desc: "Sprachen, die ich für die tägliche Kommunikation und Zusammenarbeit nutze.",
     lang_en: "Englisch",
-    lang_en_prof: "Verhandlungssicher",
-    lang_nl: "Deutsch",
-    lang_nl_prof: "Grundkenntnisse",
+    lang_en_prof: "Fluent (C1)",
+    
     lang_fa: "Persisch (Farsi)",
-    lang_fa_prof: "Muttersprache",
+    lang_fa_prof: "Native",
     tools_title: "Tools & Software",
     tools_desc: "Unverzichtbare Werkzeuge in meinem täglichen Entwicklungs-Workflow.",
     skills: [
@@ -125,17 +128,15 @@ export default {
     no_skills_desc: "Vaardigheden verschijnen hier zodra ze zijn toegevoegd.",
     certs_title: "Certificeringen & Prijzen",
     certs_desc: "Erkende kwalificaties en prestaties in software engineering.",
-    cert_1: "Geavanceerde Backend Architectuur (Python/Django)",
-    cert_2: "Masterclass AI Integratie & Prompt Engineering",
-    cert_3: "Docker & Cloud Deployment Expert",
+    cert_1: "Bachelor's degree in Computer Engineering, Graduated",
+    
     langs_title: "Gesproken Talen",
     langs_desc: "Talen die ik gebruik voor dagelijkse communicatie en samenwerking.",
     lang_en: "Engels",
-    lang_en_prof: "Professionele Werkvaardigheid",
-    lang_nl: "Duits",
-    lang_nl_prof: "Basiskennis",
+    lang_en_prof: "Fluent (C1)",
+    
     lang_fa: "Perzisch (Farsi)",
-    lang_fa_prof: "Moedertaal",
+    lang_fa_prof: "Native",
     tools_title: "Tools & Software",
     tools_desc: "Essentiële instrumenten in mijn dagelijkse ontwikkelingsworkflow.",
     skills: [
@@ -184,17 +185,15 @@ export default {
     no_skills_desc: "مهارت‌ها پس از افزودن در اینجا نمایش داده خواهند شد.",
     certs_title: "گواهینامه‌ها و افتخارات",
     certs_desc: "مدارک معتبر و دستاوردهای شناخته‌شده در زمینه مهندسی نرم‌افزار.",
-    cert_1: "معماری پیشرفته بک‌اند (پایتون/جنگو)",
-    cert_2: "مسترکلاس ادغام هوش مصنوعی و مهندسی پرامپت",
-    cert_3: "تخصص داکر و استقرار ابری",
+    cert_1: "Bachelor's degree in Computer Engineering, Graduated",
+    
     langs_title: "زبان‌های ارتباطی",
     langs_desc: "زبان‌هایی که برای ارتباطات و همکاری‌های روزمره استفاده می‌کنم.",
     lang_en: "انگلیسی",
-    lang_en_prof: "تسلط حرفه‌ای (Working Proficiency)",
-    lang_nl: "آلمانی",
-    lang_nl_prof: "آشنایی پایه",
+    lang_en_prof: "Fluent (C1)",
+    
     lang_fa: "فارسی",
-    lang_fa_prof: "زبان مادری",
+    lang_fa_prof: "Native",
     tools_title: "ابزارها و نرم‌افزارها",
     tools_desc: "ابزارهای کلیدی که روزانه در جریان توسعه نرم‌افزار از آن‌ها استفاده می‌کنم.",
     skills: [

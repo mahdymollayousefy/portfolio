@@ -7,7 +7,7 @@ import footerLocales from './components/Footer.locales';
 import homeLocales from './locales/Home.locales';
 import projectsLocales from './locales/Projects.locales';
 import skillsLocales from './locales/Skills.locales';
-import hireMeLocales from './locales/HireMe.locales';
+import workWithMeLocales from './locales/WorkWithMe.locales';
 import legalLocales from './locales/Legal.locales';
 import notFoundLocales from './locales/NotFound.locales';
 
@@ -32,7 +32,7 @@ const resources = mergeTranslations(
   homeLocales,
   projectsLocales,
   skillsLocales,
-  hireMeLocales,
+  workWithMeLocales,
   legalLocales,
   notFoundLocales
 );

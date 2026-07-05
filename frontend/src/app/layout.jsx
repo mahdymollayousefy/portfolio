@@ -34,8 +34,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang={lang} dir={dir} suppressHydrationWarning>
       <head>
-        <title>Portfolio SaaS</title>
+        <title>mahdy mollayousefy</title>
         <meta name="description" content="Portfolio application" />
+        <link rel="icon" href="/logo.jpg" />
         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
       </head>
       <body className="min-h-screen flex flex-col font-sans selection:bg-blue-500/30 selection:text-blue-900 dark:selection:text-blue-50 bg-white dark:bg-slate-900 text-slate-900 dark:text-white">

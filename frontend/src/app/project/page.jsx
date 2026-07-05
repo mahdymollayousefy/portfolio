@@ -75,7 +75,7 @@ function ProjectDetailContent() {
           )}
           {project.estimated_price && (
             <span className="flex items-center gap-1 px-4 py-1.5 rounded-full bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-sm font-bold tracking-wide">
-              <DollarSign className="w-4 h-4" /> {t('estimated_price', 'Estimated Price')}: {project.estimated_price}
+              <DollarSign className="w-4 h-4" /> {t('estimated_price', 'Estimated Price')}: ${parseInt(project.estimated_price)}
             </span>
           )}
           <span className="flex items-center gap-2 text-sm font-medium text-slate-500 dark:text-slate-400">

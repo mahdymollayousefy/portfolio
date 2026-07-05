@@ -7,7 +7,7 @@ import { Send, CheckCircle2, AlertCircle, Mail, MapPin, Briefcase, Clock, Calend
 import { useTranslation } from 'react-i18next';
 import { GithubIcon, LinkedinIcon, TelegramIcon } from '../../components/SocialIcons';
 
-export default function HireMe() {
+export default function WorkWithMe() {
   const { t } = useTranslation();
   const [formData, setFormData] = useState({
     name: '',
@@ -50,10 +50,10 @@ export default function HireMe() {
     <div className="max-w-6xl mx-auto py-12 px-4 animate-fade-in overflow-x-hidden">
       <div className="text-center space-y-4 mb-16">
         <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white animate-slide-up">
-          {t('hireme_title_part1')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">{t('hireme_title_part2')}</span>
+          {t('workwithme_title_part1')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">{t('workwithme_title_part2')}</span>
         </h1>
         <p className="text-lg text-slate-600 dark:text-slate-400 animate-slide-up" style={{ animationDelay: '100ms' }}>
-          {t('hireme_desc')}
+          {t('workwithme_desc')}
         </p>
       </div>
 
@@ -74,7 +74,7 @@ export default function HireMe() {
                 </div>
                 <div>
                   <h4 className="text-sm font-semibold text-slate-500 dark:text-slate-400">{t('email_label')}</h4>
-                  <a href="mailto:hello@example.com" className="text-slate-900 dark:text-white font-medium hover:text-blue-600 transition-colors">hello@example.com</a>
+                  <a href="mailto:mahdymollayousefy@gmail.com" className="text-slate-900 dark:text-white font-medium hover:text-blue-600 transition-colors">mahdymollayousefy@gmail.com</a>
                 </div>
               </div>
               
@@ -88,15 +88,7 @@ export default function HireMe() {
                 </div>
               </div>
 
-              <div className="flex items-start gap-4 group">
-                <div className="bg-blue-50 dark:bg-blue-900/30 p-3 rounded-xl text-blue-600 dark:text-blue-400 group-hover:scale-110 transition-transform shadow-sm">
-                  <Send className="w-6 h-6 -translate-y-0.5 translate-x-0.5" />
-                </div>
-                <div>
-                  <h4 className="text-sm font-semibold text-slate-500 dark:text-slate-400">Telegram</h4>
-                  <a href="https://t.me/yourusername" target="_blank" rel="noreferrer" className="text-slate-900 dark:text-white font-medium hover:text-sky-600 transition-colors">@yourusername</a>
-                </div>
-              </div>
+
 
               <div className="flex items-start gap-4 group">
                 <div className="bg-blue-50 dark:bg-blue-900/30 p-3 rounded-xl text-blue-700 dark:text-blue-400 group-hover:scale-110 transition-transform">
@@ -213,15 +205,18 @@ export default function HireMe() {
 
               <div className="space-y-2">
                 <label htmlFor="budget" className="text-sm font-medium text-slate-700 dark:text-slate-300">{t('budget')}</label>
-                <input
-                  id="budget"
-                  name="budget"
-                  type="text"
-                  value={formData.budget}
-                  onChange={handleChange}
-                  placeholder={t('placeholder_budget', '5000')}
-                  className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all outline-none text-slate-900 dark:text-white hover:border-slate-300 dark:hover:border-slate-600"
-                />
+                <div className="flex items-center rounded-xl bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 focus-within:ring-2 focus-within:ring-blue-500/50 focus-within:border-blue-500 transition-all hover:border-slate-300 dark:hover:border-slate-600 overflow-hidden">
+                  <span className="px-4 text-slate-500 font-medium bg-slate-100 dark:bg-slate-800 h-full flex items-center justify-center border-r dark:border-slate-700 border-slate-200">$</span>
+                  <input
+                    id="budget"
+                    name="budget"
+                    type="text"
+                    value={formData.budget}
+                    onChange={handleChange}
+                    placeholder={t('placeholder_budget', '5000')}
+                    className="w-full px-4 py-3 bg-transparent outline-none text-slate-900 dark:text-white"
+                  />
+                </div>
               </div>
 
               <div className="space-y-2">
@@ -300,14 +295,13 @@ export default function HireMe() {
           
           <div className="flex flex-col gap-10">
             {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((num) => (
-              <div key={num} className="flex gap-6 items-start group">
-                <div className="text-4xl font-black text-blue-100 dark:text-blue-900/30 group-hover:text-blue-500 transition-colors shrink-0 w-16">
-                  {num < 10 ? `0${num}.` : `${num}.`}
-                </div>
-                <div className="flex-1">
-                  <h4 className="text-xl font-bold text-slate-900 dark:text-white mb-3">{t(`faq_${num}_q`)}</h4>
-                  <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-lg">{t(`faq_${num}_a`)}</p>
-                </div>
+              <div key={num} className="flex flex-col gap-2">
+                <h4 className="text-xl font-bold text-slate-900 dark:text-white">
+                  {num}. {t(`faq_${num}_q`)}
+                </h4>
+                <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-lg">
+                  {t(`faq_${num}_a`)}
+                </p>
               </div>
             ))}
           </div>

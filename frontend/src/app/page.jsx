@@ -8,7 +8,7 @@ export default function Home() {
   const { t } = useTranslation();
 
   return (
-    <div className="flex flex-col gap-24 pb-12 animate-fade-in">
+    <div className="flex flex-col gap-16 pb-12 animate-fade-in">
       
       {/* Hero Section */}
       <section className="relative pt-12 md:pt-20 lg:pt-32 flex flex-col-reverse lg:flex-row items-center justify-between gap-12 lg:gap-8 min-h-[70vh]">
@@ -38,7 +38,7 @@ export default function Home() {
             <Link href="/projects" className="group w-full sm:w-auto px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold flex items-center justify-center gap-2 transition-all duration-300 shadow-lg shadow-blue-500/30">
               {t('view_work')} <ArrowRight className="w-5 h-5 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform" />
             </Link>
-            <Link href="/hire-me" className="group w-full sm:w-auto px-8 py-4 rounded-xl bg-pink-600 hover:bg-pink-700 text-white font-bold flex items-center justify-center gap-2 transition-all duration-300 shadow-lg shadow-pink-500/30">
+            <Link href="/work-with-me" className="group w-full sm:w-auto px-8 py-4 rounded-xl bg-pink-600 hover:bg-pink-700 text-white font-bold flex items-center justify-center gap-2 transition-all duration-300 shadow-lg shadow-pink-500/30">
               {t('hire_me_btn')} <Briefcase className="w-5 h-5 group-hover:-translate-y-1 transition-transform" />
             </Link>
             <a href="/resume.pdf" target="_blank" rel="noreferrer" className="group w-full sm:w-auto px-8 py-4 rounded-xl bg-green-600 hover:bg-green-700 text-white font-bold flex items-center justify-center gap-2 transition-all duration-300 shadow-lg shadow-green-500/30">
@@ -52,7 +52,7 @@ export default function Home() {
           <div className="relative aspect-square rounded-[2rem] md:rounded-[3rem] overflow-hidden bg-slate-100 dark:bg-slate-900 p-4 border border-slate-200 dark:border-slate-800">
             <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/20 to-purple-500/20 rounded-[inherit] -z-10"></div>
             <img 
-              src="/hero.png" 
+              src="/mahdy.jpg" 
               alt="Profile" 
               className="w-full h-full object-cover rounded-2xl md:rounded-[2rem] bg-slate-100 dark:bg-slate-800"
             />
@@ -64,8 +64,7 @@ export default function Home() {
               <Code2 className="w-6 h-6" />
             </div>
             <div>
-              <p className="font-bold text-slate-900 dark:text-white">{t('lines_of_code')}</p>
-              <p className="text-xs font-medium text-slate-500 dark:text-slate-400">{t('optimized_code')}</p>
+              <p className="font-bold text-slate-900 dark:text-white text-lg">{t('fullstack_dev')}</p>
             </div>
           </div>
         </div>
@@ -81,7 +80,7 @@ export default function Home() {
 
       {/* Quick Stats Section */}
       <section className="py-8 animate-slide-up border-b border-slate-200 dark:border-slate-800" style={{ animationDelay: '250ms' }}>
-        <div className="flex flex-col md:flex-row justify-around items-center gap-8 max-w-4xl mx-auto py-8">
+        <div className="flex flex-col md:flex-row justify-around items-center gap-8 max-w-4xl mx-auto py-2">
           <div className="text-center">
             <h3 className="text-4xl font-black text-blue-600 dark:text-blue-400 mb-2">{t('stats_exp')}</h3>
             <p className="font-semibold text-slate-700 dark:text-slate-300">{t('stats_exp_desc')}</p>

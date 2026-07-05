@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import { fetchProjects, fetchProjectCategories } from '../../services/api';
 import Link from 'next/link';
-import { Search, Code2, ExternalLink, Code, Database, Globe, Eye, Filter } from 'lucide-react';
+import { Search, Code2, ExternalLink, Code, Database, Globe, Eye, Filter, Briefcase } from 'lucide-react';
 import * as LucideIcons from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
@@ -58,8 +58,8 @@ export default function Projects() {
           {t('projects_desc')}
         </p>
         <div className="pt-6 animate-slide-up" style={{ animationDelay: '150ms' }}>
-          <a href="/hire-me" className="inline-flex items-center gap-2 px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1">
-             {t('order_project', 'Order a Project')}
+          <a href="/work-with-me" className="inline-flex items-center gap-2 px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1">
+             <Briefcase className="w-5 h-5" /> {t('order_project', 'Order a Project')}
           </a>
         </div>
       </div>
@@ -135,7 +135,7 @@ export default function Projects() {
                       </h3>
                       {project.estimated_price && (
                         <span className="inline-flex items-center px-3 py-1 rounded-full bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-sm font-bold whitespace-nowrap">
-                          {t('estimated_price', 'Estimated Price')}: ${project.estimated_price}
+                          {t('estimated_price', 'Estimated Price')}: ${parseInt(project.estimated_price)}
                         </span>
                       )}
                     </div>
