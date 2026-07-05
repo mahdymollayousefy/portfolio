@@ -46,6 +46,11 @@ i18n
     interpolation: { escapeValue: false }
   });
 
+if (typeof document !== 'undefined') {
+  document.documentElement.dir = i18n.language === 'fa' ? 'rtl' : 'ltr';
+  document.documentElement.lang = i18n.language || 'en';
+}
+
 i18n.on('languageChanged', (lng) => {
   document.documentElement.dir = lng === 'fa' ? 'rtl' : 'ltr';
   document.documentElement.lang = lng;
