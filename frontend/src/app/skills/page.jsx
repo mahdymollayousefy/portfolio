@@ -1,29 +1,14 @@
 "use client";
-import { useEffect, useState } from 'react';
-import { fetchSkills } from '../../services/api';
+
 import * as LucideIcons from 'lucide-react';
 import { Wrench, Award, CheckCircle, Globe, Terminal } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 export default function Skills() {
   const { t, i18n } = useTranslation();
-  const [skills, setSkills] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const loadSkills = async () => {
-      setLoading(true);
-      try {
-        const data = await fetchSkills();
-        setSkills(data);
-      } catch (error) {
-        console.error("Failed to load skills", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-    loadSkills();
-  }, [i18n.language]);
+  
+  // Get skills array from the translation file
+  const skills = t('skills', { returnObjects: true }) || [];
 
   const renderIcon = (iconName) => {
     if (!iconName) return <LucideIcons.Wrench className="w-8 h-8 opacity-50 text-slate-500" />;
@@ -48,25 +33,7 @@ export default function Skills() {
       </div>
 
       <div className="animate-slide-up" style={{ animationDelay: '200ms' }}>
-        {loading ? (
-          <div className="grid grid-cols-1 gap-6">
-            {Array.from({ length: 4 }).map((_, idx) => (
-              <div key={idx} className="bg-white dark:bg-slate-900/50 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 animate-pulse">
-                <div className="flex items-start gap-4 mb-4">
-                  <div className="p-3 w-14 h-14 bg-slate-200 dark:bg-slate-800 rounded-xl"></div>
-                  <div className="flex-1 space-y-2 py-1">
-                    <div className="h-5 bg-slate-200 dark:bg-slate-800 rounded w-1/4"></div>
-                    <div className="h-4 bg-slate-200 dark:bg-slate-800 rounded w-1/6"></div>
-                  </div>
-                </div>
-                <div className="space-y-2 mt-4">
-                  <div className="h-4 bg-slate-200 dark:bg-slate-800 rounded w-full"></div>
-                  <div className="h-4 bg-slate-200 dark:bg-slate-800 rounded w-5/6"></div>
-                </div>
-              </div>
-            ))}
-          </div>
-        ) : skills.length > 0 ? (
+        {skills && skills.length > 0 ? (
           <div className="grid grid-cols-1 gap-6">
             {skills.map((skill, idx) => (
               <div key={skill.id} className="bg-white dark:bg-slate-900/50 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 hover:-translate-y-1 transition-transform shadow-sm hover:shadow-md animate-slide-up" style={{ animationDelay: `${idx * 50}ms` }}>

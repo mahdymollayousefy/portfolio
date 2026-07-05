@@ -7,18 +7,12 @@ from django.utils.decorators import method_decorator
 from django.views.decorators.cache import cache_page
 from rest_framework.throttling import AnonRateThrottle
 
-from .models import Skill, ProjectCategory, Project, HireMeRequest
-from .serializers import SkillSerializer, ProjectCategorySerializer, ProjectSerializer, HireMeRequestSerializer
+from .models import ProjectCategory, Project, HireMeRequest
+from .serializers import ProjectCategorySerializer, ProjectSerializer, HireMeRequestSerializer
 from .pagination import StandardResultsSetPagination
 from .tasks import process_hire_me_request
 
-class SkillViewSet(viewsets.ReadOnlyModelViewSet):
-    queryset = Skill.objects.all()
-    serializer_class = SkillSerializer
 
-    @method_decorator(cache_page(60 * 15))
-    def dispatch(self, *args, **kwargs):
-        return super().dispatch(*args, **kwargs)
 
 class ProjectCategoryViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = ProjectCategory.objects.all()

@@ -1,21 +1,13 @@
 from django.contrib import admin
 from unfold.admin import ModelAdmin, TabularInline
 from modeltranslation.admin import TranslationAdmin
-from .models import Skill, ProjectCategory, TechStack, Project, ProjectImage, HireMeRequest
+from .models import ProjectCategory, Project, ProjectImage, HireMeRequest
 
 @admin.register(ProjectCategory)
 class ProjectCategoryAdmin(ModelAdmin):
     list_display = ('name', 'icon')
 
-@admin.register(TechStack)
-class TechStackAdmin(ModelAdmin):
-    list_display = ('name', 'icon')
 
-@admin.register(Skill)
-class SkillAdmin(ModelAdmin, TranslationAdmin):
-    list_display = ('name', 'category', 'icon')
-    list_filter = ('category',)
-    search_fields = ('name',)
 
 class ProjectImageInline(TabularInline):
     model = ProjectImage

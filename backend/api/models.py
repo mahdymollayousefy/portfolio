@@ -62,12 +62,7 @@ TECH_ICONS = [
 
 ALL_ICONS = LUCIDE_ICONS + TECH_ICONS
 
-class TechStack(models.Model):
-    name = models.CharField(max_length=50, unique=True)
-    icon = models.CharField(max_length=100, choices=TECH_ICONS, help_text="Select a tech icon")
 
-    def __str__(self):
-        return self.name
 
 class ProjectCategory(models.Model):
     name = models.CharField(max_length=100, unique=True)
@@ -79,21 +74,14 @@ class ProjectCategory(models.Model):
     def __str__(self):
         return self.name
 
-class Skill(models.Model):
-    name = models.CharField(max_length=100)
-    category = models.CharField(max_length=50, help_text="e.g., Backend, AI, DevOps")
-    icon = models.CharField(max_length=100, choices=ALL_ICONS, blank=True, help_text="Select an icon")
-    description = CKEditor5Field('Description', config_name='default', blank=True)
 
-    def __str__(self):
-        return self.name
 
 class Project(models.Model):
     title = models.CharField(max_length=200)
     slug = models.SlugField(unique=True)
     category = models.ForeignKey(ProjectCategory, on_delete=models.SET_NULL, null=True, blank=True, related_name='projects')
     description = CKEditor5Field('Description', config_name='default')
-    tech_stacks = models.ManyToManyField(TechStack, blank=True, related_name='projects')
+    tech_stacks = models.JSONField(default=list, blank=True, help_text="List of tech stack names, e.g. ['React', 'Django']")
     icon = models.CharField(max_length=100, choices=ALL_ICONS, blank=True, help_text="Icon for the tech stack/project")
     github_link = models.URLField(blank=True, null=True)
     live_link = models.URLField(blank=True, null=True)
