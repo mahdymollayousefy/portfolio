@@ -36,6 +36,7 @@ export default function RootLayout({ children }) {
       <head>
         <title>Portfolio SaaS</title>
         <meta name="description" content="Portfolio application" />
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
       </head>
       <body className="min-h-screen flex flex-col font-sans selection:bg-blue-500/30 selection:text-blue-900 dark:selection:text-blue-50 bg-white dark:bg-slate-900 text-slate-900 dark:text-white">
         <I18nProvider onReady={setI18nInstance}>
