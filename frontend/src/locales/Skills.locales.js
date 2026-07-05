@@ -71,7 +71,7 @@ export default {
     no_skills_desc: "Fähigkeiten werden hier angezeigt, sobald sie hinzugefügt wurden.",
     certs_title: "Zertifikate & Auszeichnungen",
     certs_desc: "Anerkannte Qualifikationen und Erfolge im Software Engineering.",
-    cert_1: "Bachelor's degree in Computer Engineering, Graduated",
+    cert_1: "Bachelor in Computer Engineering, Abgeschlossen",
     
     langs_title: "Gesprochene Sprachen",
     langs_desc: "Sprachen, die ich für die tägliche Kommunikation und Zusammenarbeit nutze.",
@@ -112,6 +112,13 @@ export default {
         description: "Starker Hintergrund in der Containerisierung von Anwendungen mit Docker & Docker Compose. Sehr vertraut mit Linux-Umgebungen für Serververwaltung, Deployment-Pipelines und die Gewährleistung von Releases ohne Ausfallzeiten."
       },
       {
+        id: 6,
+        name: "Git & Versionskontrolle",
+        category: "DevOps",
+        icon: "devicon-git-plain",
+        description: "Versiert in der Versionskontrolle mit Git und GitHub, was eine nahtlose Zusammenarbeit und Codebase-Verwaltung ermöglicht."
+      },
+      {
         id: 5,
         name: "KI & Prompt Engineering",
         category: "AI & Automation",
@@ -128,7 +135,7 @@ export default {
     no_skills_desc: "Vaardigheden verschijnen hier zodra ze zijn toegevoegd.",
     certs_title: "Certificeringen & Prijzen",
     certs_desc: "Erkende kwalificaties en prestaties in software engineering.",
-    cert_1: "Bachelor's degree in Computer Engineering, Graduated",
+    cert_1: "Bachelordiploma in Computer Engineering, Afgestudeerd",
     
     langs_title: "Gesproken Talen",
     langs_desc: "Talen die ik gebruik voor dagelijkse communicatie en samenwerking.",
@@ -169,6 +176,13 @@ export default {
         description: "Sterke achtergrond in het containeriseren van applicaties met Docker & Docker Compose. Zeer comfortabel in Linux-omgevingen voor serverbeheer, implementatiepijplijnen en het garanderen van releases zonder downtime."
       },
       {
+        id: 6,
+        name: "Git & Versiebeheer",
+        category: "DevOps",
+        icon: "devicon-git-plain",
+        description: "Bedreven in versiebeheer met Git en GitHub, wat naadloze samenwerking en codebase-beheer mogelijk maakt."
+      },
+      {
         id: 5,
         name: "AI & Prompt Engineering",
         category: "AI & Automation",
@@ -185,7 +199,7 @@ export default {
     no_skills_desc: "مهارت‌ها پس از افزودن در اینجا نمایش داده خواهند شد.",
     certs_title: "گواهینامه‌ها و افتخارات",
     certs_desc: "مدارک معتبر و دستاوردهای شناخته‌شده در زمینه مهندسی نرم‌افزار.",
-    cert_1: "Bachelor's degree in Computer Engineering, Graduated",
+    cert_1: "لیسانس مهندسی کامپیوتر، فارغ التحصیل",
     
     langs_title: "زبان‌های ارتباطی",
     langs_desc: "زبان‌هایی که برای ارتباطات و همکاری‌های روزمره استفاده می‌کنم.",
@@ -224,6 +238,13 @@ export default {
         category: "DevOps",
         icon: "devicon-docker-plain",
         description: "دانش عمیق در کانتینرایز کردن اپلیکیشن‌ها با Docker و Docker Compose. تسلط کامل بر محیط‌های لینوکس برای مدیریت سرور، استقرار پروژه‌ها و اطمینان از آپتایم بالا هنگام انتشار نسخه‌های جدید."
+      },
+      {
+        id: 6,
+        name: "گیت و کنترل نسخه",
+        category: "DevOps",
+        icon: "devicon-git-plain",
+        description: "مسلط به سیستم‌های کنترل نسخه از جمله Git و GitHub، به منظور همکاری تیمی یکپارچه و مدیریت بهینه سورس‌کدها."
       },
       {
         id: 5,

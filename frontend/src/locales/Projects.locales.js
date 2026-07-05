@@ -13,6 +13,13 @@ export default {
     filter_fullstack: "Full Stack",
     capabilities_title: "Technical Capabilities",
     capabilities_desc: "Leveraging cutting-edge technologies to solve complex problems.",
+    order_project: "Order a Project",
+    view: "View",
+    code: "Code",
+    live_demo: "Live Demo",
+    estimated_price: "Estimated Price",
+    back_to_projects: "Back to Projects",
+    project_not_found: "Project Not Found"
   },
   de: {
     projects_title_part1: "Ausgewählte",
@@ -28,6 +35,13 @@ export default {
     filter_fullstack: "Full Stack",
     capabilities_title: "Technische Fähigkeiten",
     capabilities_desc: "Nutzung modernster Technologien zur Lösung komplexer Probleme.",
+    order_project: "Projekt bestellen",
+    view: "Ansehen",
+    code: "Code",
+    live_demo: "Live-Demo",
+    estimated_price: "Geschätzter Preis",
+    back_to_projects: "Zurück zu Projekten",
+    project_not_found: "Projekt nicht gefunden"
   },
   nl: {
     projects_title_part1: "Uitgelichte",
@@ -43,6 +57,13 @@ export default {
     filter_fullstack: "Full Stack",
     capabilities_title: "Technische Capaciteiten",
     capabilities_desc: "Baanbrekende technologieën inzetten om complexe problemen op te lossen.",
+    order_project: "Project bestellen",
+    view: "Bekijken",
+    code: "Code",
+    live_demo: "Live Demo",
+    estimated_price: "Geschatte Prijs",
+    back_to_projects: "Terug naar Projecten",
+    project_not_found: "Project niet gevonden"
   },
   fa: {
     projects_title_part1: "پروژه‌های",
@@ -58,5 +79,12 @@ export default {
     filter_fullstack: "فول استک",
     capabilities_title: "توانمندی‌های فنی",
     capabilities_desc: "استفاده از فناوری‌های پیشرفته برای حل مسائل پیچیده.",
+    order_project: "سفارش پروژه",
+    view: "مشاهده",
+    code: "کد منبع",
+    live_demo: "نمایش زنده",
+    estimated_price: "قیمت تقریبی",
+    back_to_projects: "بازگشت به پروژه‌ها",
+    project_not_found: "پروژه یافت نشد"
   }
 };
