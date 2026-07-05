@@ -25,10 +25,10 @@ export default function Skills() {
       
       <div className="text-center space-y-4 pt-8">
         <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white animate-slide-up">
-          {t('title_part1')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">{t('title_part2')}</span>
+          {t('skills_title_part1')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">{t('skills_title_part2')}</span>
         </h1>
         <p className="text-lg text-slate-600 dark:text-slate-400 animate-slide-up" style={{ animationDelay: '100ms' }}>
-          {t('desc')}
+          {t('skills_desc')}
         </p>
       </div>
 

@@ -35,7 +35,7 @@ export default function Header() {
   const navLinks = [
     { key: 'home', path: '/', icon: <Home className="w-4 h-4" /> },
     { key: 'projects', path: '/projects', icon: <Briefcase className="w-4 h-4" /> },
-    { key: 'skills', path: '/skills', icon: <Code className="w-4 h-4" /> },
+    { key: 'nav_skills', path: '/skills', icon: <Code className="w-4 h-4" /> },
     { key: 'hire_me', path: '/hire-me', icon: <Mail className="w-4 h-4" /> },
     { key: 'legal', path: '/legal', icon: <Scale className="w-4 h-4" /> },
   ];

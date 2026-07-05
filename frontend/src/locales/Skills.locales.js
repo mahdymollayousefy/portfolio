@@ -1,8 +1,8 @@
 export default {
   en: {
-    title_part1: "Technical",
-    title_part2: "Skills",
-    desc: "A comprehensive overview of my technical expertise and proficiency levels across different domains.",
+    skills_title_part1: "Technical",
+    skills_title_part2: "Skills",
+    skills_desc: "A comprehensive overview of my technical expertise and proficiency levels across different domains.",
     no_skills: "No skills found",
     no_skills_desc: "Skills will appear here once they are added.",
     certs_title: "Certifications & Awards",
@@ -59,9 +59,9 @@ export default {
     ]
   },
   de: {
-    title_part1: "Technische",
-    title_part2: "Fähigkeiten",
-    desc: "Ein umfassender Überblick über meine technische Expertise und mein Qualifikationsniveau in verschiedenen Bereichen.",
+    skills_title_part1: "Technische",
+    skills_title_part2: "Fähigkeiten",
+    skills_desc: "Ein umfassender Überblick über meine technische Expertise und mein Qualifikationsniveau in verschiedenen Bereichen.",
     no_skills: "Keine Fähigkeiten gefunden",
     no_skills_desc: "Fähigkeiten werden hier angezeigt, sobald sie hinzugefügt wurden.",
     certs_title: "Zertifikate & Auszeichnungen",
@@ -118,9 +118,9 @@ export default {
     ]
   },
   nl: {
-    title_part1: "Technische",
-    title_part2: "Vaardigheden",
-    desc: "Een uitgebreid overzicht van mijn technische expertise en vaardigheidsniveaus in verschillende domeinen.",
+    skills_title_part1: "Technische",
+    skills_title_part2: "Vaardigheden",
+    skills_desc: "Een uitgebreid overzicht van mijn technische expertise en vaardigheidsniveaus in verschillende domeinen.",
     no_skills: "Geen vaardigheden gevonden",
     no_skills_desc: "Vaardigheden verschijnen hier zodra ze zijn toegevoegd.",
     certs_title: "Certificeringen & Prijzen",
@@ -177,9 +177,9 @@ export default {
     ]
   },
   fa: {
-    title_part1: "مهارت‌های",
-    title_part2: "فنی",
-    desc: "نگاهی جامع به تخصص‌های فنی و میزان مهارت من در حوزه‌های مختلف توسعه نرم‌افزار.",
+    skills_title_part1: "مهارت‌های",
+    skills_title_part2: "فنی",
+    skills_desc: "نگاهی جامع به تخصص‌های فنی و میزان مهارت من در حوزه‌های مختلف توسعه نرم‌افزار.",
     no_skills: "مهارتی یافت نشد",
     no_skills_desc: "مهارت‌ها پس از افزودن در اینجا نمایش داده خواهند شد.",
     certs_title: "گواهینامه‌ها و افتخارات",

@@ -26,7 +26,7 @@ export default function Footer() {
             <Home className="w-4 h-4" /> {t('home')}
           </Link>
           <Link href="/skills" className="flex items-center gap-2 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-            <Code2 className="w-4 h-4" /> {t('skills')}
+            <Code2 className="w-4 h-4" /> {t('nav_skills')}
           </Link>
           <Link href="/hire-me" className="flex items-center gap-2 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
             <Briefcase className="w-4 h-4" /> {t('hire_me')}

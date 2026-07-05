@@ -50,10 +50,10 @@ export default function HireMe() {
     <div className="max-w-6xl mx-auto py-12 px-4 animate-fade-in overflow-x-hidden">
       <div className="text-center space-y-4 mb-16">
         <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white animate-slide-up">
-          {t('title_part1')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">{t('title_part2')}</span>
+          {t('hireme_title_part1')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">{t('hireme_title_part2')}</span>
         </h1>
         <p className="text-lg text-slate-600 dark:text-slate-400 animate-slide-up" style={{ animationDelay: '100ms' }}>
-          {t('desc')}
+          {t('hireme_desc')}
         </p>
       </div>
 
