@@ -19,9 +19,7 @@ export default function Legal() {
             </div>
             <h2 className="text-2xl font-bold text-slate-800 dark:text-slate-200">{t('privacy_title')}</h2>
           </div>
-          <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-lg">
-            {t('privacy_content')}
-          </p>
+          <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-lg" dangerouslySetInnerHTML={{ __html: t('privacy_content') }} />
         </section>
 
         <section className="bg-white dark:bg-slate-900 rounded-2xl p-8 shadow-sm border border-slate-200 dark:border-slate-800">
@@ -31,9 +29,7 @@ export default function Legal() {
             </div>
             <h2 className="text-2xl font-bold text-slate-800 dark:text-slate-200">{t('cookie_title')}</h2>
           </div>
-          <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-lg">
-            {t('cookie_content')}
-          </p>
+          <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-lg" dangerouslySetInnerHTML={{ __html: t('cookie_content') }} />
         </section>
 
         <section className="bg-white dark:bg-slate-900 rounded-2xl p-8 shadow-sm border border-slate-200 dark:border-slate-800">
@@ -43,9 +39,7 @@ export default function Legal() {
             </div>
             <h2 className="text-2xl font-bold text-slate-800 dark:text-slate-200">{t('rules_title')}</h2>
           </div>
-          <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-lg">
-            {t('rules_content')}
-          </p>
+          <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-lg" dangerouslySetInnerHTML={{ __html: t('rules_content') }} />
         </section>
 
         <section className="bg-white dark:bg-slate-900 rounded-2xl p-8 shadow-sm border border-slate-200 dark:border-slate-800">
@@ -55,9 +49,7 @@ export default function Legal() {
             </div>
             <h2 className="text-2xl font-bold text-slate-800 dark:text-slate-200">{t('payment_title')}</h2>
           </div>
-          <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-lg font-medium">
-            {t('payment_content')}
-          </p>
+          <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-lg font-medium" dangerouslySetInnerHTML={{ __html: t('payment_content') }} />
         </section>
       </div>
     </div>
