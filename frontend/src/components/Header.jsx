@@ -92,7 +92,7 @@ export default function Header() {
  <button
  key={lang.code}
  onClick={() => changeLang(lang.code)}
- className={`w-full text-start px-4 py-2 text-sm hover:bg-white/40 dark:hover:bg-slate-800/40 flex items-center gap-2 ${i18n.language === lang.code ? 'text-blue-600 font-bold' : 'text-slate-700 dark:text-slate-300'}`}
+ className={`w-full text-start px-4 py-2 text-sm hover:bg-white/80 dark:hover:bg-slate-800/80 flex items-center gap-2 ${i18n.language === lang.code ? 'text-blue-600 font-bold' : 'text-slate-700 dark:text-slate-300'}`}
  >
  <span>{lang.flag}</span>
  <span>{lang.label}</span>
@@ -127,7 +127,7 @@ export default function Header() {
  <Link 
  key={link.path} 
  href={link.path} 
- className={`flex items-center gap-3 text-sm md:text-lg font-semibold px-4 py-3 rounded-lg transition-all duration-300 hover:translate-x-2 hover:bg-white/40 dark:hover:bg-slate-800/40 ${pathname === link.path ? 'bg-blue-500/10 dark:bg-blue-400/20 text-blue-600 dark:text-blue-400' : 'text-slate-600 dark:text-slate-300'}`}
+ className={`flex items-center gap-3 text-sm md:text-lg font-semibold px-4 py-3 rounded-lg transition-all duration-300 hover:translate-x-2 hover:bg-white/80 dark:hover:bg-slate-800/80 ${pathname === link.path ? 'bg-blue-500/80 dark:bg-blue-400/80 text-blue-900 dark:text-blue-100' : 'text-slate-600 dark:text-slate-300'}`}
  onClick={() => setMobileMenuOpen(false)}
  >
  {link.icon}
