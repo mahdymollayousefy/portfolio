@@ -24,7 +24,7 @@ export default function Skills() {
  <div className="max-w-4xl mx-auto space-y-6 md:space-y-12 md:space-y-24 pb-12 animate-fade-in">
  
  <div className="text-center space-y-4 pt-8">
- <h1 className="text-base md:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white animate-slide-up">
+ <h1 className="text-2xl md:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white animate-slide-up">
  {t('skills_title_part1')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">{t('skills_title_part2')}</span>
  </h1>
  <p className="text-sm md:text-lg text-slate-600 dark:text-slate-400 animate-slide-up" style={{ animationDelay: '100ms' }}>
@@ -74,7 +74,7 @@ export default function Skills() {
  <Award className="w-8 h-8 text-yellow-500" />
  </div>
  <div>
- <h2 className="text-lg md:text-2xl font-bold text-slate-900 dark:text-white">{t('certs_title')}</h2>
+ <h2 className="text-xl md:text-2xl font-bold text-slate-900 dark:text-white">{t('certs_title')}</h2>
  <p className="text-slate-600 dark:text-slate-400">{t('certs_desc')}</p>
  </div>
  </div>
@@ -96,7 +96,7 @@ export default function Skills() {
  <div className="p-3 bg-slate-100 dark:bg-slate-800 rounded-xl">
  <Terminal className="w-6 h-6 text-blue-500" />
  </div>
- <h2 className="text-lg md:text-2xl font-bold text-slate-900 dark:text-white">{t('tools_title')}</h2>
+ <h2 className="text-xl md:text-2xl font-bold text-slate-900 dark:text-white">{t('tools_title')}</h2>
  </div>
  <p className="text-slate-600 dark:text-slate-400 mb-6 ">{t('tools_desc')}</p>
  <div className="space-y-6">
@@ -128,7 +128,7 @@ export default function Skills() {
  <div className="p-3 bg-slate-100 dark:bg-slate-800 rounded-xl">
  <Globe className="w-6 h-6 text-purple-500" />
  </div>
- <h2 className="text-lg md:text-2xl font-bold text-slate-900 dark:text-white">{t('langs_title')}</h2>
+ <h2 className="text-xl md:text-2xl font-bold text-slate-900 dark:text-white">{t('langs_title')}</h2>
  </div>
  <p className="text-slate-600 dark:text-slate-400 mb-6">{t('langs_desc')}</p>
  <div className="space-y-4">

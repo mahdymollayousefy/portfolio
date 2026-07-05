@@ -23,7 +23,7 @@ export default function Home() {
  {t('available')}
  </div>
  
- <h1 className="text-base md:text-3xl md:text-4xl lg:text-5xl lg:text-7xl font-black tracking-tight text-slate-900 dark:text-white leading-[1.1] animate-slide-up" style={{ animationDelay: '100ms' }}>
+ <h1 className="text-2xl md:text-3xl md:text-4xl lg:text-5xl lg:text-7xl font-black tracking-tight text-slate-900 dark:text-white leading-[1.1] animate-slide-up" style={{ animationDelay: '100ms' }}>
  {t('home_title_part1')} <br className="hidden md:block"/>
  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
  {t('home_title_part2')}
@@ -73,7 +73,7 @@ export default function Home() {
  {/* About Me Section */}
  <section className="py-6 md:py-12 animate-slide-up bg-slate-50 dark:bg-slate-900/50 rounded-3xl mx-0 px-4 lg:px-0" style={{ animationDelay: '220ms' }}>
  <div className="max-w-4xl mx-auto px-4 md:px-6 py-4 md:py-8 space-y-6">
- <h2 className="text-lg md:text-3xl lg:text-4xl font-bold text-slate-900 dark:text-white">{t('about_me_title')}</h2>
+ <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-900 dark:text-white">{t('about_me_title')}</h2>
  <p className="text-slate-600 dark:text-slate-400 text-sm md:text-lg leading-relaxed ">{t('about_me_desc')}</p>
  </div>
  </section>
@@ -82,15 +82,15 @@ export default function Home() {
  <section className="py-4 md:py-8 animate-slide-up border-b border-slate-200 dark:border-slate-800" style={{ animationDelay: '250ms' }}>
  <div className="flex flex-col md:flex-row justify-around items-center gap-8 max-w-4xl mx-auto py-2">
  <div className="text-center">
- <h3 className="text-lg md:text-3xl lg:text-4xl font-black text-blue-600 dark:text-blue-400 mb-2">{t('stats_exp')}</h3>
+ <h3 className="text-2xl md:text-3xl lg:text-4xl font-black text-blue-600 dark:text-blue-400 mb-2">{t('stats_exp')}</h3>
  <p className="font-semibold text-slate-700 dark:text-slate-300">{t('stats_exp_desc')}</p>
  </div>
  <div className="text-center">
- <h3 className="text-lg md:text-3xl lg:text-4xl font-black text-purple-600 dark:text-purple-400 mb-2">{t('stats_projects')}</h3>
+ <h3 className="text-2xl md:text-3xl lg:text-4xl font-black text-purple-600 dark:text-purple-400 mb-2">{t('stats_projects')}</h3>
  <p className="font-semibold text-slate-700 dark:text-slate-300">{t('stats_projects_desc')}</p>
  </div>
  <div className="text-center">
- <h3 className="text-lg md:text-3xl lg:text-4xl font-black text-green-600 dark:text-green-400 mb-2">{t('stats_clients')}</h3>
+ <h3 className="text-2xl md:text-3xl lg:text-4xl font-black text-green-600 dark:text-green-400 mb-2">{t('stats_clients')}</h3>
  <p className="font-semibold text-slate-700 dark:text-slate-300">{t('stats_clients_desc')}</p>
  </div>
  </div>
@@ -100,7 +100,7 @@ export default function Home() {
  <section className="py-6 md:py-12 animate-slide-up" style={{ animationDelay: '300ms' }}>
  <div className="max-w-4xl mx-auto space-y-6 md:space-y-12">
  <div className="space-y-4">
- <h2 className="text-lg md:text-3xl lg:text-4xl font-bold text-slate-900 dark:text-white">{t('services_title')}</h2>
+ <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-900 dark:text-white">{t('services_title')}</h2>
  <p className="text-slate-600 dark:text-slate-400 text-sm md:text-lg leading-relaxed ">{t('services_desc')}</p>
  </div>
 
@@ -110,7 +110,7 @@ export default function Home() {
  <LayoutTemplate className="w-6 h-6 text-blue-600 dark:text-blue-400" />
  </div>
  <div>
- <h3 className="text-lg md:text-2xl font-bold text-slate-900 dark:text-white mb-2">{t('service_1')}</h3>
+ <h3 className="text-xl md:text-2xl font-bold text-slate-900 dark:text-white mb-2">{t('service_1')}</h3>
  <p className="text-slate-600 dark:text-slate-300 leading-relaxed text-sm md:text-lg">{t('service_1_desc')}</p>
  </div>
  </div>
@@ -120,7 +120,7 @@ export default function Home() {
  <ServerCog className="w-6 h-6 text-purple-600 dark:text-purple-400" />
  </div>
  <div>
- <h3 className="text-lg md:text-2xl font-bold text-slate-900 dark:text-white mb-2">{t('service_2')}</h3>
+ <h3 className="text-xl md:text-2xl font-bold text-slate-900 dark:text-white mb-2">{t('service_2')}</h3>
  <p className="text-slate-600 dark:text-slate-300 leading-relaxed text-sm md:text-lg">{t('service_2_desc')}</p>
  </div>
  </div>
@@ -130,7 +130,7 @@ export default function Home() {
  <CloudCog className="w-6 h-6 text-green-600 dark:text-green-400" />
  </div>
  <div>
- <h3 className="text-lg md:text-2xl font-bold text-slate-900 dark:text-white mb-2">{t('service_3')}</h3>
+ <h3 className="text-xl md:text-2xl font-bold text-slate-900 dark:text-white mb-2">{t('service_3')}</h3>
  <p className="text-slate-600 dark:text-slate-300 leading-relaxed text-sm md:text-lg">{t('service_3_desc')}</p>
  </div>
  </div>
@@ -142,23 +142,23 @@ export default function Home() {
  <section className="py-6 md:py-12 animate-slide-up bg-slate-50 dark:bg-slate-900/50 rounded-3xl" style={{ animationDelay: '350ms' }}>
  <div className="max-w-4xl mx-auto px-4 md:px-6 py-4 md:py-8 space-y-6 md:space-y-12">
  <div className="space-y-4">
- <h2 className="text-lg md:text-3xl lg:text-4xl font-bold text-slate-900 dark:text-white">{t('expertise_title')}</h2>
+ <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-900 dark:text-white">{t('expertise_title')}</h2>
  <p className="text-slate-600 dark:text-slate-400 text-sm md:text-lg leading-relaxed ">{t('expertise_desc')}</p>
  </div>
 
  <div className="space-y-4 md:space-y-8">
  <div className="border-s-4 border-s-blue-500 ps-6 py-2">
- <h3 className="text-lg md:text-2xl font-bold text-slate-900 dark:text-white mb-2">{t('backend_title')}</h3>
+ <h3 className="text-xl md:text-2xl font-bold text-slate-900 dark:text-white mb-2">{t('backend_title')}</h3>
  <p className="text-slate-600 dark:text-slate-300 leading-relaxed text-sm md:text-lg">{t('backend_desc')}</p>
  </div>
  
  <div className="border-s-4 border-s-purple-500 ps-6 py-2">
- <h3 className="text-lg md:text-2xl font-bold text-slate-900 dark:text-white mb-2">{t('data_title')}</h3>
+ <h3 className="text-xl md:text-2xl font-bold text-slate-900 dark:text-white mb-2">{t('data_title')}</h3>
  <p className="text-slate-600 dark:text-slate-300 leading-relaxed text-sm md:text-lg">{t('data_desc')}</p>
  </div>
 
  <div className="border-s-4 border-s-green-500 ps-6 py-2">
- <h3 className="text-lg md:text-2xl font-bold text-slate-900 dark:text-white mb-2">{t('ai_title')}</h3>
+ <h3 className="text-xl md:text-2xl font-bold text-slate-900 dark:text-white mb-2">{t('ai_title')}</h3>
  <p className="text-slate-600 dark:text-slate-300 leading-relaxed text-sm md:text-lg">{t('ai_desc')}</p>
  </div>
  </div>
@@ -169,7 +169,7 @@ export default function Home() {
  <section className="py-6 md:py-12 animate-slide-up" style={{ animationDelay: '400ms' }}>
  <div className="max-w-4xl mx-auto space-y-6 md:space-y-12">
  <div className="space-y-4">
- <h2 className="text-lg md:text-3xl lg:text-4xl font-bold text-slate-900 dark:text-white">{t('process_title')}</h2>
+ <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-900 dark:text-white">{t('process_title')}</h2>
  <p className="text-slate-600 dark:text-slate-400 text-sm md:text-lg leading-relaxed ">{t('process_desc')}</p>
  </div>
  
@@ -185,7 +185,7 @@ export default function Home() {
  0{step.id}
  </div>
  <div>
- <h4 className="text-lg md:text-2xl font-bold text-slate-900 dark:text-white mb-2 flex items-center gap-2">
+ <h4 className="text-xl md:text-2xl font-bold text-slate-900 dark:text-white mb-2 flex items-center gap-2">
  {t(step.title)}
  </h4>
  <p className="text-sm md:text-lg text-slate-600 dark:text-slate-400 leading-relaxed ">{t(step.desc)}</p>

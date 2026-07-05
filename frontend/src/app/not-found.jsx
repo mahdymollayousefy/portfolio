@@ -15,7 +15,7 @@ export default function NotFound() {
  <div className="absolute -inset-4 bg-gradient-to-r from-blue-500 to-purple-500 opacity-20 blur-2xl rounded-full -z-10 animate-pulse" style={{ animationDuration: '4s' }}></div>
  </div>
  
- <h2 className="text-base md:text-3xl md:text-4xl font-bold mb-4 text-slate-800 dark:text-slate-100">
+ <h2 className="text-2xl md:text-3xl md:text-4xl font-bold mb-4 text-slate-800 dark:text-slate-100">
  {t('404_subtitle')}
  </h2>
  

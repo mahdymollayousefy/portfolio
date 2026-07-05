@@ -51,7 +51,7 @@ export default function Projects() {
  <div className="space-y-6 md:space-y-12 md:space-y-24 max-w-6xl mx-auto pb-12 animate-fade-in">
  
  <div className="text-center space-y-4 pt-8">
- <h1 className="text-base md:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white animate-slide-up">
+ <h1 className="text-2xl md:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white animate-slide-up">
  {t('projects_title_part1')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">{t('projects_title_part2')}</span>
  </h1>
  <p className="text-sm md:text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto animate-slide-up" style={{ animationDelay: '100ms' }}>
@@ -130,7 +130,7 @@ export default function Projects() {
  
  <div className="p-4 md:p-8 flex-1 flex flex-col">
  <div className="flex justify-between items-start mb-2">
- <h3 className="text-lg md:text-2xl font-bold text-slate-900 dark:text-white">
+ <h3 className="text-xl md:text-2xl font-bold text-slate-900 dark:text-white">
  {project.title}
  </h3>
  {project.estimated_price && (

@@ -65,7 +65,7 @@ export default function WorkWithMe() {
  {/* Contact Info Side Panel */}
  <div className="lg:col-span-1 space-y-4 md:space-y-8">
  <div>
- <h3 className="text-base md:text-lg md:text-2xl font-bold text-slate-900 dark:text-white mb-4">{t('contact_info')}</h3>
+ <h3 className="text-base md:text-xl md:text-2xl font-bold text-slate-900 dark:text-white mb-4">{t('contact_info')}</h3>
  <p className="text-slate-600 dark:text-slate-400 leading-relaxed ">{t('contact_desc')}</p>
  </div>
  
@@ -125,7 +125,7 @@ export default function WorkWithMe() {
  <div className="mx-auto w-16 h-16 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mb-6">
  <CheckCircle2 className="w-8 h-8 text-green-600 dark:text-green-400 animate-bounce" />
  </div>
- <h3 className="text-base md:text-lg md:text-2xl font-bold text-slate-900 dark:text-white">{t('success')}</h3>
+ <h3 className="text-base md:text-xl md:text-2xl font-bold text-slate-900 dark:text-white">{t('success')}</h3>
  <button 
  onClick={() => setStatus('idle')}
  className="mt-8 px-4 md:px-6 py-2.5 rounded-lg bg-blue-50 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400 font-medium hover:bg-blue-100 dark:hover:bg-blue-900/50 transition-all hover:scale-105"
@@ -252,7 +252,7 @@ export default function WorkWithMe() {
  {/* Pricing Packages */}
  <section className="py-6 md:py-12 animate-slide-up" style={{ animationDelay: '250ms' }}>
  <div className="text-center space-y-4 mb-16">
- <h2 className="text-base md:text-3xl font-bold text-slate-900 dark:text-white">{t('pricing_title')}</h2>
+ <h2 className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white">{t('pricing_title')}</h2>
  <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">{t('pricing_desc')}</p>
  </div>
  
@@ -289,7 +289,7 @@ export default function WorkWithMe() {
  <section className="py-6 md:py-12 bg-slate-50 dark:bg-slate-900/30 rounded-3xl animate-slide-up" style={{ animationDelay: '300ms' }}>
  <div className="max-w-4xl mx-auto px-4 md:px-8">
  <div className="text-center space-y-4 mb-16">
- <h2 className="text-base md:text-3xl font-bold text-slate-900 dark:text-white">{t('faq_title')}</h2>
+ <h2 className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white">{t('faq_title')}</h2>
  </div>
  
  <div className="flex flex-col gap-10">

@@ -43,7 +43,7 @@ function ProjectDetailContent() {
  if (!project) {
  return (
  <div className="flex flex-col justify-center items-center h-[70vh] text-center space-y-4">
- <h2 className="text-base md:text-3xl font-bold text-slate-900 dark:text-white">{t('project_not_found', 'Project Not Found')}</h2>
+ <h2 className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white">{t('project_not_found', 'Project Not Found')}</h2>
  <Link href="/projects" className="text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-2">
  <ArrowLeft className="w-4 h-4" /> {t('back_to_projects', 'Back to Projects')}
  </Link>
@@ -83,7 +83,7 @@ function ProjectDetailContent() {
  </span>
  </div>
 
- <h1 className="text-base md:text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+ <h1 className="text-2xl md:text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight">
  {project.title}
  </h1>
 
