@@ -142,21 +142,11 @@ export default function Projects() {
                     
                     <div className="text-slate-600 dark:text-slate-400 text-base mb-6 flex-1 prose dark:prose-invert line-clamp-3" dangerouslySetInnerHTML={{ __html: project.description }} />
                     
-                    {project.tech_stacks_detail && project.tech_stacks_detail.length > 0 && (
+                    {project.tech_stacks && project.tech_stacks.length > 0 && (
                       <div className="flex flex-wrap gap-2 mb-6">
-                        {project.tech_stacks_detail.map((tech) => (
-                          <div key={tech.id} className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg bg-blue-50 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300 border border-blue-100 dark:border-blue-800 cursor-default">
-                            {tech.icon && (
-                               tech.icon.startsWith('devicon-') || tech.icon.startsWith('fas ') ? (
-                                <i className={`${tech.icon} text-sm`} />
-                              ) : (
-                                LucideIcons[tech.icon] ? (() => {
-                                  const IconComponent = LucideIcons[tech.icon];
-                                  return <IconComponent className="w-3.5 h-3.5" />;
-                                })() : <Code2 className="w-3.5 h-3.5" />
-                              )
-                            )}
-                            {tech.name}
+                        {project.tech_stacks.map((tech, idx) => (
+                          <div key={idx} className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg bg-blue-50 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300 border border-blue-100 dark:border-blue-800 cursor-default">
+                            {tech}
                           </div>
                         ))}
                       </div>

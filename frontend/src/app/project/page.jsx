@@ -142,25 +142,15 @@ function ProjectDetailContent() {
         )}
       </div>
 
-      {project.tech_stacks_detail && project.tech_stacks_detail.length > 0 && (
+      {project.tech_stacks && project.tech_stacks.length > 0 && (
         <div className="py-4">
           <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
             <Layers className="w-5 h-5 text-blue-500" /> Tech Stack
           </h3>
           <div className="flex flex-wrap gap-3">
-            {project.tech_stacks_detail.map((tech) => (
-              <span key={tech.id} className="flex items-center gap-2 px-4 py-2 text-sm font-semibold rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 cursor-default transition-transform hover:scale-105">
-                {tech.icon && (
-                   tech.icon.startsWith('devicon-') || tech.icon.startsWith('fas ') ? (
-                    <i className={`${tech.icon} text-lg`} />
-                  ) : (
-                    LucideIcons[tech.icon] ? (() => {
-                      const IconComponent = LucideIcons[tech.icon];
-                      return <IconComponent className="w-5 h-5" />;
-                    })() : <Layers className="w-5 h-5" />
-                  )
-                )}
-                {tech.name}
+            {project.tech_stacks.map((tech, idx) => (
+              <span key={idx} className="flex items-center gap-2 px-4 py-2 text-sm font-semibold rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 cursor-default transition-transform hover:scale-105">
+                {tech}
               </span>
             ))}
           </div>

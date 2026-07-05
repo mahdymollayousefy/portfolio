@@ -110,19 +110,9 @@ UNFOLD = {
                         "link": reverse_lazy("admin:api_project_changelist"),
                     },
                     {
-                        "title": "Skills",
-                        "icon": "military_tech",
-                        "link": reverse_lazy("admin:api_skill_changelist"),
-                    },
-                    {
                         "title": "Categories",
                         "icon": "category",
                         "link": reverse_lazy("admin:api_projectcategory_changelist"),
-                    },
-                    {
-                        "title": "Tech Stacks",
-                        "icon": "layers",
-                        "link": reverse_lazy("admin:api_techstack_changelist"),
                     },
                     {
                         "title": "Hire Requests",
@@ -159,6 +149,20 @@ if DEBUG:
 else:
     CORS_ALLOW_ALL_ORIGINS = False
     CORS_ALLOWED_ORIGINS = os.environ.get('CORS_ALLOWED_ORIGINS', 'http://localhost:5173').split(',')
+    
+    # Production Security Settings
+    SECURE_BROWSER_XSS_FILTER = True
+    SECURE_CONTENT_TYPE_NOSNIFF = True
+    X_FRAME_OPTIONS = 'DENY'
+    CSRF_COOKIE_SECURE = True
+    SESSION_COOKIE_SECURE = True
+    SECURE_HSTS_SECONDS = 31536000
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+    SECURE_HSTS_PRELOAD = True
+    # SECURE_SSL_REDIRECT is typically handled by a reverse proxy (like Nginx) in this stack.
+    # If the app directly handles SSL, uncomment this:
+    # SECURE_SSL_REDIRECT = True
+
 
 REST_FRAMEWORK = {
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
