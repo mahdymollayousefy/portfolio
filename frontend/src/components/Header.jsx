@@ -117,7 +117,7 @@ export default function Header() {
 
  {/* Mobile Nav */}
  <div 
- className={`md:hidden glass-solid absolute top-16 start-0 w-full border-b py-4 px-4 flex flex-col gap-4 shadow-xl transition-all duration-300 origin-top ${
+ className={`md:hidden glass absolute top-16 start-0 w-full border-b py-4 px-4 flex flex-col gap-4 shadow-xl transition-all duration-300 origin-top ${
  mobileMenuOpen 
  ? 'opacity-100 scale-y-100 pointer-events-auto' 
  : 'opacity-0 scale-y-95 pointer-events-none'
