@@ -44,7 +44,7 @@ function ProjectDetailContent() {
  return (
  <div className="flex flex-col justify-center items-center h-[70vh] text-center space-y-4">
  <h2 className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white">{t('project_not_found', 'Project Not Found')}</h2>
- <Link href="/projects" className="text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-2">
+ <Link href="/projects" className="text-blue-600 dark:text-blue-400 hover:underline active:underline flex items-center gap-2">
  <ArrowLeft className="w-4 h-4" /> {t('back_to_projects', 'Back to Projects')}
  </Link>
  </div>
@@ -62,7 +62,7 @@ function ProjectDetailContent() {
 
  return (
  <div className="max-w-4xl mx-auto py-6 md:py-12 px-4 animate-fade-in space-y-6 md:space-y-12">
- <Link href="/projects" className="inline-flex items-center gap-2 text-sm font-semibold text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+ <Link href="/projects" className="inline-flex items-center gap-2 text-sm font-semibold text-slate-500 dark:text-slate-400 hover:text-blue-600 active:text-blue-600 dark:hover:text-blue-400 dark:active:text-blue-400 transition-colors">
  <ArrowLeft className="w-4 h-4" /> {t('back_to_projects', 'Back to Projects')}
  </Link>
 
@@ -89,12 +89,12 @@ function ProjectDetailContent() {
 
  <div className="flex flex-wrap gap-4 pt-2">
  {project.github_link && (
- <a href={project.github_link} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 md:px-6 py-3 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-900 dark:text-white font-semibold transition-all">
+ <a href={project.github_link} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 md:px-6 py-3 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 active:bg-slate-200 dark:hover:bg-slate-700 dark:active:bg-slate-700 text-slate-900 dark:text-white font-semibold transition-all">
  <Code className="w-5 h-5" /> {t('code', 'Source Code')}
  </a>
  )}
  {project.live_link && (
- <a href={project.live_link} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 md:px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold transition-all shadow-lg shadow-blue-500/30">
+ <a href={project.live_link} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 md:px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 active:bg-blue-700 text-white font-semibold transition-all shadow-lg shadow-blue-500/30">
  <ExternalLink className="w-5 h-5" /> {t('live_demo', 'Live Demo')}
  </a>
  )}
@@ -113,14 +113,14 @@ function ProjectDetailContent() {
  infiniteLoop={true}
  renderArrowPrev={(onClickHandler, hasPrev, label) =>
  hasPrev && (
- <button type="button" onClick={onClickHandler} title={label} className="absolute start-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 flex items-center justify-center bg-white/80 dark:bg-slate-900/80 hover:bg-white dark:hover:bg-slate-900 text-slate-800 dark:text-white rounded-full shadow-lg transition-all backdrop-blur-sm">
+ <button type="button" onClick={onClickHandler} title={label} className="absolute start-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 flex items-center justify-center bg-white/80 dark:bg-slate-900/80 hover:bg-white active:bg-white dark:hover:bg-slate-900 dark:active:bg-slate-900 text-slate-800 dark:text-white rounded-full shadow-lg transition-all backdrop-blur-sm">
  <ChevronLeft className="w-6 h-6" />
  </button>
  )
  }
  renderArrowNext={(onClickHandler, hasNext, label) =>
  hasNext && (
- <button type="button" onClick={onClickHandler} title={label} className="absolute end-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 flex items-center justify-center bg-white/80 dark:bg-slate-900/80 hover:bg-white dark:hover:bg-slate-900 text-slate-800 dark:text-white rounded-full shadow-lg transition-all backdrop-blur-sm">
+ <button type="button" onClick={onClickHandler} title={label} className="absolute end-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 flex items-center justify-center bg-white/80 dark:bg-slate-900/80 hover:bg-white active:bg-white dark:hover:bg-slate-900 dark:active:bg-slate-900 text-slate-800 dark:text-white rounded-full shadow-lg transition-all backdrop-blur-sm">
  <ChevronRight className="w-6 h-6" />
  </button>
  )

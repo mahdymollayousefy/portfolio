@@ -36,7 +36,7 @@ export default function Skills() {
  {skills && skills.length > 0 ? (
  <div className="grid grid-cols-1 gap-6">
  {skills.map((skill, idx) => (
- <div key={skill.id} className="bg-white dark:bg-slate-900/50 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 hover:-translate-y-1 transition-transform shadow-sm hover:shadow-md animate-slide-up" style={{ animationDelay: `${idx * 50}ms` }}>
+ <div key={skill.id} className="bg-white dark:bg-slate-900/50 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 hover:-translate-y-1 active:-translate-y-1 transition-transform shadow-sm hover:shadow-md active:shadow-md animate-slide-up" style={{ animationDelay: `${idx * 50}ms` }}>
  <div className="flex items-start gap-4 mb-4">
  <div className="p-3 bg-slate-100 dark:bg-slate-800 rounded-xl">
  {renderIcon(skill.icon)}
@@ -80,7 +80,7 @@ export default function Skills() {
  </div>
  
  <div className="grid grid-cols-1 gap-6">
- <div className="bg-white dark:bg-slate-900 p-6 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800 flex flex-col gap-4 hover:-translate-y-1 transition-transform duration-300 hover:shadow-md">
+ <div className="bg-white dark:bg-slate-900 p-6 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800 flex flex-col gap-4 hover:-translate-y-1 active:-translate-y-1 transition-transform duration-300 hover:shadow-md">
  <CheckCircle className="w-8 h-8 text-green-500 shrink-0" />
  <h4 className="font-semibold text-slate-800 dark:text-slate-200 text-sm md:text-lg leading-tight">{t('cert_1')}</h4>
  </div>
@@ -112,7 +112,7 @@ export default function Skills() {
  </h3>
  <div className="flex flex-wrap gap-2">
  {group.tools.map((tool, i) => (
- <span key={i} className="px-3 py-1.5 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-md text-xs md:text-sm font-medium hover:bg-purple-50 dark:hover:bg-purple-900/30 hover:text-purple-600 dark:hover:text-purple-400 transition-colors border border-transparent cursor-default">
+ <span key={i} className="px-3 py-1.5 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-md text-xs md:text-sm font-medium hover:bg-purple-50 active:bg-purple-50 dark:hover:bg-purple-900/30 dark:active:bg-purple-900/30 hover:text-purple-600 active:text-purple-600 dark:hover:text-purple-400 dark:active:text-purple-400 transition-colors border border-transparent cursor-default">
  {tool}
  </span>
  ))}

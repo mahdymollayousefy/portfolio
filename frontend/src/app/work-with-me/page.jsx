@@ -76,7 +76,7 @@ export default function WorkWithMe() {
  </div>
  <div>
  <h4 className="text-sm font-semibold text-slate-500 dark:text-slate-400">{t('email_label')}</h4>
- <a href="mailto:mahdymollayousefy@gmail.com" className="text-slate-900 dark:text-white font-medium hover:text-blue-600 transition-colors break-all">mahdymollayousefy@gmail.com</a>
+ <a href="mailto:mahdymollayousefy@gmail.com" className="text-slate-900 dark:text-white font-medium hover:text-blue-600 active:text-blue-600 transition-colors break-all">mahdymollayousefy@gmail.com</a>
  </div>
  </div>
  
@@ -98,7 +98,7 @@ export default function WorkWithMe() {
  </div>
  <div>
  <h4 className="text-sm font-semibold text-slate-500 dark:text-slate-400">LinkedIn</h4>
- <a href="https://www.linkedin.com/in/mahdy-mollayousefy-326b5541a" target="_blank" rel="noreferrer" className="text-slate-900 dark:text-white font-medium hover:text-blue-700 transition-colors">in/mahdy-mollayousefy</a>
+ <a href="https://www.linkedin.com/in/mahdy-mollayousefy-326b5541a" target="_blank" rel="noreferrer" className="text-slate-900 dark:text-white font-medium hover:text-blue-700 active:text-blue-700 transition-colors">in/mahdy-mollayousefy</a>
  </div>
  </div>
 
@@ -108,7 +108,7 @@ export default function WorkWithMe() {
  </div>
  <div>
  <h4 className="text-sm font-semibold text-slate-500 dark:text-slate-400">GitHub</h4>
- <a href="https://github.com/mahdymollayousefy" target="_blank" rel="noreferrer" className="text-slate-900 dark:text-white font-medium hover:text-slate-600 transition-colors">mahdymollayousefy</a>
+ <a href="https://github.com/mahdymollayousefy" target="_blank" rel="noreferrer" className="text-slate-900 dark:text-white font-medium hover:text-slate-600 active:text-slate-600 transition-colors">mahdymollayousefy</a>
  </div>
  </div>
  </div>
@@ -128,7 +128,7 @@ export default function WorkWithMe() {
  <h3 className="text-base md:text-xl md:text-2xl font-bold text-slate-900 dark:text-white">{t('success')}</h3>
  <button 
  onClick={() => setStatus('idle')}
- className="mt-8 px-4 md:px-6 py-2.5 rounded-lg bg-blue-50 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400 font-medium hover:bg-blue-100 dark:hover:bg-blue-900/50 transition-all hover:scale-105"
+ className="mt-8 px-4 md:px-6 py-2.5 rounded-lg bg-blue-50 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400 font-medium hover:bg-blue-100 active:bg-blue-100 dark:hover:bg-blue-900/50 dark:active:bg-blue-900/50 transition-all hover:scale-105"
  >
  Send Another Request
  </button>
@@ -165,7 +165,7 @@ export default function WorkWithMe() {
  value={formData.name}
  onChange={handleChange}
  placeholder={t('placeholder_name', 'John Doe')}
- className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all outline-none text-slate-900 dark:text-white hover:border-slate-300 dark:hover:border-slate-600"
+ className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all outline-none text-slate-900 dark:text-white hover:border-slate-300 active:border-slate-300 dark:hover:border-slate-600"
  />
  </div>
 
@@ -179,7 +179,7 @@ export default function WorkWithMe() {
  value={formData.email}
  onChange={handleChange}
  placeholder={t('placeholder_email', 'john@example.com')}
- className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all outline-none text-slate-900 dark:text-white hover:border-slate-300 dark:hover:border-slate-600"
+ className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all outline-none text-slate-900 dark:text-white hover:border-slate-300 active:border-slate-300 dark:hover:border-slate-600"
  />
  </div>
  </div>
@@ -190,7 +190,7 @@ export default function WorkWithMe() {
  defaultCountry="us"
  value={formData.phone}
  onChange={(phone) => setFormData({ ...formData, phone })}
- className="w-full rounded-xl bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 focus-within:ring-2 focus-within:ring-blue-500/50 focus-within:border-blue-500 transition-all hover:border-slate-300 dark:hover:border-slate-600 relative"
+ className="w-full rounded-xl bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 focus-within:ring-2 focus-within:ring-blue-500/50 focus-within:border-blue-500 transition-all hover:border-slate-300 active:border-slate-300 dark:hover:border-slate-600 dark:active:border-slate-600 relative"
  inputClassName="!w-full !border-none !bg-transparent !text-slate-900 dark:!text-white !outline-none !shadow-none !h-[50px] !px-4 !text-base rounded-r-xl"
  countrySelectorStyleProps={{
  buttonClassName: "!border-none !bg-transparent !h-[50px] !ps-4 !pe-2",
@@ -214,7 +214,7 @@ export default function WorkWithMe() {
  value={formData.budget}
  onChange={handleChange}
  placeholder={t('placeholder_budget', '5000')}
- className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all outline-none text-slate-900 dark:text-white hover:border-slate-300 dark:hover:border-slate-600"
+ className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all outline-none text-slate-900 dark:text-white hover:border-slate-300 active:border-slate-300 dark:hover:border-slate-600"
  />
  </div>
 
@@ -228,14 +228,14 @@ export default function WorkWithMe() {
  value={formData.project_description}
  onChange={handleChange}
  placeholder={t('placeholder_desc', 'Tell me about your project...')}
- className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all outline-none text-slate-900 dark:text-white hover:border-slate-300 dark:hover:border-slate-600 resize-none"
+ className="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all outline-none text-slate-900 dark:text-white hover:border-slate-300 active:border-slate-300 dark:hover:border-slate-600 dark:active:border-slate-600 resize-none"
  ></textarea>
  </div>
 
  <button
  type="submit"
  disabled={status === 'loading'}
- className="w-full px-4 md:px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white font-bold flex items-center justify-center gap-2 transition-all duration-300 hover:scale-[1.02] shadow-lg shadow-blue-500/30"
+ className="w-full px-4 md:px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-700 active:bg-blue-700 disabled:bg-blue-400 text-white font-bold flex items-center justify-center gap-2 transition-all duration-300 hover:scale-[1.02] shadow-lg shadow-blue-500/30"
  >
  {status === 'loading' ? (
  <div className="w-6 h-6 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
@@ -257,14 +257,14 @@ export default function WorkWithMe() {
  </div>
  
  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:p-8">
- <div className="flex flex-col items-center text-center group hover:-translate-y-2 transition-transform duration-300">
+ <div className="flex flex-col items-center text-center group hover:-translate-y-2 active:-translate-y-2 transition-transform duration-300">
  <div className="bg-blue-50 dark:bg-blue-900/30 w-16 h-16 flex items-center justify-center rounded-2xl mb-6 group-hover:scale-110 transition-transform">
  <Clock className="w-8 h-8 text-blue-600 dark:text-blue-400" />
  </div>
  <h3 className="text-base md:text-xl font-bold text-slate-900 dark:text-white mb-3">{t('pricing_1')}</h3>
  <p className="text-slate-600 dark:text-slate-400 leading-relaxed ">{t('pricing_1_desc')}</p>
  </div>
- <div className="flex flex-col items-center text-center group hover:-translate-y-2 transition-transform duration-300 relative">
+ <div className="flex flex-col items-center text-center group hover:-translate-y-2 active:-translate-y-2 transition-transform duration-300 relative">
  <div className="absolute -top-4 end-1/4 flex h-3 w-3">
  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
  <span className="relative inline-flex rounded-full h-3 w-3 bg-blue-500"></span>
@@ -275,7 +275,7 @@ export default function WorkWithMe() {
  <h3 className="text-base md:text-xl font-bold text-slate-900 dark:text-white mb-3">{t('pricing_2')}</h3>
  <p className="text-slate-600 dark:text-slate-400 leading-relaxed ">{t('pricing_2_desc')}</p>
  </div>
- <div className="flex flex-col items-center text-center group hover:-translate-y-2 transition-transform duration-300">
+ <div className="flex flex-col items-center text-center group hover:-translate-y-2 active:-translate-y-2 transition-transform duration-300">
  <div className="bg-green-50 dark:bg-green-900/30 w-16 h-16 flex items-center justify-center rounded-2xl mb-6 group-hover:scale-110 transition-transform">
  <CalendarDays className="w-8 h-8 text-green-600 dark:text-green-400" />
  </div>

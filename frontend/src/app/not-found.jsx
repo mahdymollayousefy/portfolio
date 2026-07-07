@@ -25,11 +25,11 @@ export default function NotFound() {
  
  <Link 
  href="/" 
- className="group relative inline-flex items-center justify-center px-4 md:px-8 py-3.5 text-base font-semibold text-white transition-all duration-200 bg-gradient-to-r from-blue-600 to-purple-600 border border-transparent rounded-full hover:from-blue-500 hover:to-purple-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600 dark:focus:ring-offset-slate-900 shadow-[0_0_20px_rgba(79,70,229,0.3)] hover:shadow-[0_0_30px_rgba(79,70,229,0.5)] hover:-translate-y-1"
+ className="group relative inline-flex items-center justify-center px-4 md:px-8 py-3.5 text-base font-semibold text-white transition-all duration-200 bg-gradient-to-r from-blue-600 to-purple-600 border border-transparent rounded-full hover:from-blue-500 active:from-blue-500 hover:to-purple-500 active:to-purple-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600 dark:focus:ring-offset-slate-900 shadow-[0_0_20px_rgba(79,70,229,0.3)] hover:shadow-[0_0_30px_rgba(79,70,229,0.5)] hover:-translate-y-1"
  >
  <span>{t('404_btn')}</span>
  <svg 
- className="w-5 h-5 ms-2 -me-1 transition-transform duration-200 group-hover:translate-x-1 rtl:hover:-translate-x-1 rtl:hover:translate-x-1" 
+ className="w-5 h-5 ms-2 -me-1 transition-transform duration-200 group-hover:translate-x-1 rtl:hover:-translate-x-1 rtl:active:-translate-x-1 rtl:hover:translate-x-1" 
  fill="none" 
  stroke="currentColor" 
  viewBox="0 0 24 24" 

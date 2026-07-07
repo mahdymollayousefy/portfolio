@@ -58,7 +58,7 @@ export default function Projects() {
  {t('projects_desc')}
  </p>
  <div className="pt-6 animate-slide-up" style={{ animationDelay: '150ms' }}>
- <a href="/work-with-me" className="inline-flex items-center gap-2 px-4 md:px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1">
+ <a href="/work-with-me" className="inline-flex items-center gap-2 px-4 md:px-8 py-4 bg-blue-600 hover:bg-blue-700 active:bg-blue-700 text-white font-bold rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl active:shadow-xl hover:-translate-y-1">
  <Briefcase className="w-5 h-5" /> {t('order_project', 'Order a Project')}
  </a>
  </div>
@@ -73,7 +73,7 @@ export default function Projects() {
  <Filter className="w-5 h-5 text-slate-400 me-2 hidden sm:block" />
  <button
  onClick={() => { setFilter('all'); setCurrentPage(1); }}
- className={`px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${filter === 'all' ? 'bg-blue-600 text-white shadow-md shadow-blue-500/20 scale-105' : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'}`}
+ className={`px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${filter === 'all' ? 'bg-blue-600 text-white shadow-md shadow-blue-500/20 scale-105' : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 active:bg-slate-200 dark:hover:bg-slate-700'}`}
  >
  {t('filter_all', 'All')}
  </button>
@@ -81,7 +81,7 @@ export default function Projects() {
  <button
  key={c.id}
  onClick={() => { setFilter(c.name); setCurrentPage(1); }}
- className={`px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${filter === c.name ? 'bg-blue-600 text-white shadow-md shadow-blue-500/20 scale-105' : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'}`}
+ className={`px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${filter === c.name ? 'bg-blue-600 text-white shadow-md shadow-blue-500/20 scale-105' : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 active:bg-slate-200 dark:hover:bg-slate-700'}`}
  >
  {c.name}
  </button>
@@ -153,16 +153,16 @@ export default function Projects() {
  )}
  
  <div className="grid grid-cols-2 gap-4 mt-auto pt-6 border-t border-slate-100 dark:border-slate-800">
- <Link href={`/project?slug=${project.slug}`} className="w-full py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold flex items-center justify-center gap-2 transition-all shadow-lg shadow-blue-500/30">
+ <Link href={`/project?slug=${project.slug}`} className="w-full py-3 rounded-xl bg-blue-600 hover:bg-blue-700 active:bg-blue-700 text-white font-bold flex items-center justify-center gap-2 transition-all shadow-lg shadow-blue-500/30">
  <Eye className="w-4 h-4" /> {t('view', 'View')}
  </Link>
  {project.github_link && (
- <a href={project.github_link} target="_blank" rel="noopener noreferrer" className="w-full py-3 rounded-xl bg-pink-600 hover:bg-pink-700 text-white font-bold flex items-center justify-center gap-2 transition-all shadow-lg shadow-pink-500/30">
+ <a href={project.github_link} target="_blank" rel="noopener noreferrer" className="w-full py-3 rounded-xl bg-pink-600 hover:bg-pink-700 active:bg-pink-700 text-white font-bold flex items-center justify-center gap-2 transition-all shadow-lg shadow-pink-500/30">
  <Code className="w-4 h-4" /> {t('code')}
  </a>
  )}
  {project.live_link && (
- <a href={project.live_link} target="_blank" rel="noopener noreferrer" className="w-full py-3 rounded-xl bg-green-600 hover:bg-green-700 text-white font-bold flex items-center justify-center gap-2 transition-all shadow-lg shadow-green-500/30">
+ <a href={project.live_link} target="_blank" rel="noopener noreferrer" className="w-full py-3 rounded-xl bg-green-600 hover:bg-green-700 active:bg-green-700 text-white font-bold flex items-center justify-center gap-2 transition-all shadow-lg shadow-green-500/30">
  <ExternalLink className="w-4 h-4" /> {t('live_demo')}
  </a>
  )}
@@ -178,7 +178,7 @@ export default function Projects() {
  <button
  key={i}
  onClick={() => handlePageChange(i + 1)}
- className={`w-10 h-10 flex items-center justify-center rounded-xl font-bold transition-all duration-300 ${currentPage === i + 1 ? 'bg-blue-600 text-white shadow-lg' : 'bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'}`}
+ className={`w-10 h-10 flex items-center justify-center rounded-xl font-bold transition-all duration-300 ${currentPage === i + 1 ? 'bg-blue-600 text-white shadow-lg' : 'bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-50 active:bg-slate-50 dark:hover:bg-slate-800'}`}
  >
  {i + 1}
  </button>

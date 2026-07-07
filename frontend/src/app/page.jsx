@@ -15,7 +15,7 @@ export default function Home() {
  
  {/* Left: Text Content */}
  <div className="flex-1 space-y-4 md:space-y-8 text-center lg:text-start z-10">
- <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 font-semibold text-sm mb-4 animate-slide-up hover:scale-105 transition-transform duration-300 shadow-sm hover:shadow-md">
+ <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 font-semibold text-sm mb-4 animate-slide-up hover:scale-105 active:scale-105 transition-transform duration-300 shadow-sm hover:shadow-md">
  <span className="relative flex h-2 w-2">
  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
  <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
@@ -35,13 +35,13 @@ export default function Home() {
  </p>
  
  <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4 animate-slide-up" style={{ animationDelay: '300ms' }}>
- <Link href="/projects" className="group w-full sm:w-auto px-4 md:px-6 md:px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold flex items-center justify-center gap-2 transition-all duration-300 shadow-lg shadow-blue-500/30">
+ <Link href="/projects" className="group w-full sm:w-auto px-4 md:px-6 md:px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-700 active:bg-blue-700 text-white font-bold flex items-center justify-center gap-2 transition-all duration-300 shadow-lg shadow-blue-500/30">
  {t('view_work')} <ArrowRight className="w-5 h-5 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform rtl:rotate-180" />
  </Link>
- <Link href="/work-with-me" className="group w-full sm:w-auto px-4 md:px-6 md:px-8 py-4 rounded-xl bg-pink-600 hover:bg-pink-700 text-white font-bold flex items-center justify-center gap-2 transition-all duration-300 shadow-lg shadow-pink-500/30">
+ <Link href="/work-with-me" className="group w-full sm:w-auto px-4 md:px-6 md:px-8 py-4 rounded-xl bg-pink-600 hover:bg-pink-700 active:bg-pink-700 text-white font-bold flex items-center justify-center gap-2 transition-all duration-300 shadow-lg shadow-pink-500/30">
  {t('hire_me_btn')} <Briefcase className="w-5 h-5 group-hover:-translate-y-1 transition-transform" />
  </Link>
- <a href="/resume.pdf" target="_blank" rel="noreferrer" className="group w-full sm:w-auto px-4 md:px-6 md:px-8 py-4 rounded-xl bg-green-600 hover:bg-green-700 text-white font-bold flex items-center justify-center gap-2 transition-all duration-300 shadow-lg shadow-green-500/30">
+ <a href="/resume.pdf" target="_blank" rel="noreferrer" className="group w-full sm:w-auto px-4 md:px-6 md:px-8 py-4 rounded-xl bg-green-600 hover:bg-green-700 active:bg-green-700 text-white font-bold flex items-center justify-center gap-2 transition-all duration-300 shadow-lg shadow-green-500/30">
  {t('download_resume')} <Download className="w-5 h-5 group-hover:translate-y-1 transition-transform" />
  </a>
  </div>

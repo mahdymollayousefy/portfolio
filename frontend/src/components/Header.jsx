@@ -65,7 +65,7 @@ export default function Header() {
  <Link 
  key={link.path} 
  href={link.path} 
- className={`flex items-center gap-1.5 hover:-translate-y-0.5 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 ${pathname === link.path ? 'text-blue-600 dark:text-blue-400' : 'text-slate-600 dark:text-slate-300'}`}
+ className={`flex items-center gap-1.5 hover:-translate-y-0.5 active:-translate-y-0.5 hover:text-blue-600 active:text-blue-600 dark:hover:text-blue-400 dark:active:text-blue-400 transition-all duration-300 ${pathname === link.path ? 'text-blue-600 dark:text-blue-400' : 'text-slate-600 dark:text-slate-300'}`}
  >
  {link.icon}
  <span>{t(link.key)}</span>
@@ -77,7 +77,7 @@ export default function Header() {
  <div className="relative">
  <button 
  onClick={() => setLangDropdownOpen(!langDropdownOpen)} 
- className="flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium rounded-lg border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" 
+ className="flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium rounded-lg border border-slate-200 dark:border-slate-700 hover:bg-slate-50 active:bg-slate-50 dark:hover:bg-slate-800 dark:active:bg-slate-800 transition-colors" 
  aria-label="Toggle language"
  aria-haspopup="true"
  aria-expanded={langDropdownOpen}
@@ -92,7 +92,7 @@ export default function Header() {
  <button
  key={lang.code}
  onClick={() => changeLang(lang.code)}
- className={`w-full text-start px-4 py-2 text-sm hover:bg-white/95 dark:hover:bg-slate-800/95 flex items-center gap-2 ${i18n.language === lang.code ? 'text-blue-600 font-bold' : 'text-slate-700 dark:text-slate-300'}`}
+ className={`w-full text-start px-4 py-2 text-sm hover:bg-white/95 active:bg-white/95 dark:hover:bg-slate-800/95 dark:active:bg-slate-800/95 flex items-center gap-2 ${i18n.language === lang.code ? 'text-blue-600 font-bold' : 'text-slate-700 dark:text-slate-300'}`}
  >
  <span>{lang.flag}</span>
  <span>{lang.label}</span>
@@ -101,13 +101,13 @@ export default function Header() {
  </div>
  )}
  </div>
- <button onClick={() => setIsDark(!isDark)} className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" aria-label="Toggle theme">
+ <button onClick={() => setIsDark(!isDark)} className="p-2 rounded-full hover:bg-slate-100 active:bg-slate-100 dark:hover:bg-slate-800 dark:active:bg-slate-800 transition-colors" aria-label="Toggle theme">
  {isDark ? <Sun className="w-5 h-5 text-slate-300" /> : <Moon className="w-5 h-5 text-slate-700" />}
  </button>
  
  {/* Mobile Menu Button */}
  <button 
- className="md:hidden p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors ms-2"
+ className="md:hidden p-2 rounded-lg hover:bg-slate-100 active:bg-slate-100 dark:hover:bg-slate-800 dark:active:bg-slate-800 transition-colors ms-2"
  onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
  >
  {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -127,7 +127,7 @@ export default function Header() {
  <Link 
  key={link.path} 
  href={link.path} 
- className={`flex items-center gap-3 text-sm md:text-lg font-semibold px-4 py-3 rounded-lg transition-all duration-300 hover:translate-x-2 hover:bg-white/95 dark:hover:bg-slate-800/95 ${pathname === link.path ? 'bg-blue-500/90 dark:bg-blue-400/90 text-blue-900 dark:text-blue-100' : 'text-slate-600 dark:text-slate-300'}`}
+ className={`flex items-center gap-3 text-sm md:text-lg font-semibold px-4 py-3 rounded-lg transition-all duration-300 hover:translate-x-2 active:translate-x-2 hover:bg-white/95 active:bg-white/95 dark:hover:bg-slate-800/95 dark:active:bg-slate-800/95 ${pathname === link.path ? 'bg-blue-500/90 dark:bg-blue-400/90 text-blue-900 dark:text-blue-100' : 'text-slate-600 dark:text-slate-300'}`}
  onClick={() => setMobileMenuOpen(false)}
  >
  {link.icon}
