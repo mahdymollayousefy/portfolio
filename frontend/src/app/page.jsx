@@ -14,7 +14,7 @@ export default function Home() {
  <section className="relative pt-12 md:pt-20 lg:pt-32 flex flex-col-reverse lg:flex-row items-center justify-between gap-12 lg:gap-8 min-h-[70vh]">
  
  {/* Left: Text Content */}
- <div className="flex-1 space-y-4 md:space-y-8 text-center lg:text-start z-10 lg:rtl:text-end">
+ <div className="flex-1 space-y-4 md:space-y-8 text-center lg:text-start z-10">
  <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 font-semibold text-sm mb-4 animate-slide-up hover:scale-105 transition-transform duration-300 shadow-sm hover:shadow-md">
  <span className="relative flex h-2 w-2">
  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
@@ -36,7 +36,7 @@ export default function Home() {
  
  <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4 animate-slide-up" style={{ animationDelay: '300ms' }}>
  <Link href="/projects" className="group w-full sm:w-auto px-4 md:px-6 md:px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold flex items-center justify-center gap-2 transition-all duration-300 shadow-lg shadow-blue-500/30">
- {t('view_work')} <ArrowRight className="w-5 h-5 group-hover:translate-x-1 rtl:hover:-translate-x-1 rtl:hover:translate-x-1 rtl:group-hover:-translate-x-1 rtl:hover:translate-x-1 transition-transform" />
+ {t('view_work')} <ArrowRight className="w-5 h-5 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform rtl:rotate-180" />
  </Link>
  <Link href="/work-with-me" className="group w-full sm:w-auto px-4 md:px-6 md:px-8 py-4 rounded-xl bg-pink-600 hover:bg-pink-700 text-white font-bold flex items-center justify-center gap-2 transition-all duration-300 shadow-lg shadow-pink-500/30">
  {t('hire_me_btn')} <Briefcase className="w-5 h-5 group-hover:-translate-y-1 transition-transform" />
