@@ -151,8 +151,8 @@ export default function Projects() {
  </div>
  
  <div className="p-4 md:p-8 flex-1 flex flex-col">
- <div className="flex justify-between items-start mb-2">
- <h3 className="text-xl md:text-2xl font-bold text-slate-900 dark:text-white">
+ <div className="flex flex-col items-start gap-3 mb-4">
+ <h3 className="text-lg md:text-xl font-bold text-slate-900 dark:text-white">
  {project.title}
  </h3>
  {project.estimated_price && (
