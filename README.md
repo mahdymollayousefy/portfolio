@@ -1,153 +1,153 @@
-# Portfolio SaaS Platform
+# Portfolio Software as a Service (SaaS) Platform - Complete Technical Documentation
 
-A robust, modern full-stack web application designed for portfolio and SaaS use cases. This platform empowers you to showcase your projects, skills, and seamlessly handle incoming "Hire Me" requests with a beautifully designed frontend and a powerful administration panel.
+## Executive Summary
+This repository contains a full-stack, enterprise-grade Portfolio and Software as a Service (SaaS) platform. The application uses a decoupled architecture consisting of a Next.js multi-page frontend and a Django REST Framework (DRF) backend. The platform serves as a content management system for showcasing professional projects and handling "Hire Me" client requests.
 
----
-
-## 🚀 Key Features
-
-### Beautiful Frontend Experience
-- **Next.js App Router**: Lightning-fast, statically exported React 19 frontend.
-- **Tailwind CSS 4**: Modern, utility-first styling with custom UI components.
-- **Internationalization (i18n)**: Fully supported multi-language interface out of the box (English, German, Dutch, Persian).
-- **Responsive Design**: Works perfectly across all devices, from mobile phones to desktops.
-- **Micro-interactions**: Smooth animations using modern CSS and React features.
-
-### Powerful Backend & Admin Panel
-- **Django 5.2 & DRF**: Solid, scalable Python backend with a fully featured RESTful API.
-- **Beautiful Admin Dashboard**: Uses `django-unfold` to provide a premium, modern dashboard experience for managing projects, categories, and client requests.
-- **Rich Text Editing**: Integrated CKEditor 5 for beautifully formatted project descriptions and blog posts.
-- **Background Processing**: Celery and Redis handle async tasks efficiently.
-- **OpenAPI Schema**: Automatic interactive API documentation powered by `drf-spectacular`.
+The system is fully containerized using Docker, providing consistent environments across development, testing, and production deployments.
 
 ---
 
-## 🏗️ Architecture & Tech Stack
+## Architecture and Technology Stack
 
-### Frontend Architecture (`/frontend`)
-- **Framework**: Next.js 16 (Static Export mode)
-- **Library**: React 19
-- **Styling**: Tailwind CSS 4
-- **Icons**: Lucide React
-- **Web Server**: Nginx (serves static files and proxies API requests)
+The project utilizes a strict separation of concerns, divided into two distinct services communicating via REST APIs.
 
-### Backend Architecture (`/backend`)
-- **Framework**: Django 5.2
-- **API**: Django REST Framework (DRF) 3.15
-- **Database**: PostgreSQL 16
-- **Caching & Brokers**: Redis
-- **Task Queue**: Celery
-- **Production Server**: Gunicorn & WhiteNoise (for static file serving)
+### Frontend Technology Stack
+The frontend is a static multi-page application utilizing the Next.js App Router. It is not a Single Page Application (SPA), but rather a statically generated site that benefits from Next.js server-side routing concepts exported to static HTML/JS/CSS assets.
 
----
+*   **Framework**: Next.js (Version 16.2.10) - Configured for static export (`output: 'export'`).
+*   **Library**: React (Version 19.2.7) and React DOM (Version 19.2.7).
+*   **Styling**: Tailwind CSS (Version 4.3.2) utilizing PostCSS.
+*   **Internationalization**: i18next (Version 26.2.0) and react-i18next for multi-language support.
+*   **Iconography**: lucide-react (Version 1.25.0).
+*   **Web Server**: Nginx (Alpine variant) utilized for serving static files and reverse proxying API requests.
 
-## 📦 Prerequisites
+### Backend Technology Stack
+The backend provides a secure, RESTful API architecture built upon Django. It handles database transactions, background task processing, and administration.
 
-Before you begin, ensure you have the following installed:
-- [Docker](https://www.docker.com/)
-- [Docker Compose](https://docs.docker.com/compose/)
-- [Git](https://git-scm.com/)
-
-*(Optional for manual setup without Docker: Node.js, Python 3.10+, PostgreSQL)*
-
----
-
-## 💻 Local Development Setup
-
-The easiest and recommended way to run this project locally is using Docker. This ensures consistency across different environments.
-
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/mahdymollayousefy/portfolio.git
-   cd portfolio
-   ```
-
-2. **Configure Environment Variables**:
-   The development environment relies on `.env.local`. Make sure it is present in the root directory.
-
-3. **Start the containers**:
-   ```bash
-   docker-compose up -d --build
-   ```
-
-4. **Access the Application**:
-   - **Frontend UI**: [http://localhost:5173](http://localhost:5173) (mapped via Docker or run locally)
-     *(Note: If running Next.js outside docker, it usually defaults to 3000. In our docker setup, Nginx serves it on port 80, mapped to localhost:80. Please check `docker ps` for exact mappings).*
-   - **Frontend via Nginx**: [http://localhost](http://localhost)
-   - **Backend API Docs**: [http://localhost:8000/api/schema/swagger-ui/](http://localhost:8000/api/schema/swagger-ui/) (if spectacular is enabled)
-   - **Django Admin Panel**: [http://localhost:8000/admin/](http://localhost:8000/admin/)
-
-5. **Stop the containers**:
-   ```bash
-   docker-compose down
-   ```
+*   **Language**: Python (Version 3.13-slim).
+*   **Core Framework**: Django (Version 5.2.16).
+*   **API Framework**: Django REST Framework (Version 3.15.2).
+*   **Database**: PostgreSQL (Version 18-alpine) accessed via psycopg (Version 3.1.18).
+*   **Asynchronous Task Queue**: Celery (Version 5.6.3).
+*   **Message Broker & Cache**: Redis (Version 8.8-alpine).
+*   **Production Application Server**: Gunicorn (Version 22.0.0).
+*   **Static Asset Delivery**: WhiteNoise (Version 6.8.2).
+*   **API Documentation Generation**: drf-spectacular (Version 0.27.2).
+*   **Rich Text Content Management**: django-ckeditor-5 (Version 0.2.14).
+*   **Administration Interface**: django-unfold (Version 0.40.0).
+*   **Database Translation**: django-modeltranslation (Version 0.20.3).
 
 ---
 
-## 🌍 Production Deployment Guide
+## Comprehensive Project Structure and Codebase Breakdown
 
-We provide a dedicated Docker Compose file (`docker-compose.prod.yml`) that optimizes the application for production deployment. It uses **Gunicorn** for the backend server and **WhiteNoise** for serving Django's static files securely and efficiently.
+The codebase is strictly separated into `/frontend` and `/backend` directories, alongside root-level configuration files.
 
-### 1. Setup the Server
-SSH into your production server and clone the repository:
-```bash
-git clone https://github.com/mahdymollayousefy/portfolio.git
-cd portfolio
-```
+### 1. Root Configuration Files
+*   **`docker-compose.yml`**: The local development container orchestration file. It defines the `db` (PostgreSQL), `redis`, `backend` (Django runserver), `celery_worker`, and `frontend` (Next.js development server) services. It utilizes `.env.local` and maps local directories to the containers to enable hot-reloading.
+*   **`docker-compose.prod.yml`**: The production container orchestration file. It differs from development by executing the backend via Gunicorn, running database migrations automatically, and compiling the static frontend assets via Nginx without mapping local source code volumes. It utilizes `.env.prod`.
+*   **`.env.local` & `.env.prod`**: Environment variable configurations securely storing database credentials and Django secret keys.
+*   **`README.md`**: The primary documentation file.
+*   **`TASK_TRACKER.md`**: A task management tracking file.
 
-### 2. Configure Production Secrets
-Create and securely populate the `.env.prod` file. **Never commit real passwords to version control.**
-```env
-# .env.prod
-POSTGRES_DB=portfolio_prod_db
-POSTGRES_USER=portfolio_prod_sec_admin
-POSTGRES_PASSWORD=YourHighlySecurePassword
+### 2. Frontend Directory (`/frontend`)
+The frontend leverages the Next.js App Router for constructing a statically generated, multi-page web application.
 
-DJANGO_SECRET_KEY=YourRandom64CharacterSecretKey
-DJANGO_DEBUG=False
-DJANGO_ALLOWED_HOSTS=yourdomain.com,www.yourdomain.com,127.0.0.1
-```
+#### Core Configuration
+*   **`package.json`**: Defines Node.js dependencies, scripts (`dev`, `build`, `start`, `lint`), and versioning.
+*   **`next.config.mjs`**: Next.js configuration explicitly defining `output: 'export'` to generate static HTML, and disabling the Next.js Image Optimization API (`unoptimized: true`) which is incompatible with static exports.
+*   **`eslint.config.mjs`**: ESLint configuration for code quality enforcement.
+*   **`Dockerfile`**: A multi-stage Dockerfile. Stage 1 compiles the Next.js application using `npm run build`. Stage 2 copies the generated `/out` directory into an Nginx Alpine container.
+*   **`nginx/default.conf`**: The Nginx configuration file. It serves the Next.js static files on port 80 and establishes reverse proxy rules directing `/api/`, `/admin/`, `/static/`, `/media/`, and `/ckeditor5/` to the `http://backend:8000` service.
 
-### 3. Deploy the Containers
-Run the production compose file. It automatically runs `collectstatic` and `migrate` before starting the Gunicorn server.
+#### Application Pages (`/frontend/src/app`)
+This directory utilizes the App Router paradigm to construct individual static pages.
+*   **`layout.jsx`**: The root layout component wrapping all pages, injecting common components like navigation headers and footers.
+*   **`page.jsx`**: The main index/home page of the application.
+*   **`not-found.jsx`**: The custom 404 error page.
+*   **`projects/page.jsx`**: The page responsible for listing all available portfolio projects.
+*   **`project/[slug]/page.jsx` (Dynamic Route)**: The detailed view for a specific project, queried by its unique slug identifier.
+*   **`skills/page.jsx`**: A dedicated page showcasing technical skills and proficiencies.
+*   **`work-with-me/page.jsx`**: The contact and lead generation form interfacing with the `HireMeRequest` backend endpoint.
+*   **`legal/page.jsx`**: The page containing legal terms and conditions.
 
-```bash
-docker-compose -f docker-compose.prod.yml up -d --build
-```
+#### Components and Services (`/frontend/src`)
+*   **`components/`**: Contains reusable UI elements.
+    *   `Header.jsx` & `Footer.jsx`: Global navigation and footer components.
+    *   `SocialIcons.jsx`: UI component for rendering social media links.
+    *   `*.locales.js`: Colocated translation objects specific to their respective components.
+*   **`locales/`**: Centralized translation definitions utilized by i18next for multi-language support.
+*   **`services/api.js`**: Centralized fetch wrapper containing asynchronous functions (`fetchProjects`, `fetchProjectBySlug`, `fetchProjectCategories`, `submitHireRequest`) that communicate with the `/api/` endpoints.
+*   **`services/techIcons.js`**: Utility configurations for rendering technology stack icons.
+*   **`App.css` & `index.css`**: Global stylesheet definitions utilizing Tailwind directives.
 
-### 4. Verify the Deployment
-- Check if all containers are running:
-  ```bash
-  docker ps
-  ```
-- The application will be running on port `80`. Ensure your server's firewall (e.g., UFW) allows HTTP/HTTPS traffic.
+### 3. Backend Directory (`/backend`)
+The backend provides a monolithic REST API utilizing Django and Django REST Framework.
+
+#### Core Configuration (`/backend/config`)
+*   **`settings.py`**: The primary Django configuration file. It registers all `INSTALLED_APPS` (including third-party libraries like `unfold`, `drf_spectacular`, `corsheaders`), defines PostgreSQL database connections, Configures Redis caching, establishes Celery broker URLs, and sets up `WhiteNoiseMiddleware` for static file delivery.
+*   **`urls.py`**: The root URL router mapping `/api/` to the `api` application, and `/admin/` to the django-unfold administration panel.
+*   **`celery.py`**: Initializes the Celery instance for asynchronous task processing.
+*   **`wsgi.py` / `asgi.py`**: Interface specifications for serving the Django application.
+*   **`Dockerfile`**: Defines the Python 3.13-slim environment, installs system dependencies (`gcc`, `libpq-dev`), executes `pip install -r requirements.txt`, and sets the default command to Django's development `runserver`.
+*   **`requirements.txt`**: The exact list of Python packages required for the project.
+
+#### API Application (`/backend/api`)
+This module contains the primary business logic and database interactions.
+
+*   **`models.py`**: Defines the relational database schema:
+    *   `ProjectCategory`: Categorization model utilizing predefined Lucide icons.
+    *   `Project`: The primary portfolio model containing title, slug, category foreign key, CKEditor5 rich text description, JSON field for tech stacks, and URL fields for GitHub and Live links.
+    *   `ProjectImage`: A related model storing multiple images per `Project`.
+    *   `HireMeRequest`: A lead generation model storing client name, email, budget, CKEditor5 project description, and an administrative status (`pending`, `reviewed`, `contacted`).
+*   **`views.py`**: Defines the API endpoints using DRF ViewSets:
+    *   `ProjectCategoryViewSet`: Read-only endpoint for categories.
+    *   `ProjectViewSet`: Read-only endpoint for projects, incorporating standard pagination and lookup by slug.
+    *   `HireMeRequestViewSet`: Create-only endpoint utilizing `AnonRateThrottle` to prevent abuse. Upon successful creation, it triggers the asynchronous `process_hire_me_request` Celery task.
+    *   `server_status`: A simple GET endpoint returning the API's operational status.
+*   **`serializers.py`**: Converts Django QuerySets to JSON representations for `ProjectCategory`, `Project`, and `HireMeRequest`.
+*   **`urls.py`**: Maps the DRF `DefaultRouter` to the ViewSets, exposing `/api/categories/`, `/api/projects/`, and `/api/hire-me/`.
+*   **`tasks.py`**: Defines Celery background tasks, specifically `process_hire_me_request`, which handles post-submission logic asynchronously.
+*   **`admin.py`**: Configures the django-unfold administration interface, registering models and customizing list displays and search fields.
 
 ---
 
-## 📁 Project Structure Overview
+## Deployment and Setup Instructions
 
-```
-.
-├── backend/                # Django REST API application
-│   ├── api/                # Core apps: Models, Views, Serializers
-│   ├── config/             # Django settings, URLs, WSGI/ASGI
-│   ├── Dockerfile          # Dev Dockerfile (also used as base for prod)
-│   └── requirements.txt    # Python dependencies (includes gunicorn & whitenoise)
-├── frontend/               # Next.js React application
-│   ├── src/                # Components, Pages, Locales, API services
-│   ├── nginx/              # Nginx reverse proxy configuration
-│   ├── public/             # Static assets (images, icons)
-│   └── Dockerfile          # Multi-stage build for Next.js static export
-├── docker-compose.yml      # Development Docker configuration
-├── docker-compose.prod.yml # Production Docker configuration
-├── .env.local              # Local environment variables
-└── README.md               # Project documentation
-```
+### System Prerequisites
+Ensure the host environment is equipped with the following:
+*   Docker Engine
+*   Docker Compose V2
+*   Git Version Control
 
----
+### Local Development Environment
+The development environment maps local source code directly into the containers, allowing for immediate observation of code modifications.
 
-## 🤝 Contributing
-Contributions, issues, and feature requests are welcome! Feel free to check the issues page.
+1.  Clone the repository:
+    `git clone <repository_url>`
+2.  Ensure the `.env.local` file is present in the root directory.
+3.  Execute the following command to build the images and initiate the containers:
+    `docker-compose up -d --build`
+4.  The application exposes the following endpoints locally:
+    *   Frontend Application: Access via `http://localhost:5173` (or as dynamically mapped by Docker)
+    *   Backend API Route: `http://localhost:8000/api/`
+    *   Django Administration Panel: `http://localhost:8000/admin/`
+    *   OpenAPI Documentation: `http://localhost:8000/api/schema/swagger-ui/`
+5.  To terminate the local environment, execute:
+    `docker-compose down`
 
-## 📝 License
-This project is licensed under the MIT License.
+### Production Deployment Environment
+The production configuration isolates the application logic, utilizes specialized production servers, and serves pre-compiled assets.
+
+1.  Provision the production server and clone the repository.
+2.  Generate a highly secure `.env.prod` file. This must contain strong, randomly generated passwords for PostgreSQL and a unique, cryptographically secure Django Secret Key. You must set `DJANGO_DEBUG=False` and configure `DJANGO_ALLOWED_HOSTS` to include your production domain names.
+3.  Deploy the infrastructure using the production orchestrator:
+    `docker-compose -f docker-compose.prod.yml up -d --build`
+4.  Deployment Pipeline Details:
+    *   The `frontend` container will execute `npm run build` during the build phase to generate the static HTML pages, which are then served by Nginx.
+    *   The `backend` container will automatically execute `python manage.py collectstatic --noinput` and `python manage.py migrate` upon initialization to prepare static assets and the database schema.
+    *   The backend service uses `gunicorn` bound to port 8000, which is proxied by the frontend Nginx instance.
+5.  Port Configuration: The application listens on port 80 natively. It is standard practice to place this architecture behind an edge proxy or load balancer configured for HTTPS termination.
+
+## Licensing
+This software is provided under the terms of the MIT License.
