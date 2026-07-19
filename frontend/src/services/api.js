@@ -1,18 +1,33 @@
 const API_BASE_URL = '/api';
 
+const getCookie = (name) => {
+  if (typeof document === 'undefined') return null;
+  const value = `; ${document.cookie}`;
+  const parts = value.split(`; ${name}=`);
+  if (parts.length === 2) return parts.pop().split(';').shift();
+  return null;
+};
+
 const getHeaders = () => {
-  const lang = localStorage.getItem('i18nextLng') || 'en';
-  return {
+  const lang = typeof window !== 'undefined' ? (localStorage.getItem('i18nextLng') || 'en') : 'en';
+  const headers = {
     'Accept-Language': lang,
     'Content-Type': 'application/json',
   };
+  
+  const csrfToken = getCookie('csrftoken');
+  if (csrfToken) {
+    headers['X-CSRFToken'] = csrfToken;
+  }
+  
+  return headers;
 };
 
 export const fetchProjects = async () => {
   try {
     const response = await fetch(`${API_BASE_URL}/projects/?page_size=50`, { headers: getHeaders() });
     const data = await response.json();
-    return data.results ? data.results : data;
+    return data.results ? data.results : (Array.isArray(data) ? data : []);
   } catch (error) {
     console.error('Error fetching projects:', error);
     return [];
@@ -22,6 +37,7 @@ export const fetchProjects = async () => {
 export const fetchProjectBySlug = async (slug) => {
   try {
     const response = await fetch(`${API_BASE_URL}/projects/${slug}/`, { headers: getHeaders() });
+    if (!response.ok) return null;
     return await response.json();
   } catch (error) {
     console.error('Error fetching project:', error);
@@ -32,7 +48,9 @@ export const fetchProjectBySlug = async (slug) => {
 export const fetchProjectCategories = async () => {
   try {
     const response = await fetch(`${API_BASE_URL}/categories/`, { headers: getHeaders() });
-    return await response.json();
+    const data = await response.json();
+    // Handle both paginated ({results: [...]}) and flat array responses
+    return data.results ? data.results : (Array.isArray(data) ? data : []);
   } catch (error) {
     console.error('Error fetching categories:', error);
     return [];
@@ -42,7 +60,8 @@ export const fetchProjectCategories = async () => {
 export const fetchSkills = async () => {
   try {
     const response = await fetch(`${API_BASE_URL}/skills/`, { headers: getHeaders() });
-    return await response.json();
+    const data = await response.json();
+    return data.results ? data.results : (Array.isArray(data) ? data : []);
   } catch (error) {
     console.error('Error fetching skills:', error);
     return [];
@@ -51,10 +70,26 @@ export const fetchSkills = async () => {
 
 export const submitHireRequest = async (data) => {
   try {
+    // Clean up data before submission
+    const cleanData = { ...data };
+    
+    // Convert empty budget to null
+    if (!cleanData.budget || cleanData.budget === '') {
+      delete cleanData.budget;
+    } else {
+      // Ensure budget is a valid number
+      const budgetNum = parseFloat(cleanData.budget);
+      if (isNaN(budgetNum)) {
+        delete cleanData.budget;
+      } else {
+        cleanData.budget = budgetNum;
+      }
+    }
+    
     const response = await fetch(`${API_BASE_URL}/hire-me/`, {
       method: 'POST',
       headers: getHeaders(),
-      body: JSON.stringify(data),
+      body: JSON.stringify(cleanData),
     });
     
     if (!response.ok) {

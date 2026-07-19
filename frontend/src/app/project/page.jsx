@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { fetchProjectBySlug } from '../../services/api';
+import { getTechIconClass } from '../../services/techIcons';
 import { ArrowLeft, Code, ExternalLink, Calendar, DollarSign, Layers, ChevronLeft, ChevronRight } from 'lucide-react';
 import * as LucideIcons from 'lucide-react';
 import { useTranslation } from 'react-i18next';
@@ -52,12 +53,23 @@ function ProjectDetailContent() {
  }
 
  const renderIcon = (iconName) => {
+ if (!iconName) return <Layers className="w-8 h-8 opacity-50" />;
  if (iconName.startsWith('devicon-') || iconName.startsWith('fas ')) {
- return <i className={`${iconName} w-8 h-8 opacity-50`} />;
+ return <i className={`${iconName} text-4xl opacity-50`} />;
  }
  const IconComponent = LucideIcons[iconName];
  if (IconComponent) return <IconComponent className="w-8 h-8 opacity-50" />;
  return <Layers className="w-8 h-8 opacity-50" />;
+ };
+
+ const renderTechBadge = (tech, idx) => {
+ const iconClass = getTechIconClass(tech);
+ return (
+ <span key={idx} className="flex items-center gap-2 px-4 py-2 text-sm font-semibold rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 cursor-default transition-transform hover:scale-105">
+ {iconClass && <i className={`${iconClass} text-lg`} />}
+ {tech}
+ </span>
+ );
  };
 
  return (
@@ -69,7 +81,12 @@ function ProjectDetailContent() {
  <div className="space-y-6">
  <div className="flex flex-wrap items-center gap-4">
  {project.category_detail && (
- <span className="px-4 py-1.5 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 text-sm font-bold tracking-wide">
+ <span className="px-4 py-1.5 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 text-sm font-bold tracking-wide flex items-center gap-2">
+ {project.category_detail.icon && (
+ project.category_detail.icon.startsWith('devicon-')
+ ? <i className={`${project.category_detail.icon} text-base`} />
+ : (() => { const IC = LucideIcons[project.category_detail.icon]; return IC ? <IC className="w-4 h-4" /> : null; })()
+ )}
  {project.category_detail.name}
  </span>
  )}
@@ -150,11 +167,7 @@ function ProjectDetailContent() {
  <Layers className="w-5 h-5 text-blue-500" /> Tech Stack
  </h3>
  <div className="flex flex-wrap gap-3">
- {project.tech_stacks.map((tech, idx) => (
- <span key={idx} className="flex items-center gap-2 px-4 py-2 text-sm font-semibold rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 cursor-default transition-transform hover:scale-105">
- {tech}
- </span>
- ))}
+ {project.tech_stacks.map((tech, idx) => renderTechBadge(tech, idx))}
  </div>
  </div>
  )}

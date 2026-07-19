@@ -1,5 +1,5 @@
 # backend/api/views.py
-from rest_framework import viewsets, mixins
+from rest_framework import viewsets, mixins, status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from drf_spectacular.utils import extend_schema
@@ -18,7 +18,7 @@ class ProjectCategoryViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = ProjectCategory.objects.all()
     serializer_class = ProjectCategorySerializer
 
-    @method_decorator(cache_page(60 * 15))
+    @method_decorator(cache_page(60 * 2))  # 2 minute cache instead of 15
     def dispatch(self, *args, **kwargs):
         return super().dispatch(*args, **kwargs)
 
@@ -28,7 +28,7 @@ class ProjectViewSet(viewsets.ReadOnlyModelViewSet):
     lookup_field = 'slug'
     pagination_class = StandardResultsSetPagination
 
-    @method_decorator(cache_page(60 * 15))
+    @method_decorator(cache_page(60 * 2))  # 2 minute cache instead of 15
     def dispatch(self, *args, **kwargs):
         return super().dispatch(*args, **kwargs)
 
@@ -39,7 +39,18 @@ class HireMeRequestViewSet(mixins.CreateModelMixin, viewsets.GenericViewSet):
 
     def perform_create(self, serializer):
         instance = serializer.save()
-        process_hire_me_request.delay(instance.id, instance.name, instance.email)
+        try:
+            process_hire_me_request.delay(instance.id, instance.name, instance.email)
+        except Exception:
+            # If Celery is not available, just log it
+            pass
+
+    def create(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        self.perform_create(serializer)
+        headers = self.get_success_headers(serializer.data)
+        return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
 
 @extend_schema(responses={200: dict})
 @api_view(['GET'])

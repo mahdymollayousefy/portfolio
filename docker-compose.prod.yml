@@ -1,26 +1,26 @@
-# docker-compose.yml  (Docker Compose v2)
-name: portfolio-saas
+# docker-compose.prod.yml
+name: portfolio-saas-prod
 
 services:
   db:
     image: postgres:18-alpine
-    container_name: portfolio_db
+    container_name: portfolio_prod_db
     restart: unless-stopped
     env_file:
-      - .env.local
+      - .env.prod
     volumes:
-      - postgres_data:/var/lib/postgresql
+      - postgres_prod_data:/var/lib/postgresql
     ports:
       - "5434:5432"
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U portfolio_admin -d portfolio_db"]
+      test: ["CMD-SHELL", "pg_isready -U portfolio_prod_sec_admin -d portfolio_prod_db"]
       interval: 5s
       timeout: 5s
       retries: 5
 
   redis:
     image: redis:8.8-alpine
-    container_name: portfolio_redis
+    container_name: portfolio_prod_redis
     restart: unless-stopped
     ports:
       - "6379:6379"
@@ -33,12 +33,13 @@ services:
   backend:
     build:
       context: ./backend
-    container_name: portfolio_backend
+    container_name: portfolio_prod_backend
     restart: unless-stopped
     env_file:
-      - .env.local
+      - .env.prod
     volumes:
       - ./backend:/app
+    command: sh -c "python manage.py collectstatic --noinput && python manage.py migrate && gunicorn config.wsgi:application --bind 0.0.0.0:8000"
     depends_on:
       db:
         condition: service_healthy
@@ -48,10 +49,10 @@ services:
   celery_worker:
     build:
       context: ./backend
-    container_name: portfolio_celery
+    container_name: portfolio_prod_celery
     restart: unless-stopped
     env_file:
-      - .env.local
+      - .env.prod
     volumes:
       - ./backend:/app
     command: celery -A config worker -l info
@@ -64,15 +65,15 @@ services:
   frontend:
     build:
       context: ./frontend
-    container_name: portfolio_frontend
+    container_name: portfolio_prod_frontend
     restart: unless-stopped
     env_file:
-      - .env.local
+      - .env.prod
     ports:
       - "80:80"
     depends_on:
       - backend
 
 volumes:
-  postgres_data:
-    name: portfolio_pg_data
+  postgres_prod_data:
+    name: portfolio_prod_pg_data

@@ -81,7 +81,7 @@ class Project(models.Model):
     slug = models.SlugField(unique=True)
     category = models.ForeignKey(ProjectCategory, on_delete=models.SET_NULL, null=True, blank=True, related_name='projects')
     description = CKEditor5Field('Description', config_name='default')
-    tech_stacks = models.JSONField(default=list, blank=True, help_text="List of tech stack names, e.g. ['React', 'Django']")
+    tech_stacks = models.JSONField(default=list, blank=True, null=True, help_text="List of tech stack names, e.g. ['React', 'Django']")
     icon = models.CharField(max_length=100, choices=ALL_ICONS, blank=True, help_text="Icon for the tech stack/project")
     github_link = models.URLField(blank=True, null=True)
     live_link = models.URLField(blank=True, null=True)

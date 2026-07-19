@@ -76,7 +76,10 @@ export default function Header() {
  <div className="flex items-center gap-2 relative">
  <div className="relative">
  <button 
- onClick={() => setLangDropdownOpen(!langDropdownOpen)} 
+ onClick={() => {
+ setLangDropdownOpen(!langDropdownOpen);
+ if (!langDropdownOpen) setMobileMenuOpen(false);
+ }} 
  className="flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium rounded-lg border border-slate-200 dark:border-slate-700 hover:bg-slate-50 active:bg-slate-50 dark:hover:bg-slate-800 dark:active:bg-slate-800 transition-colors" 
  aria-label="Toggle language"
  aria-haspopup="true"
@@ -108,7 +111,10 @@ export default function Header() {
  {/* Mobile Menu Button */}
  <button 
  className="md:hidden p-2 rounded-lg hover:bg-slate-100 active:bg-slate-100 dark:hover:bg-slate-800 dark:active:bg-slate-800 transition-colors ms-2"
- onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+ onClick={() => {
+ setMobileMenuOpen(!mobileMenuOpen);
+ if (!mobileMenuOpen) setLangDropdownOpen(false);
+ }}
  >
  {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
  </button>

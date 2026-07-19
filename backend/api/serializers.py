@@ -28,3 +28,15 @@ class HireMeRequestSerializer(serializers.ModelSerializer):
         model = HireMeRequest
         fields = '__all__'
         read_only_fields = ('status', 'created_at')
+
+    def validate_project_description(self, value):
+        """Wrap plain text in <p> tags for CKEditor5Field compatibility."""
+        if value and not value.strip().startswith('<'):
+            value = f'<p>{value}</p>'
+        return value
+
+    def validate_budget(self, value):
+        """Allow empty budget values - convert empty string to None."""
+        if value == '' or value is None:
+            return None
+        return value
