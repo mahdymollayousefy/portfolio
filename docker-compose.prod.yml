@@ -9,9 +9,7 @@ services:
     env_file:
       - .env.prod
     volumes:
-      - postgres_prod_data:/var/lib/postgresql
-    ports:
-      - "5434:5432"
+      - postgres_prod_data:/var/lib/postgresql/data
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U portfolio_prod_sec_admin -d portfolio_prod_db"]
       interval: 5s
@@ -22,8 +20,6 @@ services:
     image: redis:8.8-alpine
     container_name: portfolio_prod_redis
     restart: unless-stopped
-    ports:
-      - "6379:6379"
     healthcheck:
       test: ["CMD", "redis-cli", "ping"]
       interval: 5s
@@ -37,14 +33,17 @@ services:
     restart: unless-stopped
     env_file:
       - .env.prod
-    volumes:
-      - ./backend:/app
-    command: sh -c "python manage.py collectstatic --noinput && python manage.py migrate && gunicorn config.wsgi:application --bind 0.0.0.0:8000"
+    command: sh -c "python manage.py collectstatic --noinput && python manage.py migrate && gunicorn config.wsgi:application --bind 0.0.0.0:8000 --workers 4 --timeout 60"
     depends_on:
       db:
         condition: service_healthy
       redis:
         condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/status/"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   celery_worker:
     build:
@@ -53,8 +52,6 @@ services:
     restart: unless-stopped
     env_file:
       - .env.prod
-    volumes:
-      - ./backend:/app
     command: celery -A config worker -l info
     depends_on:
       db:

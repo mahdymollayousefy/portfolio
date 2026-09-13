@@ -1,10 +1,8 @@
 "use client";
-import { useState, useEffect } from 'react';
 import { Mail, Home, Code2, Briefcase, ShieldCheck, Send } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from './SocialIcons';
 import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
-import api from '../services/api';
 
 export default function Footer() {
  const { t } = useTranslation();

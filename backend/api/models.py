@@ -88,6 +88,9 @@ class Project(models.Model):
     estimated_price = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True, help_text="Estimated price in USD")
     created_at = models.DateTimeField(auto_now_add=True)
 
+    class Meta:
+        ordering = ['-created_at']
+
     def __str__(self):
         return self.title
 
@@ -96,7 +99,7 @@ class ProjectImage(models.Model):
     image = models.ImageField(upload_to='project_images/')
     
     def __str__(self):
-        return f"{self.project.title} - Image"
+        return f"{self.project.title} - {self.image.name.split('/')[-1]}"
 
 class HireMeRequest(models.Model):
     STATUS_CHOICES = [

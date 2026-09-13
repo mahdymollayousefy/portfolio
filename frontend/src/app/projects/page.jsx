@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { fetchProjects, fetchProjectCategories } from '../../services/api';
 import { getTechIconClass } from '../../services/techIcons';
 import Link from 'next/link';
-import { Search, Code2, ExternalLink, Code, Database, Globe, Eye, Filter, Briefcase } from 'lucide-react';
+import { Code2, ExternalLink, Code, Eye, Filter, Briefcase } from 'lucide-react';
 import * as LucideIcons from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
@@ -69,10 +69,10 @@ export default function Projects() {
  };
 
  return (
- <div className="space-y-6 md:space-y-12 md:space-y-24 max-w-6xl mx-auto pb-12 animate-fade-in">
+ <div className="space-y-6 md:space-y-12 lg:space-y-24 max-w-6xl mx-auto pb-12 animate-fade-in">
  
  <div className="text-center space-y-4 pt-8">
- <h1 className="text-2xl md:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white animate-slide-up">
+ <h1 className="text-2xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white animate-slide-up">
  {t('projects_title_part1')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">{t('projects_title_part2')}</span>
  </h1>
  <p className="text-sm md:text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto animate-slide-up" style={{ animationDelay: '100ms' }}>
@@ -145,7 +145,7 @@ export default function Projects() {
  <img src={project.images[0].image} alt={project.title} loading="lazy" className="w-full h-full object-cover" />
  ) : (
  <div className="absolute inset-0 flex items-center justify-center text-slate-400 dark:text-slate-600">
- {project.icon ? <i className={`${project.icon} text-xl md:text-xl md:text-5xl opacity-50`} /> : <Code2 className="w-16 h-16 opacity-50" />}
+ {project.icon ? <i className={`${project.icon} text-5xl opacity-50`} /> : <Code2 className="w-16 h-16 opacity-50" />}
  </div>
  )}
  </div>
@@ -205,15 +205,13 @@ export default function Projects() {
  )}
  </>
  ) : (
- <div className="text-center py-6 md:py-12 md:py-24 glass-card">
+ <div className="text-center py-6 md:py-24 glass-card">
  <Code2 className="w-16 h-16 text-slate-300 dark:text-slate-700 mx-auto mb-4 animate-pulse" />
  <h3 className="text-base md:text-xl font-semibold text-slate-900 dark:text-white mb-2">{t('no_projects')}</h3>
  <p className="text-slate-500 dark:text-slate-400">{t('no_projects_desc')}</p>
  </div>
  )}
  </div>
-
-
 
  </div>
  );

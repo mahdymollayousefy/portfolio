@@ -1,5 +1,7 @@
 const API_BASE_URL = '/api';
 
+const REQUEST_TIMEOUT_MS = 15000; // 15 second timeout
+
 const getCookie = (name) => {
   if (typeof document === 'undefined') return null;
   const value = `; ${document.cookie}`;
@@ -23,9 +25,20 @@ const getHeaders = () => {
   return headers;
 };
 
+/**
+ * Fetch wrapper with timeout support.
+ */
+const fetchWithTimeout = (url, options = {}) => {
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
+  
+  return fetch(url, { ...options, signal: controller.signal })
+    .finally(() => clearTimeout(timeoutId));
+};
+
 export const fetchProjects = async () => {
   try {
-    const response = await fetch(`${API_BASE_URL}/projects/?page_size=50`, { headers: getHeaders() });
+    const response = await fetchWithTimeout(`${API_BASE_URL}/projects/?page_size=50`, { headers: getHeaders() });
     const data = await response.json();
     return data.results ? data.results : (Array.isArray(data) ? data : []);
   } catch (error) {
@@ -36,7 +49,7 @@ export const fetchProjects = async () => {
 
 export const fetchProjectBySlug = async (slug) => {
   try {
-    const response = await fetch(`${API_BASE_URL}/projects/${slug}/`, { headers: getHeaders() });
+    const response = await fetchWithTimeout(`${API_BASE_URL}/projects/${slug}/`, { headers: getHeaders() });
     if (!response.ok) return null;
     return await response.json();
   } catch (error) {
@@ -47,23 +60,12 @@ export const fetchProjectBySlug = async (slug) => {
 
 export const fetchProjectCategories = async () => {
   try {
-    const response = await fetch(`${API_BASE_URL}/categories/`, { headers: getHeaders() });
+    const response = await fetchWithTimeout(`${API_BASE_URL}/categories/`, { headers: getHeaders() });
     const data = await response.json();
     // Handle both paginated ({results: [...]}) and flat array responses
     return data.results ? data.results : (Array.isArray(data) ? data : []);
   } catch (error) {
     console.error('Error fetching categories:', error);
-    return [];
-  }
-};
-
-export const fetchSkills = async () => {
-  try {
-    const response = await fetch(`${API_BASE_URL}/skills/`, { headers: getHeaders() });
-    const data = await response.json();
-    return data.results ? data.results : (Array.isArray(data) ? data : []);
-  } catch (error) {
-    console.error('Error fetching skills:', error);
     return [];
   }
 };
@@ -86,7 +88,7 @@ export const submitHireRequest = async (data) => {
       }
     }
     
-    const response = await fetch(`${API_BASE_URL}/hire-me/`, {
+    const response = await fetchWithTimeout(`${API_BASE_URL}/hire-me/`, {
       method: 'POST',
       headers: getHeaders(),
       body: JSON.stringify(cleanData),
@@ -108,7 +110,7 @@ export const submitHireRequest = async (data) => {
 
 const api = {
   get: async (path) => {
-    const response = await fetch(`${API_BASE_URL}${path}`, { headers: getHeaders() });
+    const response = await fetchWithTimeout(`${API_BASE_URL}${path}`, { headers: getHeaders() });
     return { status: response.status, data: await response.json().catch(() => ({})) };
   }
 };

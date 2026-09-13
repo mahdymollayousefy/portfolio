@@ -21,10 +21,10 @@ export default function Skills() {
  };
 
  return (
- <div className="max-w-4xl mx-auto space-y-6 md:space-y-12 md:space-y-24 pb-12 animate-fade-in">
+ <div className="max-w-4xl mx-auto space-y-6 md:space-y-12 lg:space-y-24 pb-12 animate-fade-in">
  
  <div className="text-center space-y-4 pt-8">
- <h1 className="text-2xl md:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white animate-slide-up">
+ <h1 className="text-2xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white animate-slide-up">
  {t('skills_title_part1')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">{t('skills_title_part2')}</span>
  </h1>
  <p className="text-sm md:text-lg text-slate-600 dark:text-slate-400 animate-slide-up" style={{ animationDelay: '100ms' }}>
@@ -58,7 +58,7 @@ export default function Skills() {
  ))}
  </div>
  ) : (
- <div className="text-center py-6 md:py-12 md:py-24">
+ <div className="text-center py-6 md:py-24">
  <Wrench className="w-16 h-16 text-slate-300 dark:text-slate-700 mx-auto mb-4 animate-pulse" />
  <h3 className="text-base md:text-xl font-semibold text-slate-900 dark:text-white mb-2">{t('no_skills')}</h3>
  <p className="text-slate-500 dark:text-slate-400">{t('no_skills_desc')}</p>

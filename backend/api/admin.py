@@ -68,6 +68,7 @@ class ProjectForm(forms.ModelForm):
 @admin.register(ProjectCategory)
 class ProjectCategoryAdmin(ModelAdmin):
     list_display = ('name', 'icon', 'display_icon')
+    list_per_page = 25
     
     def display_icon(self, obj):
         if obj.icon:
@@ -91,6 +92,7 @@ class ProjectAdmin(ModelAdmin, TranslationAdmin):
     search_fields = ('title',)
     ordering = ('-created_at',)
     inlines = [ProjectImageInline]
+    list_per_page = 25
 
     def display_tech_stacks(self, obj):
         if obj.tech_stacks:
@@ -105,6 +107,8 @@ class HireMeRequestAdmin(ModelAdmin):
     search_fields = ('name', 'email', 'phone', 'project_description')
     ordering = ('-created_at',)
     readonly_fields = ('created_at',)
+    date_hierarchy = 'created_at'
+    list_per_page = 25
     
     # Allows you to quickly change status from the list view
     list_editable = ('status',)

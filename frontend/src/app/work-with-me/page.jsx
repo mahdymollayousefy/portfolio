@@ -41,7 +41,7 @@ export default function WorkWithMe() {
  const { hp_field, ...submitData } = formData;
  await submitHireRequest(submitData);
  setStatus('success');
- setFormData({ name: '', email: '', phone: '', budget: '', project_description: '' });
+ setFormData({ name: '', email: '', phone: '', budget: '', project_description: '', hp_field: '' });
  } catch (error) {
  setStatus('error');
  setErrorMessage(error.response?.data?.message || 'Something went wrong. Please try again.');
@@ -51,7 +51,7 @@ export default function WorkWithMe() {
  return (
  <div className="max-w-6xl mx-auto py-6 md:py-12 px-4 animate-fade-in overflow-x-hidden">
  <div className="text-center space-y-4 mb-16">
- <h1 className="text-xl md:text-xl md:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white animate-slide-up">
+ <h1 className="text-xl md:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white animate-slide-up">
  {t('workwithme_title_part1')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">{t('workwithme_title_part2')}</span>
  </h1>
  <p className="text-sm md:text-lg text-slate-600 dark:text-slate-400 animate-slide-up" style={{ animationDelay: '100ms' }}>
@@ -65,7 +65,7 @@ export default function WorkWithMe() {
  {/* Contact Info Side Panel */}
  <div className="lg:col-span-1 space-y-4 md:space-y-8">
  <div>
- <h3 className="text-base md:text-xl md:text-2xl font-bold text-slate-900 dark:text-white mb-4">{t('contact_info')}</h3>
+ <h3 className="text-base md:text-2xl font-bold text-slate-900 dark:text-white mb-4">{t('contact_info')}</h3>
  <p className="text-slate-600 dark:text-slate-400 leading-relaxed ">{t('contact_desc')}</p>
  </div>
  
@@ -125,12 +125,12 @@ export default function WorkWithMe() {
  <div className="mx-auto w-16 h-16 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mb-6">
  <CheckCircle2 className="w-8 h-8 text-green-600 dark:text-green-400 animate-bounce" />
  </div>
- <h3 className="text-base md:text-xl md:text-2xl font-bold text-slate-900 dark:text-white">{t('success')}</h3>
+ <h3 className="text-base md:text-2xl font-bold text-slate-900 dark:text-white">{t('success')}</h3>
  <button 
  onClick={() => setStatus('idle')}
  className="mt-8 px-4 md:px-6 py-2.5 rounded-lg bg-blue-50 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400 font-medium hover:bg-blue-100 active:bg-blue-100 dark:hover:bg-blue-900/50 dark:active:bg-blue-900/50 transition-all hover:scale-105"
  >
- Send Another Request
+ {t('send_another', 'Send Another Request')}
  </button>
  </div>
  ) : (
