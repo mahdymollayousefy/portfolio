@@ -3,7 +3,7 @@ name: portfolio-saas-prod
 
 services:
   db:
-    image: postgres:18-alpine
+    image: postgres:16-alpine
     container_name: portfolio_prod_db
     restart: unless-stopped
     env_file:
@@ -17,7 +17,7 @@ services:
       retries: 5
 
   redis:
-    image: redis:8.8-alpine
+    image: redis:7-alpine
     container_name: portfolio_prod_redis
     restart: unless-stopped
     healthcheck:
