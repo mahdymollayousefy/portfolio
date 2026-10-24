@@ -34,8 +34,8 @@ export default function RootLayout({ children }) {
  return (
  <html lang={lang} dir={dir} suppressHydrationWarning>
  <head>
- <title>Mahdy Mollayousefy — Full-Stack Developer</title>
- <meta name="description" content="Portfolio of Mahdy Mollayousefy — Full-Stack Developer specializing in Django, React, Next.js, and Cloud Infrastructure. Available for hire." />
+ <title>Mahdy Mollayousefy — Backend Software Engineer (Python & Django)</title>
+ <meta name="description" content="Portfolio of Mahdy Mollayousefy — Backend Software Engineer specializing in Python, Django, DRF, PostgreSQL, Redis, Celery, Docker, and Nginx on Ubuntu, delivering complete full-stack solutions powered by AI agents." />
  <meta name="viewport" content="width=device-width, initial-scale=1" />
  <meta name="theme-color" content="#0f172a" />
  <link rel="icon" href="/logo.jpg" />

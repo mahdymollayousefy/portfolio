@@ -53,7 +53,7 @@ export default function Home() {
  <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/20 to-purple-500/20 rounded-[inherit] -z-10"></div>
  <img 
  src="/mahdy.jpg" 
- alt="Mahdy Mollayousefy — Full-Stack Developer" 
+ alt="Mahdy Mollayousefy — Backend Software Engineer" 
  className="w-full h-full object-cover rounded-2xl md:rounded-[2rem] bg-slate-100 dark:bg-slate-800"
  />
  </div>

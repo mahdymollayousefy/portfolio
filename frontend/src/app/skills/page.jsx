@@ -101,10 +101,10 @@ export default function Skills() {
  <p className="text-slate-600 dark:text-slate-400 mb-6 ">{t('tools_desc')}</p>
  <div className="space-y-6">
  {[
- { category: 'Frontend', tools: ['React.js', 'Next.js'] },
- { category: 'Backend', tools: ['Python', 'Django', 'PostgreSQL'] },
- { category: 'DevOps & Cloud', tools: ['Docker', 'Linux', 'Ubuntu', 'Nginx', 'Cloudflare CDN'] },
- { category: 'AI & Tools', tools: ['AI Agents', 'n8n', 'Antigravity', 'Git & GitHub', 'VSCode'] }
+ { category: 'Backend & APIs', tools: ['Python', 'Django', 'Django REST Framework', 'Swagger (OpenAPI)', 'Postman'] },
+ { category: 'Database & AsyncQueue', tools: ['PostgreSQL', 'Redis', 'Celery'] },
+ { category: 'DevOps & Server', tools: ['Ubuntu Linux', 'Docker & Docker Compose', 'Nginx', 'Git & GitHub', 'Cloudflare CDN'] },
+ { category: 'AI Agents & AI-Built Frontend', tools: ['Antigravity Agent', 'Cursor AI', 'Next.js (via AI)', 'React.js (via AI)'] }
  ].map((group, idx) => (
  <div key={idx}>
  <h3 className="text-sm font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-3">

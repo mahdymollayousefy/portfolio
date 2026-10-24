@@ -2,7 +2,7 @@ export default {
   en: {
     projects_title_part1: "Featured",
     projects_title_part2: "Projects",
-    projects_desc: "A selection of my best work, showcasing expertise in backend architecture, full-stack development, and scalable system design.",
+    projects_desc: "Explore my 4 live production projects, showcasing my core expertise in Python/Django backend engineering, PostgreSQL & Redis architecture, Docker/Nginx deployment on Ubuntu, and AI-assisted Next.js frontend integration.",
     no_projects: "No projects found",
     no_projects_desc: "Projects will appear here once they are added to the backend.",
     code: "Code",
@@ -15,16 +15,15 @@ export default {
     capabilities_desc: "Leveraging cutting-edge technologies to solve complex problems.",
     order_project: "Order a Project",
     view: "View",
-    code: "Code",
-    live_demo: "Live Demo",
     estimated_price: "Estimated Price",
     back_to_projects: "Back to Projects",
-    project_not_found: "Project Not Found"
+    project_not_found: "Project Not Found",
+    tech_stack: "Tech Stack"
   },
   de: {
     projects_title_part1: "Ausgewählte",
     projects_title_part2: "Projekte",
-    projects_desc: "Eine Auswahl meiner besten Arbeiten, die meine Expertise in Backend-Architektur, Full-Stack-Entwicklung und skalierbarem Systemdesign zeigen.",
+    projects_desc: "Entdecken Sie meine 4 Live-Produktionsprojekte, die meine Kernkompetenz im Python/Django-Backend-Engineering, in der PostgreSQL- & Redis-Architektur, im Docker/Nginx-Deployment auf Ubuntu und in der KI-gestützten Next.js-Frontend-Integration veranschaulichen.",
     no_projects: "Keine Projekte gefunden",
     no_projects_desc: "Projekte werden hier angezeigt, sobald sie im Backend hinzugefügt wurden.",
     code: "Code",
@@ -37,16 +36,15 @@ export default {
     capabilities_desc: "Nutzung modernster Technologien zur Lösung komplexer Probleme.",
     order_project: "Projekt bestellen",
     view: "Ansehen",
-    code: "Code",
-    live_demo: "Live-Demo",
     estimated_price: "Geschätzter Preis",
     back_to_projects: "Zurück zu Projekten",
-    project_not_found: "Projekt nicht gefunden"
+    project_not_found: "Projekt nicht gefunden",
+    tech_stack: "Tech-Stack"
   },
   nl: {
     projects_title_part1: "Uitgelichte",
     projects_title_part2: "Projecten",
-    projects_desc: "Een selectie van mijn beste werk, met expertise in backend architectuur, full-stack ontwikkeling en schaalbaar systeemontwerp.",
+    projects_desc: "Ontdek mijn 4 live productieprojecten die mijn kernexpertise tonen in Python/Django backend engineering, PostgreSQL- & Redis-architectuur, Docker/Nginx-implementatie op Ubuntu en AI-ondersteunde Next.js frontend-integratie.",
     no_projects: "Geen projecten gevonden",
     no_projects_desc: "Projecten verschijnen hier zodra ze aan de backend zijn toegevoegd.",
     code: "Code",
@@ -59,16 +57,15 @@ export default {
     capabilities_desc: "Baanbrekende technologieën inzetten om complexe problemen op te lossen.",
     order_project: "Project bestellen",
     view: "Bekijken",
-    code: "Code",
-    live_demo: "Live Demo",
     estimated_price: "Geschatte Prijs",
     back_to_projects: "Terug naar Projecten",
-    project_not_found: "Project niet gevonden"
+    project_not_found: "Project niet gevonden",
+    tech_stack: "Tech Stack"
   },
   fa: {
     projects_title_part1: "پروژه‌های",
     projects_title_part2: "برگزیده",
-    projects_desc: "مجموعه‌ای از بهترین کارهای من که نشان‌دهنده تخصص در معماری بک‌اند، توسعه فول‌استک و طراحی سیستم‌های مقیاس‌پذیر است.",
+    projects_desc: "از ۴ پروژه زنده و در حال اجرای من دیدن کنید که نشان‌دهنده تخصص اصلی من در مهندسی بک‌اند با پایتون و جنگو، معماری PostgreSQL و Redis، استقرار داکر و Nginx روی سرور اوبونتو و ادغام فرانت‌اند Next.js با کمک هوش مصنوعی است.",
     no_projects: "پروژه‌ای یافت نشد",
     no_projects_desc: "پروژه‌ها پس از افزودن در بک‌اند در اینجا نمایش داده خواهند شد.",
     code: "کد",
@@ -81,10 +78,9 @@ export default {
     capabilities_desc: "استفاده از فناوری‌های پیشرفته برای حل مسائل پیچیده.",
     order_project: "سفارش پروژه",
     view: "مشاهده",
-    code: "کد منبع",
-    live_demo: "نمایش زنده",
     estimated_price: "قیمت تقریبی",
     back_to_projects: "بازگشت به پروژه‌ها",
-    project_not_found: "پروژه یافت نشد"
+    project_not_found: "پروژه یافت نشد",
+    tech_stack: "استک فناوری"
   }
 };
