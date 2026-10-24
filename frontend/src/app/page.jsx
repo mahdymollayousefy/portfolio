@@ -34,7 +34,7 @@ export default function Home() {
  <Link href="/work-with-me" className="group w-full sm:w-auto px-4 md:px-8 py-4 rounded-xl bg-pink-600 hover:bg-pink-700 active:bg-pink-700 text-white font-bold flex items-center justify-center gap-2 transition-all duration-300 shadow-lg shadow-pink-500/30">
  {t('hire_me_btn')} <Briefcase className="w-5 h-5 group-hover:-translate-y-1 transition-transform" />
  </Link>
- <a href="/resume.pdf" target="_blank" rel="noreferrer" className="group w-full sm:w-auto px-4 md:px-8 py-4 rounded-xl bg-green-600 hover:bg-green-700 active:bg-green-700 text-white font-bold flex items-center justify-center gap-2 transition-all duration-300 shadow-lg shadow-green-500/30">
+ <a href="/resume.pdf" download="resume.pdf" target="_blank" rel="noreferrer" className="group w-full sm:w-auto px-4 md:px-8 py-4 rounded-xl bg-green-600 hover:bg-green-700 active:bg-green-700 text-white font-bold flex items-center justify-center gap-2 transition-all duration-300 shadow-lg shadow-green-500/30">
  {t('download_resume')} <Download className="w-5 h-5 group-hover:translate-y-1 transition-transform" />
  </a>
  </div>
