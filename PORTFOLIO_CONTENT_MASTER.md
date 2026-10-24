@@ -19,7 +19,7 @@
 | Finding Type | Element / Key | Location | Details & Recommendation |
 | :--- | :--- | :--- | :--- |
 | **Resolved Key** | `tech_stack` | `src/app/project/page.jsx:167` | Resolved. Added to `Projects.locales.js` across all 4 languages (`Tech Stack`, `Tech-Stack`, `Tech Stack`, `استک فناوری`). |
-| **Resolved Key** | `send_another` | `src/app/work-with-me/page.jsx:133` | Resolved. Added to `WorkWithMe.locales.js` across all 4 languages (`Send Another Request`, `Weitere Anfrage senden`, `Nog یک verzoek sturen`, `ارسال درخواستی دیگر`). |
+| **Resolved Key** | `send_another` | `src/app/work-with-me/page.jsx:133` | Resolved. Added to `WorkWithMe.locales.js` across all 4 languages (`Send Another Request`, `Weitere Anfrage senden`, `Nog een verzoek sturen`, `ارسال درخواستی دیگر`). |
 | **Resolved Key** | `other` | `src/app/skills/page.jsx:49` | Resolved. Added to `Skills.locales.js` across all 4 languages (`Other`, `Sonstiges`, `Overig`, `سایر`). |
 | **Orphaned Key (Unused)** | `home_desc` | `src/locales/Home.locales.js` | Defined in all 4 languages ("A Backend Engineer building secure, scalable, and production-ready systems with Python and Django.") but never referenced in `src/app/page.jsx`. |
 | **Orphaned Key (Unused)** | `capabilities_title` & `capabilities_desc` | `src/locales/Projects.locales.js` | Section was removed from the Projects UI per task checklist, but keys remain in dictionary. |
@@ -99,7 +99,6 @@
 
 | Element / Context | Translation Key | English (`en`) | German (`de`) | Dutch (`nl`) | Persian (`fa`) |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| Availability Chip | `available` | `Available for Backend & End-to-End Projects` | `Verfügbar für Backend- & End-to-End-Projekte` | `Beschikbaar voor Backend- & End-to-End-projecten` | `آماده همکاری در پروژه‌های بک‌اند و اند-تو-اند` |
 | Hero Heading (Part 1) | `home_title_part1` | `Backend Engineer &` | `Backend Engineer &` | `Backend Engineer &` | `مهندس بک‌اند و` |
 | Hero Heading (Part 2) | `home_title_part2` | `Django Specialist` | `Django-Spezialist` | `Django Specialist` | `متخصص جنگو` |
 | Primary CTA: Projects | `view_work` | `View Live Projects` | `Live-Projekte ansehen` | `Bekijk Live Projecten` | `مشاهده پروژه‌های زنده` |
@@ -135,7 +134,7 @@
 - **[English (`en`)]:**
   > Hi there! I am a Backend Software Engineer with over 3 years of hands-on experience building robust web backends and APIs using Python, Django, and Django REST Framework (DRF). My core focus is designing clean database architectures with PostgreSQL, handling asynchronous background processing and caching with Celery and Redis, and documenting and testing APIs thoroughly using Swagger (OpenAPI) and Postman.
   >
-  > Beyond writing backend code, I handle the complete lifecycle of server deployment and infrastructure management. I containerize applications using Docker and Docker Compose, configure Nginx as a high-performance reverse proxy, and deploy and maintain live production systems on Ubuntu Linux servers. Currently, I have 4 live production projects running reliably in the real world.
+  > Beyond writing backend code, I handle the complete lifecycle of server deployment and infrastructure management. I containerize applications using Docker and Docker Compose, configure Nginx as a high-performance reverse proxy, and deploy and maintain live production systems on Ubuntu Linux servers. Currently, I have multiple live production projects running reliably in the real world.
   >
   > While my primary expertise lies strictly in backend engineering and server infrastructure, I am power-user of modern AI coding agents—specifically Cursor and Antigravity. By directing these AI agents with strict architectural and security guidelines, I build and integrate responsive, security-hardened Next.js and React.js frontends for my backend systems, allowing me to deliver complete, end-to-end applications independently.
   >
@@ -143,7 +142,7 @@
 - **[German (`de`)]:**
   > Hallo! Ich bin ein Backend Software Engineer mit mehr als 3 Jahren praktischer Erfahrung im Aufbau robuster Web-Backends und APIs mit Python, Django und dem Django REST Framework (DRF). Mein Kernfokus liegt auf der Gestaltung sauberer Datenbankarchitekturen mit PostgreSQL, der asynchronen Hintergrundverarbeitung und dem Caching mit Celery und Redis sowie der gründlichen Dokumentation und dem Testen von APIs mit Swagger (OpenAPI) und Postman.
   >
-  > Neben dem Schreiben von Backend-Code übernehme ich den gesamten Lebenszyklus des Server-Deployments und Infrastrukturmanagements. Ich containerisiere Anwendungen mit Docker und Docker Compose, konfiguriere Nginx als leistungsstarken Reverse Proxy und deploye und betreue laufende Produktionssysteme auf Ubuntu-Linux-Servern. Derzeit habe ich 4 Live-Produktionsprojekte, die zuverlässig in der Praxis laufen.
+  > Neben dem Schreiben von Backend-Code übernehme ich den gesamten Lebenszyklus des Server-Deployments und Infrastrukturmanagements. Ich containerisiere Anwendungen mit Docker und Docker Compose, konfiguriere Nginx als leistungsstarken Reverse Proxy und deploye und betreue laufende Produktionssysteme auf Ubuntu-Linux-Servern. Derzeit habe ich mehrere Live-Produktionsprojekte, die zuverlässig in der Praxis laufen.
   >
   > Obwohl meine primäre Expertise im Backend-Engineering und in der Serverinfrastruktur liegt, bin ich Power-User moderner KI-Coding-Agenten – insbesondere Cursor und Antigravity. Indem ich diese KI-Agenten mit strengen Architektur- und Sicherheitsrichtlinien leite, entwickle und integriere ich responsive, sicherheitsgehärtete Next.js- und React.js-Frontends für meine Backend-Systeme, sodass ich vollständige End-to-End-Anwendungen eigenständig bereitstellen kann.
   >
@@ -151,7 +150,7 @@
 - **[Dutch (`nl`)]:**
   > Hallo! Ik ben een Backend Software Engineer met meer dan 3 jaar praktijkervaring in het bouwen van robuuste webbackends en API's met behulp van Python, Django en Django REST Framework (DRF). Mijn kernfocus ligt op het ontwerpen van schone database-architecturen met PostgreSQL, het afhandelen van asynchrone achtergrondverwerking en caching met Celery en Redis, en het grondig documenteren en testen van API's met behulp van Swagger (OpenAPI) en Postman.
   >
-  > Naast het schrijven van backendcode beheer ik de complete levenscyclus van serverimplementatie en infrastructuurbeheer. Ik containeriseer applicaties met Docker en Docker Compose, configureer Nginx als hoogwaardige reverse proxy en implementeer en onderhoud live productiesystemen op Ubuntu Linux-servers. Momenteel heb ik 4 live productieprojecten die betrouwbaar draaien in de echte wereld.
+  > Naast het schrijven van backendcode beheer ik de complete levenscyclus van serverimplementatie en infrastructuurbeheer. Ik containeriseer applicaties met Docker en Docker Compose, configureer Nginx als hoogwaardige reverse proxy en implementeer en onderhoud live productiesystemen op Ubuntu Linux-servers. Momenteel heb ik meerdere live productieprojecten die betrouwbaar draaien in de echte wereld.
   >
   > Hoewel mijn primaire expertise strikt ligt in backend engineering en serverinfrastructuur, ben ik een power-user van moderne AI-coding-agenten—met name Cursor en Antigravity. Door deze AI-agenten te sturen met strikte architecturale en beveiligingsrichtlijnen, bouw en integreer ik responsieve, beveiligde Next.js- en React.js-frontends voor mijn backendsystemen, waardoor ik complete, end-to-end applicaties zelfstandig kan leveren.
   >
@@ -159,7 +158,7 @@
 - **[Persian (`fa`)]:**
   > سلام! من یک مهندس نرم‌افزار بک‌اند با بیش از ۳ سال تجربه عملی در ساخت بک‌اندهای قدرتمند وب و API با استفاده از پایتون، جنگو و جنگو رست فریم‌ورک (DRF) هستم. تمرکز اصلی من طراحی معماری تمیز پایگاه داده با PostgreSQL، مدیریت پردازش‌های ناهمگام در پس‌زمینه و کشینگ با Celery و Redis، و مستندسازی و تست دقیق APIها با Swagger (OpenAPI) و Postman است.
   >
-  > فراتر از کدنویسی بک‌اند، من چرخه کامل استقرار سرور و مدیریت زیرساخت را بر عهده می‌گیرم. من اپلیکیشن‌ها را با داکر و Docker Compose کانتینری می‌کنم، Nginx را به عنوان ریورس پروکسی با کارایی بالا کانفیگ می‌نمایم و سیستم‌های زنده تولیدی را روی سرورهای ابونتو لینوکس مستقر و نگهداری می‌کنم. در حال حاضر، ۴ پروژه عملیاتی زنده دارم که با اطمینان کامل در دنیای واقعی در حال اجرا هستند.
+  > فراتر از کدنویسی بک‌اند، من چرخه کامل استقرار سرور و مدیریت زیرساخت را بر عهده می‌گیرم. من اپلیکیشن‌ها را با داکر و Docker Compose کانتینری می‌کنم، Nginx را به عنوان ریورس پروکسی با کارایی بالا کانفیگ می‌نمایم و سیستم‌های زنده تولیدی را روی سرورهای ابونتو لینوکس مستقر و نگهداری می‌کنم. در حال حاضر، چندین پروژه عملیاتی زنده دارم که با اطمینان کامل در دنیای واقعی در حال اجرا هستند.
   >
   > با وجود اینکه تخصص اصلی من کاملاً بر مهندسی بک‌اند و زیرساخت سرور متمرکز است، اما کاربر حرفه‌ای ایجنت‌های مدرن کدنویسی هوش مصنوعی—به‌ویژه Cursor و Antigravity—هستم. با هدایت این ایجنت‌ها تحت اصول سخت‌گیرانه معماری و امنیتی، فرانت‌اندهای واکنش‌گرا و امن Next.js و React.js را برای سیستم‌های بک‌اند خود توسعه داده و ادغام می‌کنم؛ که این موضوع به من امکان می‌دهد پروژه‌های کامل و End-to-End را به صورت مستقل تحویل دهم.
   >
@@ -247,7 +246,7 @@
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | Title (Part 1) | `projects_title_part1` | `Featured` | `Ausgewählte` | `Uitgelichte` | `پروژه‌های` |
 | Title (Part 2) | `projects_title_part2` | `Projects` | `Projekte` | `Projecten` | `برگزیده` |
-| Hero Description | `projects_desc` | `Explore my 4 live production projects, showcasing my core expertise in Python/Django backend engineering, PostgreSQL & Redis architecture, Docker/Nginx deployment on Ubuntu, and AI-assisted Next.js frontend integration.` | `Entdecken Sie meine 4 Live-Produktionsprojekte, die meine Kernkompetenz im Python/Django-Backend-Engineering, in der PostgreSQL- & Redis-Architektur, im Docker/Nginx-Deployment auf Ubuntu und in der KI-gestützten Next.js-Frontend-Integration veranschaulichen.` | `Ontdek mijn 4 live productieprojecten die mijn kernexpertise tonen in Python/Django backend engineering, PostgreSQL- & Redis-architectuur, Docker/Nginx-implementatie op Ubuntu en AI-ondersteunde Next.js frontend-integratie.` | `از ۴ پروژه زنده و در حال اجرای من دیدن کنید که نشان‌دهنده تخصص اصلی من در مهندسی بک‌اند با پایتون و جنگو، معماری PostgreSQL و Redis، استقرار داکر و Nginx روی سرور اوبونتو و ادغام فرانت‌اند Next.js با کمک هوش مصنوعی است.` |
+| Hero Description | `projects_desc` | `Explore my projects, showcasing my core expertise in Python/Django backend engineering, PostgreSQL & Redis architecture, Docker/Nginx deployment on Ubuntu, and AI-assisted Next.js frontend integration.` | `Entdecken Sie meine Projekte, die meine Kernkompetenz im Python/Django-Backend-Engineering, in der PostgreSQL- & Redis-Architektur, im Docker/Nginx-Deployment auf Ubuntu und in der KI-gestützten Next.js-Frontend-Integration veranschaulichen.` | `Ontdek mijn projecten die mijn kernexpertise tonen in Python/Django backend engineering, PostgreSQL- & Redis-architectuur, Docker/Nginx-implementatie op Ubuntu en AI-ondersteunde Next.js frontend-integratie.` | `از پروژه‌های من دیدن کنید که نشان‌دهنده تخصص اصلی من در مهندسی بک‌اند با پایتون و جنگو، معماری PostgreSQL و Redis، استقرار داکر و Nginx روی سرور اوبونتو و ادغام فرانت‌اند Next.js با کمک هوش مصنوعی است.` |
 | CTA Button: Order | `order_project` | `Order a Project` | `Projekt bestellen` | `Project bestellen` | `سفارش پروژه` |
 | Filter: All Projects | `filter_all` | `All Projects` | `Alle Projekte` | `Alle Projecten` | `همه پروژه‌ها` |
 | Filter: Frontend *(Static)*| `filter_frontend` | `Frontend` | `Frontend` | `Frontend` | `فرانت‌اند` |
@@ -594,13 +593,13 @@
   - **Persian (`fa`):** آیا پروژه‌های واقعی و زنده در محیط عملیاتی (Production) دارید؟
 - **Answer Key:** `faq_3_a`
   - **English (`en`):**
-    > Yes. Over my 3+ years of experience with Python and Django, I have built and deployed 4 live production web applications that are actively running on Ubuntu servers with Docker and Nginx.
+    > Yes. I have multiple live production projects actively running on Ubuntu servers with Docker and Nginx, and you can explore them at https://mahdymollayousefy.com/projects.
   - **German (`de`):**
-    > Ja. In meinen mehr als 3 Jahren Erfahrung mit Python und Django habe ich 4 Live-Produktions-Webanwendungen entwickelt und bereitgestellt, die aktiv auf Ubuntu-Servern mit Docker und Nginx laufen.
+    > Ja. Ich habe mehrere Live-Produktionsprojekte, die aktiv auf Ubuntu-Servern mit Docker und Nginx laufen, und Sie können diese unter https://mahdymollayousefy.com/projects einsehen.
   - **Dutch (`nl`):**
-    > Ja. In mijn meer dan 3 jaar ervaring met Python en Django heb ik 4 live productie-webapplicaties gebouwd en geïmplementeerd die actief draaien op Ubuntu-servers met Docker en Nginx.
+    > Ja. Ik heb meerdere live productieprojecten die actief draaien op Ubuntu-servers met Docker en Nginx, en u kunt deze bekijken op https://mahdymollayousefy.com/projects.
   - **Persian (`fa`):**
-    > بله. در طول ۳+ سال تجربه کار با پایتون و جنگو، من ۴ وب‌اپلیکیشن عملیاتی و زنده ساخته و مستقر کرده‌ام که هم‌اکنون به صورت پایدار روی سرورهای ابونتو با داکر و Nginx در حال اجرا هستند.
+    > بله. من چندین پروژه زنده در محیط عملیاتی دارم که به صورت فعال با داکر و Nginx روی سرورهای اوبونتو در حال اجرا هستند و می‌توانید آن‌ها را در آدرس https://mahdymollayousefy.com/projects مشاهده کنید.
 
 ### FAQ 4: Deployment & Hosting Management
 - **Question Key:** `faq_4_q`
@@ -764,13 +763,13 @@
 ### Legal Section 4: Payment Methods Body
 - **Source Key:** `payment_content`
 - **[English (`en`)]:**
-  > Please be advised that for all freelance, consulting, and project-based services, <strong>I exclusively accept payments in Cryptocurrencies</strong> (e.g., USDT, Bitcoin, Ethereum). Traditional fiat payment methods (such as bank transfers, PayPal, or credit cards) are not currently supported.
+  > For all freelance, consulting, and project-based services, I accept payments in both traditional fiat currencies (real money via bank transfers) and Cryptocurrencies (such as USDT, Bitcoin, and Ethereum).
 - **[German (`de`)]:**
-  > Bitte beachten Sie, dass ich für alle freiberuflichen, beratenden und projektbasierten Dienstleistungen <strong>Zahlungen ausschließlich in Kryptowährungen</strong> (z. B. USDT, Bitcoin, Ethereum) akzeptiere. Traditionelle Fiat-Zahlungsmethoden (wie Banküberweisungen oder Kreditkarten) werden derzeit nicht unterstützt.
+  > Für alle freiberuflichen, beratenden und projektbasierten Dienstleistungen akzeptiere ich Zahlungen sowohl in traditionellen Fiat-Währungen (Banküberweisungen) als auch in Kryptowährungen (wie USDT, Bitcoin und Ethereum).
 - **[Dutch (`nl`)]:**
-  > Houd er rekening mee dat ik voor alle freelance-, advies- en projectmatige diensten <strong>uitsluitend betalingen in Cryptocurrencies</strong> (bijv. USDT, Bitcoin, Ethereum) accepteer. Traditionele fiat-betaalmethoden (zoals bankoverschrijvingen of creditcards) worden momenteel niet ondersteund.
+  > Voor alle freelance-, advies- en projectmatige diensten accepteer ik betalingen in zowel traditionele fiat-valuta's (via bankoverschrijvingen) als Cryptocurrencies (zoals USDT, Bitcoin en Ethereum).
 - **[Persian (`fa`)]:**
-  > لطفاً توجه داشته باشید که برای تمامی خدمات پروژه‌ای، فریلنسری و مشاوره، <strong>پرداخت‌ها انحصاراً از طریق ارزهای دیجیتال (Cryptocurrencies)</strong> مانند تتر (USDT)، بیت‌کوین و اتریوم انجام می‌شود. در حال حاضر از روش‌های پرداخت سنتی (ارزهای فیات، حواله بانکی یا پی‌پال) پشتیبانی نمی‌شود.
+  > برای تمامی خدمات پروژه‌ای، فریلنسری و مشاوره، من پرداخت‌ها را هم از طریق ارزهای رایج و فیات (حواله و انتقال بانکی) و هم از طریق ارزهای دیجیتال (مانند تتر USDT، بیت‌کوین و اتریوم) می‌پذیرم.
 
 ---
 

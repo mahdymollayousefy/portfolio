@@ -2,7 +2,7 @@ export default {
   en: {
     projects_title_part1: "Featured",
     projects_title_part2: "Projects",
-    projects_desc: "Explore my 4 live production projects, showcasing my core expertise in Python/Django backend engineering, PostgreSQL & Redis architecture, Docker/Nginx deployment on Ubuntu, and AI-assisted Next.js frontend integration.",
+    projects_desc: "Explore my projects, showcasing my core expertise in Python/Django backend engineering, PostgreSQL & Redis architecture, Docker/Nginx deployment on Ubuntu, and AI-assisted Next.js frontend integration.",
     no_projects: "No projects found",
     no_projects_desc: "Projects will appear here once they are added to the backend.",
     code: "Code",
@@ -23,7 +23,7 @@ export default {
   de: {
     projects_title_part1: "Ausgewählte",
     projects_title_part2: "Projekte",
-    projects_desc: "Entdecken Sie meine 4 Live-Produktionsprojekte, die meine Kernkompetenz im Python/Django-Backend-Engineering, in der PostgreSQL- & Redis-Architektur, im Docker/Nginx-Deployment auf Ubuntu und in der KI-gestützten Next.js-Frontend-Integration veranschaulichen.",
+    projects_desc: "Entdecken Sie meine Projekte, die meine Kernkompetenz im Python/Django-Backend-Engineering, in der PostgreSQL- & Redis-Architektur, im Docker/Nginx-Deployment auf Ubuntu und in der KI-gestützten Next.js-Frontend-Integration veranschaulichen.",
     no_projects: "Keine Projekte gefunden",
     no_projects_desc: "Projekte werden hier angezeigt, sobald sie im Backend hinzugefügt wurden.",
     code: "Code",
@@ -44,7 +44,7 @@ export default {
   nl: {
     projects_title_part1: "Uitgelichte",
     projects_title_part2: "Projecten",
-    projects_desc: "Ontdek mijn 4 live productieprojecten die mijn kernexpertise tonen in Python/Django backend engineering, PostgreSQL- & Redis-architectuur, Docker/Nginx-implementatie op Ubuntu en AI-ondersteunde Next.js frontend-integratie.",
+    projects_desc: "Ontdek mijn projecten die mijn kernexpertise tonen in Python/Django backend engineering, PostgreSQL- & Redis-architectuur, Docker/Nginx-implementatie op Ubuntu en AI-ondersteunde Next.js frontend-integratie.",
     no_projects: "Geen projecten gevonden",
     no_projects_desc: "Projecten verschijnen hier zodra ze aan de backend zijn toegevoegd.",
     code: "Code",
@@ -65,7 +65,7 @@ export default {
   fa: {
     projects_title_part1: "پروژه‌های",
     projects_title_part2: "برگزیده",
-    projects_desc: "از ۴ پروژه زنده و در حال اجرای من دیدن کنید که نشان‌دهنده تخصص اصلی من در مهندسی بک‌اند با پایتون و جنگو، معماری PostgreSQL و Redis، استقرار داکر و Nginx روی سرور اوبونتو و ادغام فرانت‌اند Next.js با کمک هوش مصنوعی است.",
+    projects_desc: "از پروژه‌های من دیدن کنید که نشان‌دهنده تخصص اصلی من در مهندسی بک‌اند با پایتون و جنگو، معماری PostgreSQL و Redis، استقرار داکر و Nginx روی سرور اوبونتو و ادغام فرانت‌اند Next.js با کمک هوش مصنوعی است.",
     no_projects: "پروژه‌ای یافت نشد",
     no_projects_desc: "پروژه‌ها پس از افزودن در بک‌اند در اینجا نمایش داده خواهند شد.",
     code: "کد",

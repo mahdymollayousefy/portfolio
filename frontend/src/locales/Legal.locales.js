@@ -8,7 +8,7 @@ export default {
     rules_title: "Rules & Agreements (Terms of Service)",
     rules_content: "By accessing and using this portfolio, you agree to these basic terms. You agree not to misuse the provided contact forms for spam, phishing, or any malicious purposes. Furthermore, any attempt to bypass security measures or gain unauthorized access to the backend systems, APIs, or infrastructure of this website is strictly prohibited.",
     payment_title: "Payment Methods",
-    payment_content: "Please be advised that for all freelance, consulting, and project-based services, <strong>I exclusively accept payments in Cryptocurrencies</strong> (e.g., USDT, Bitcoin, Ethereum). Traditional fiat payment methods (such as bank transfers, PayPal, or credit cards) are not currently supported."
+    payment_content: "For all freelance, consulting, and project-based services, I accept payments in both traditional fiat currencies (real money via bank transfers) and Cryptocurrencies (such as USDT, Bitcoin, and Ethereum)."
   },
   de: {
     legal_title: "Rechtliche Informationen",
@@ -19,7 +19,7 @@ export default {
     rules_title: "Nutzungsbedingungen (Rules & Agreements)",
     rules_content: "Durch den Zugriff auf diese Website und deren Nutzung stimmen Sie diesen grundlegenden Bedingungen zu. Sie verpflichten sich, die bereitgestellten Kontaktformulare nicht für Spam, Phishing oder andere böswillige Zwecke zu missbrauchen. Jeder Versuch, Sicherheitsmaßnahmen zu umgehen oder unbefugten Zugriff auf die Backend-Systeme, APIs oder die Infrastruktur dieser Website zu erlangen, ist strengstens untersagt.",
     payment_title: "Zahlungsmethoden (Payment Methods)",
-    payment_content: "Bitte beachten Sie, dass ich für alle freiberuflichen, beratenden und projektbasierten Dienstleistungen <strong>Zahlungen ausschließlich in Kryptowährungen</strong> (z. B. USDT, Bitcoin, Ethereum) akzeptiere. Traditionelle Fiat-Zahlungsmethoden (wie Banküberweisungen oder Kreditkarten) werden derzeit nicht unterstützt."
+    payment_content: "Für alle freiberuflichen, beratenden und projektbasierten Dienstleistungen akzeptiere ich Zahlungen sowohl in traditionellen Fiat-Währungen (Banküberweisungen) als auch in Kryptowährungen (wie USDT, Bitcoin und Ethereum)."
   },
   nl: {
     legal_title: "Juridische Informatie",
@@ -30,7 +30,7 @@ export default {
     rules_title: "Regels & Overeenkomsten (Rules & Agreements)",
     rules_content: "Door deze website te bezoeken en te gebruiken, gaat u akkoord met deze basisvoorwaarden. U stemt ermee in de contactformulieren niet te misbruiken voor spam, phishing of andere kwaadaardige doeleinden. Bovendien is elke poging om beveiligingsmaatregelen te omzeilen of ongeautoriseerde toegang te krijgen tot de backend-systemen, API's of infrastructuur van deze website ten strengste verboden.",
     payment_title: "Betaalmethoden (Payment Methods)",
-    payment_content: "Houd er rekening mee dat ik voor alle freelance-, advies- en projectmatige diensten <strong>uitsluitend betalingen in Cryptocurrencies</strong> (bijv. USDT, Bitcoin, Ethereum) accepteer. Traditionele fiat-betaalmethoden (zoals bankoverschrijvingen of creditcards) worden momenteel niet ondersteund."
+    payment_content: "Voor alle freelance-, advies- en projectmatige diensten accepteer ik betalingen in zowel traditionele fiat-valuta's (via bankoverschrijvingen) als Cryptocurrencies (zoals USDT, Bitcoin en Ethereum)."
   },
   fa: {
     legal_title: "اطلاعات حقوقی (Legal Information)",
@@ -41,6 +41,6 @@ export default {
     rules_title: "قوانین و توافق‌نامه‌ها (Rules & Agreements)",
     rules_content: "با دسترسی و استفاده از این وب‌سایت، شما با این شرایط پایه موافقت می‌کنید. شما متعهد می‌شوید که از فرم‌های تماس برای ارسال اسپم، فیشینگ یا هرگونه مقاصد مخرب استفاده نکنید. علاوه بر این، هرگونه تلاش برای دور زدن لایه‌های امنیتی یا دسترسی غیرمجاز به سیستم‌های بک‌اند، APIها و زیرساخت این سایت اکیداً ممنوع است.",
     payment_title: "روش‌های پرداخت (Payment Methods)",
-    payment_content: "لطفاً توجه داشته باشید که برای تمامی خدمات پروژه‌ای، فریلنسری و مشاوره، <strong>پرداخت‌ها انحصاراً از طریق ارزهای دیجیتال (Cryptocurrencies)</strong> مانند تتر (USDT)، بیت‌کوین و اتریوم انجام می‌شود. در حال حاضر از روش‌های پرداخت سنتی (ارزهای فیات، حواله بانکی یا پی‌پال) پشتیبانی نمی‌شود."
+    payment_content: "برای تمامی خدمات پروژه‌ای، فریلنسری و مشاوره، من پرداخت‌ها را هم از طریق ارزهای رایج و فیات (حواله و انتقال بانکی) و هم از طریق ارزهای دیجیتال (مانند تتر USDT، بیت‌کوین و اتریوم) می‌پذیرم."
   }
 };

@@ -15,14 +15,7 @@ export default function Home() {
  
  {/* Left: Text Content */}
  <div className="flex-1 space-y-4 md:space-y-8 text-center lg:text-start z-10">
- <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 font-semibold text-sm mb-4 animate-slide-up hover:scale-105 active:scale-105 transition-transform duration-300 shadow-sm hover:shadow-md">
- <span className="relative flex h-2 w-2">
- <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
- <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
- </span>
- {t('available')}
- </div>
- 
+
  <h1 className="text-2xl md:text-4xl lg:text-7xl font-black tracking-tight text-slate-900 dark:text-white leading-[1.1] animate-slide-up" style={{ animationDelay: '100ms' }}>
  {t('home_title_part1')} <br className="hidden md:block"/>
  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
