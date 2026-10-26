@@ -2,7 +2,7 @@
 import logging
 
 from rest_framework import viewsets, mixins, status
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, throttle_classes
 from rest_framework.response import Response
 from drf_spectacular.utils import extend_schema
 from django.utils.decorators import method_decorator
@@ -63,6 +63,7 @@ class HireMeRequestViewSet(mixins.CreateModelMixin, viewsets.GenericViewSet):
 
 @extend_schema(responses={200: dict})
 @api_view(['GET'])
+@throttle_classes([])
 def server_status(request):
     return Response({
         "status": "online",
