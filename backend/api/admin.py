@@ -85,7 +85,15 @@ class ProjectCategoryAdmin(admin.ModelAdmin):
 
 class ProjectImageInline(admin.TabularInline):
     model = ProjectImage
-    extra = 1
+    extra = 5
+    fields = ('image', 'preview')
+    readonly_fields = ('preview',)
+
+    def preview(self, obj):
+        if obj.image:
+            return format_html('<img src="{}" style="max-height: 80px; max-width: 120px; border-radius: 4px; object-fit: cover;" />', obj.image.url)
+        return '-'
+    preview.short_description = 'Preview' 
 
 
 @admin.register(Project)

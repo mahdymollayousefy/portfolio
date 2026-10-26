@@ -23,9 +23,9 @@ RUN apt-get update && apt-get purge -y --auto-remove gcc python3-dev && rm -rf /
 # Copy the rest of the application
 COPY . .
 
-# Set up non-root user for security
+# Set up non-root user for security and ensure media/static directories exist with proper ownership
 RUN useradd -m django_user
-RUN chown -R django_user:django_user /app
+RUN mkdir -p /app/media/project_images /app/staticfiles /app/static &&     chown -R django_user:django_user /app
 USER django_user
 
 # Run the Django development server

@@ -232,6 +232,14 @@ CKEDITOR_5_UPLOAD_FILE_VIEW_NAME = "ck_editor_5_upload_file"
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+# File & Upload Limits (Support up to 100MB uploads for multiple high-res project images)
+DATA_UPLOAD_MAX_MEMORY_SIZE = 104857600  # 100 MB
+FILE_UPLOAD_MAX_MEMORY_SIZE = 20971520   # 20 MB (memory buffer before temporary file on disk)
+DATA_UPLOAD_MAX_NUMBER_FIELDS = 2000
+DATA_UPLOAD_MAX_NUMBER_FILES = 100
+FILE_UPLOAD_PERMISSIONS = 0o644
+FILE_UPLOAD_DIRECTORY_PERMISSIONS = 0o755
+
 # Caching Configuration
 CACHES = {
     "default": {

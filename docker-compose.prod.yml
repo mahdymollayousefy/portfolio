@@ -57,6 +57,7 @@ services:
       - media_data:/app/media
     command: >
       sh -c "
+        mkdir -p /app/media/project_images &&
         python manage.py collectstatic --noinput &&
         python manage.py migrate --noinput &&
         python manage.py createsuperuser --noinput || true &&

@@ -11,3 +11,4 @@ django-ckeditor-5==0.2.14
 django-modeltranslation==0.20.3
 gunicorn==22.0.0
 whitenoise==6.8.2
+Pillow>=10.0.0
