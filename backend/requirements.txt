@@ -9,6 +9,5 @@ redis==5.0.4
 requests==2.33.0
 django-ckeditor-5==0.2.14
 django-modeltranslation==0.20.3
-django-unfold==0.40.0
 gunicorn==22.0.0
 whitenoise==6.8.2

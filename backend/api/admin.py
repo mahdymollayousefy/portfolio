@@ -2,9 +2,13 @@ import json
 from django import forms
 from django.contrib import admin
 from django.utils.html import format_html
-from unfold.admin import ModelAdmin, TabularInline
 from modeltranslation.admin import TranslationAdmin
-from .models import ProjectCategory, Project, ProjectImage, HireMeRequest, TECH_ICONS
+from .models import ProjectCategory, Project, ProjectImage, HireMeRequest
+
+# Configure default Django Admin branding
+admin.site.site_header = "Portfolio Admin"
+admin.site.site_title = "Portfolio Admin"
+admin.site.index_title = "Welcome to Portfolio Control Panel"
 
 
 class TechStackWidget(forms.Textarea):
@@ -66,7 +70,7 @@ class ProjectForm(forms.ModelForm):
 
 
 @admin.register(ProjectCategory)
-class ProjectCategoryAdmin(ModelAdmin):
+class ProjectCategoryAdmin(admin.ModelAdmin):
     list_display = ('name', 'icon', 'display_icon')
     list_per_page = 25
     
@@ -79,12 +83,13 @@ class ProjectCategoryAdmin(ModelAdmin):
     display_icon.short_description = 'Preview'
 
 
-class ProjectImageInline(TabularInline):
+class ProjectImageInline(admin.TabularInline):
     model = ProjectImage
     extra = 1
 
+
 @admin.register(Project)
-class ProjectAdmin(ModelAdmin, TranslationAdmin):
+class ProjectAdmin(TranslationAdmin):
     form = ProjectForm
     list_display = ('title', 'category', 'display_tech_stacks', 'created_at', 'github_link', 'estimated_price')
     list_filter = ('category',)
@@ -100,8 +105,9 @@ class ProjectAdmin(ModelAdmin, TranslationAdmin):
         return '-'
     display_tech_stacks.short_description = 'Tech Stacks'
 
+
 @admin.register(HireMeRequest)
-class HireMeRequestAdmin(ModelAdmin):
+class HireMeRequestAdmin(admin.ModelAdmin):
     list_display = ('name', 'email', 'phone', 'budget', 'status', 'created_at')
     list_filter = ('status', 'created_at')
     search_fields = ('name', 'email', 'phone', 'project_description')
@@ -109,6 +115,4 @@ class HireMeRequestAdmin(ModelAdmin):
     readonly_fields = ('created_at',)
     date_hierarchy = 'created_at'
     list_per_page = 25
-    
-    # Allows you to quickly change status from the list view
     list_editable = ('status',)
